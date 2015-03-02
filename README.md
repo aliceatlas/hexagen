@@ -61,6 +61,7 @@ Ideas/Todo
 * Library components
     * Select
     * Timeouts
+    * Read-only and write-only views of channels (and promises?)
     * Elegant task-aware I/O API
     * Bridges to and from Hexagen features for existing widely-used Swift/Objective-C concurrency libraries/frameworks/approaches
 * Project quality
