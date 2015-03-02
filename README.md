@@ -24,7 +24,11 @@ Features
 
 * Interruptible Grand Central Dispatch task API allowing you to write asynchronous code in straightforward blocking style. When a task is waiting on some event (a timer firing, I/O availability or completion, etc.), instead of blocking the thread, it will suspend itself so its dispatch queue can continue processing tasks. When the event arrives, a block to resume the task is added to its dispatch queue.
 
-* Channels API for use with said tasks, largely inspired by Go's channels and Goroutines.
+    * Included abstractions that know how to seamlessly suspend and resume tasks as needed:
+
+        * Channel: for a style of communication between tasks largely inspired by Go's channels and Goroutines)
+        * Promise: allows any number of tasks to await a potentially pending result and awakens all of them when one becomes available
+        * Timer: actually just a Promise<Void> that is marked as fulfilled at a specified time
 
 * 97% elegant! Very minimal abomination content, you should almost never have to encounter it.
 
@@ -55,8 +59,8 @@ Ideas/Todo
 ----------
 
 * Library components
-    * *(In progress.)* Promises
     * Select
+    * Timeouts
     * Elegant task-aware I/O API
     * Bridges to and from Hexagen features for existing widely-used Swift/Objective-C concurrency libraries/frameworks/approaches
 * Project quality

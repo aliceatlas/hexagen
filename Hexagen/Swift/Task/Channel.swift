@@ -39,7 +39,7 @@ public class Channel<T> {
             }
         }
         if wait {
-            Task.channelSendWait()
+            Task.suspend()
         }
     }
     
@@ -52,17 +52,29 @@ public class Channel<T> {
                 ret = self.buffer.pull(queue: false)!
                 if self.bufferSpace <= 0 {
                     let sender = self.waitingSenders.pull(queue: false)!
-                    sender.scheduleAwakeAfterChannelSendWait()
+                    sender.schedule()
                 }
             } else {
                 let task = Task.currentTask!
-                self.waitingReceivers.push({ ret = $0; task.scheduleAwakeAfterChannelReceiveWait() }, queue: false)
+                self.waitingReceivers.push({ ret = $0; task.schedule() }, queue: false)
                 wait = true
             }
         }
         if wait {
-            Task.channelReceiveWait()
+            Task.suspend()
         }
         return ret!
+    }
+}
+
+extension Channel: Awaitable {
+    public func await() -> T {
+        return receive()
+    }
+}
+
+extension Channel: SendAwaitable {
+    public func awaitSend(val: T) {
+        send(val)
     }
 }

@@ -22,6 +22,9 @@
 		86D91E171AA3CACB00E86F79 /* Wrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 86D91E141AA3CAC300E86F79 /* Wrapper.h */; };
 		86D91E181AA3CACB00E86F79 /* Wrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E151AA3CAC300E86F79 /* Wrapper.mm */; };
 		86D91E1A1AA3CAF500E86F79 /* Hexagen.h in Headers */ = {isa = PBXBuildFile; fileRef = 86D91E191AA3CAF500E86F79 /* Hexagen.h */; };
+		86D91E1D1AA4047800E86F79 /* Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E1B1AA4047800E86F79 /* Promise.swift */; };
+		86D91E441AA46F7E00E86F79 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E431AA46F7E00E86F79 /* Timer.swift */; };
+		86D91E461AA480BB00E86F79 /* Awaitable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E451AA480BB00E86F79 /* Awaitable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +70,9 @@
 		86D91E141AA3CAC300E86F79 /* Wrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Wrapper.h; sourceTree = "<group>"; };
 		86D91E151AA3CAC300E86F79 /* Wrapper.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Wrapper.mm; sourceTree = "<group>"; };
 		86D91E191AA3CAF500E86F79 /* Hexagen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hexagen.h; sourceTree = "<group>"; };
+		86D91E1B1AA4047800E86F79 /* Promise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Promise.swift; sourceTree = "<group>"; };
+		86D91E431AA46F7E00E86F79 /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
+		86D91E451AA480BB00E86F79 /* Awaitable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Awaitable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +205,9 @@
 			children = (
 				860F6E261AA1B71C00335793 /* Task.swift */,
 				86D91E0A1AA365D100E86F79 /* Channel.swift */,
+				86D91E1B1AA4047800E86F79 /* Promise.swift */,
+				86D91E451AA480BB00E86F79 /* Awaitable.swift */,
+				86D91E431AA46F7E00E86F79 /* Timer.swift */,
 			);
 			path = Task;
 			sourceTree = "<group>";
@@ -350,12 +359,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				86D91E0B1AA365D100E86F79 /* Channel.swift in Sources */,
+				86D91E461AA480BB00E86F79 /* Awaitable.swift in Sources */,
 				860F6E2A1AA2085900335793 /* Queue.swift in Sources */,
+				86D91E441AA46F7E00E86F79 /* Timer.swift in Sources */,
 				860F6E271AA1B71C00335793 /* Task.swift in Sources */,
 				860F6DBA1AA12DD400335793 /* Generator.swift in Sources */,
 				860F6DF61AA17C5100335793 /* Coroutine.swift in Sources */,
 				86D91E0D1AA3663D00E86F79 /* Utils.swift in Sources */,
 				86D91E181AA3CACB00E86F79 /* Wrapper.mm in Sources */,
+				86D91E1D1AA4047800E86F79 /* Promise.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
