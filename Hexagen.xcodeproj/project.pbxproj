@@ -1,0 +1,622 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		860F6DBA1AA12DD400335793 /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D0E8FC1A975A92005E77BA /* Generator.swift */; };
+		860F6DC21AA136E200335793 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860F6DC11AA136E200335793 /* main.swift */; };
+		860F6DF31AA1589C00335793 /* Hexagen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86D0E8E01A97540D005E77BA /* Hexagen.framework */; };
+		860F6DF61AA17C5100335793 /* Coroutine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860F6DF51AA17C5100335793 /* Coroutine.swift */; };
+		860F6E271AA1B71C00335793 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860F6E261AA1B71C00335793 /* Task.swift */; };
+		860F6E2A1AA2085900335793 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860F6E291AA2085900335793 /* Queue.swift */; };
+		86D0E8EC1A975412005E77BA /* Hexagen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86D0E8E01A97540D005E77BA /* Hexagen.framework */; };
+		86D0E8F31A975414005E77BA /* HexagenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D0E8F21A975414005E77BA /* HexagenTests.swift */; };
+		86D91E051AA34EB100E86F79 /* libboost_coroutine-mt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 86189CD31AA1167700087913 /* libboost_coroutine-mt.a */; };
+		86D91E061AA34EB100E86F79 /* libboost_system-mt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 86189CD51AA116B400087913 /* libboost_system-mt.a */; };
+		86D91E0B1AA365D100E86F79 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E0A1AA365D100E86F79 /* Channel.swift */; };
+		86D91E0D1AA3663D00E86F79 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E0C1AA3663D00E86F79 /* Utils.swift */; };
+		86D91E171AA3CACB00E86F79 /* Wrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 86D91E141AA3CAC300E86F79 /* Wrapper.h */; };
+		86D91E181AA3CACB00E86F79 /* Wrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E151AA3CAC300E86F79 /* Wrapper.mm */; };
+		86D91E1A1AA3CAF500E86F79 /* Hexagen.h in Headers */ = {isa = PBXBuildFile; fileRef = 86D91E191AA3CAF500E86F79 /* Hexagen.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		86D0E8ED1A975412005E77BA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 86D0E8D71A975406005E77BA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 86D0E8DF1A97540A005E77BA;
+			remoteInfo = gener;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		860F6DBD1AA136E200335793 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		860F6DBF1AA136E200335793 /* HexagenExamples */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HexagenExamples; sourceTree = BUILT_PRODUCTS_DIR; };
+		860F6DC11AA136E200335793 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		860F6DF41AA1701200335793 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		860F6DF51AA17C5100335793 /* Coroutine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coroutine.swift; sourceTree = "<group>"; };
+		860F6E261AA1B71C00335793 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		860F6E291AA2085900335793 /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		86189CD31AA1167700087913 /* libboost_coroutine-mt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libboost_coroutine-mt.a"; path = "/opt/local/lib/libboost_coroutine-mt.a"; sourceTree = "<absolute>"; };
+		86189CD51AA116B400087913 /* libboost_system-mt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libboost_system-mt.a"; path = "/opt/local/lib/libboost_system-mt.a"; sourceTree = "<absolute>"; };
+		86D0E8E01A97540D005E77BA /* Hexagen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Hexagen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		86D0E8E41A97540E005E77BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		86D0E8EB1A975412005E77BA /* HexagenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HexagenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		86D0E8F11A975413005E77BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		86D0E8F21A975414005E77BA /* HexagenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagenTests.swift; sourceTree = "<group>"; };
+		86D0E8FC1A975A92005E77BA /* Generator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Generator.swift; sourceTree = "<group>"; };
+		86D91E0A1AA365D100E86F79 /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		86D91E0C1AA3663D00E86F79 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		86D91E111AA3B7FA00E86F79 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
+		86D91E141AA3CAC300E86F79 /* Wrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Wrapper.h; sourceTree = "<group>"; };
+		86D91E151AA3CAC300E86F79 /* Wrapper.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Wrapper.mm; sourceTree = "<group>"; };
+		86D91E191AA3CAF500E86F79 /* Hexagen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hexagen.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		860F6DBC1AA136E200335793 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				860F6DF31AA1589C00335793 /* Hexagen.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		86D0E8DC1A97540A005E77BA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86D91E051AA34EB100E86F79 /* libboost_coroutine-mt.a in Frameworks */,
+				86D91E061AA34EB100E86F79 /* libboost_system-mt.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		86D0E8E81A975412005E77BA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86D0E8EC1A975412005E77BA /* Hexagen.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		860F6DC01AA136E200335793 /* HexagenExamples */ = {
+			isa = PBXGroup;
+			children = (
+				860F6DC11AA136E200335793 /* main.swift */,
+			);
+			path = HexagenExamples;
+			sourceTree = "<group>";
+		};
+		860F6DC71AA1383D00335793 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				86189CD31AA1167700087913 /* libboost_coroutine-mt.a */,
+				86189CD51AA116B400087913 /* libboost_system-mt.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		860F6E251AA1B35D00335793 /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				86D0E8FC1A975A92005E77BA /* Generator.swift */,
+				860F6DF51AA17C5100335793 /* Coroutine.swift */,
+				86D91E071AA3651200E86F79 /* Task */,
+				860F6E281AA2079D00335793 /* Internal */,
+			);
+			path = Swift;
+			sourceTree = "<group>";
+		};
+		860F6E281AA2079D00335793 /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				860F6E291AA2085900335793 /* Queue.swift */,
+				86D91E0C1AA3663D00E86F79 /* Utils.swift */,
+			);
+			path = Internal;
+			sourceTree = "<group>";
+		};
+		86D0E8D61A975405005E77BA = {
+			isa = PBXGroup;
+			children = (
+				860F6DF41AA1701200335793 /* README.md */,
+				86D91E111AA3B7FA00E86F79 /* LICENSE.md */,
+				86D0E8E21A97540D005E77BA /* Hexagen */,
+				86D0E8EF1A975412005E77BA /* HexagenTests */,
+				860F6DC01AA136E200335793 /* HexagenExamples */,
+				860F6DC71AA1383D00335793 /* Frameworks */,
+				86D0E8E11A97540D005E77BA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		86D0E8E11A97540D005E77BA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				86D0E8E01A97540D005E77BA /* Hexagen.framework */,
+				86D0E8EB1A975412005E77BA /* HexagenTests.xctest */,
+				860F6DBF1AA136E200335793 /* HexagenExamples */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		86D0E8E21A97540D005E77BA /* Hexagen */ = {
+			isa = PBXGroup;
+			children = (
+				86D91E191AA3CAF500E86F79 /* Hexagen.h */,
+				86D91E121AA3CAC300E86F79 /* Wrapper */,
+				860F6E251AA1B35D00335793 /* Swift */,
+				86D0E8E31A97540E005E77BA /* Supporting Files */,
+			);
+			path = Hexagen;
+			sourceTree = "<group>";
+		};
+		86D0E8E31A97540E005E77BA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				86D0E8E41A97540E005E77BA /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		86D0E8EF1A975412005E77BA /* HexagenTests */ = {
+			isa = PBXGroup;
+			children = (
+				86D0E8F21A975414005E77BA /* HexagenTests.swift */,
+				86D0E8F01A975413005E77BA /* Supporting Files */,
+			);
+			path = HexagenTests;
+			sourceTree = "<group>";
+		};
+		86D0E8F01A975413005E77BA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				86D0E8F11A975413005E77BA /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		86D91E071AA3651200E86F79 /* Task */ = {
+			isa = PBXGroup;
+			children = (
+				860F6E261AA1B71C00335793 /* Task.swift */,
+				86D91E0A1AA365D100E86F79 /* Channel.swift */,
+			);
+			path = Task;
+			sourceTree = "<group>";
+		};
+		86D91E121AA3CAC300E86F79 /* Wrapper */ = {
+			isa = PBXGroup;
+			children = (
+				86D91E141AA3CAC300E86F79 /* Wrapper.h */,
+				86D91E151AA3CAC300E86F79 /* Wrapper.mm */,
+			);
+			path = Wrapper;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		86D0E8DD1A97540A005E77BA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86D91E1A1AA3CAF500E86F79 /* Hexagen.h in Headers */,
+				86D91E171AA3CACB00E86F79 /* Wrapper.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		860F6DBE1AA136E200335793 /* HexagenExamples */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 860F6DC31AA136E200335793 /* Build configuration list for PBXNativeTarget "HexagenExamples" */;
+			buildPhases = (
+				860F6DBB1AA136E200335793 /* Sources */,
+				860F6DBC1AA136E200335793 /* Frameworks */,
+				860F6DBD1AA136E200335793 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HexagenExamples;
+			productName = generExample;
+			productReference = 860F6DBF1AA136E200335793 /* HexagenExamples */;
+			productType = "com.apple.product-type.tool";
+		};
+		86D0E8DF1A97540A005E77BA /* Hexagen */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 86D0E8F61A975414005E77BA /* Build configuration list for PBXNativeTarget "Hexagen" */;
+			buildPhases = (
+				86D0E8DB1A97540A005E77BA /* Sources */,
+				86D0E8DC1A97540A005E77BA /* Frameworks */,
+				86D0E8DD1A97540A005E77BA /* Headers */,
+				86D0E8DE1A97540A005E77BA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Hexagen;
+			productName = gener;
+			productReference = 86D0E8E01A97540D005E77BA /* Hexagen.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		86D0E8EA1A975412005E77BA /* HexagenTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 86D0E8F91A975414005E77BA /* Build configuration list for PBXNativeTarget "HexagenTests" */;
+			buildPhases = (
+				86D0E8E71A975412005E77BA /* Sources */,
+				86D0E8E81A975412005E77BA /* Frameworks */,
+				86D0E8E91A975412005E77BA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				86D0E8EE1A975412005E77BA /* PBXTargetDependency */,
+			);
+			name = HexagenTests;
+			productName = generTests;
+			productReference = 86D0E8EB1A975412005E77BA /* HexagenTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		86D0E8D71A975406005E77BA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Alice Atlas";
+				TargetAttributes = {
+					860F6DBE1AA136E200335793 = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					86D0E8DF1A97540A005E77BA = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					86D0E8EA1A975412005E77BA = {
+						CreatedOnToolsVersion = 6.3;
+					};
+				};
+			};
+			buildConfigurationList = 86D0E8DA1A975408005E77BA /* Build configuration list for PBXProject "Hexagen" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 86D0E8D61A975405005E77BA;
+			productRefGroup = 86D0E8E11A97540D005E77BA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				86D0E8DF1A97540A005E77BA /* Hexagen */,
+				86D0E8EA1A975412005E77BA /* HexagenTests */,
+				860F6DBE1AA136E200335793 /* HexagenExamples */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		86D0E8DE1A97540A005E77BA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		86D0E8E91A975412005E77BA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		860F6DBB1AA136E200335793 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				860F6DC21AA136E200335793 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		86D0E8DB1A97540A005E77BA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86D91E0B1AA365D100E86F79 /* Channel.swift in Sources */,
+				860F6E2A1AA2085900335793 /* Queue.swift in Sources */,
+				860F6E271AA1B71C00335793 /* Task.swift in Sources */,
+				860F6DBA1AA12DD400335793 /* Generator.swift in Sources */,
+				860F6DF61AA17C5100335793 /* Coroutine.swift in Sources */,
+				86D91E0D1AA3663D00E86F79 /* Utils.swift in Sources */,
+				86D91E181AA3CACB00E86F79 /* Wrapper.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		86D0E8E71A975412005E77BA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86D0E8F31A975414005E77BA /* HexagenTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		86D0E8EE1A975412005E77BA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 86D0E8DF1A97540A005E77BA /* Hexagen */;
+			targetProxy = 86D0E8ED1A975412005E77BA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		860F6DC41AA136E200335793 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				PRODUCT_NAME = HexagenExamples;
+			};
+			name = Debug;
+		};
+		860F6DC51AA136E200335793 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				PRODUCT_NAME = HexagenExamples;
+			};
+			name = Release;
+		};
+		86D0E8F41A975414005E77BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		86D0E8F51A975414005E77BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		86D0E8F71A975414005E77BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_VERSION = A;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Applications/Xcode-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
+					/opt/local/include,
+				);
+				INFOPLIST_FILE = Hexagen/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/local/lib,
+					/Users/aselbaf/Compile/boost/stage/lib,
+				);
+				PRODUCT_NAME = Hexagen;
+				SKIP_INSTALL = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		86D0E8F81A975414005E77BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_VERSION = A;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Applications/Xcode-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
+					/opt/local/include,
+				);
+				INFOPLIST_FILE = Hexagen/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/local/lib,
+					/Users/aselbaf/Compile/boost/stage/lib,
+				);
+				PRODUCT_NAME = Hexagen;
+				SKIP_INSTALL = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+			};
+			name = Release;
+		};
+		86D0E8FA1A975414005E77BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = HexagenTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = HexagenTests;
+			};
+			name = Debug;
+		};
+		86D0E8FB1A975414005E77BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = HexagenTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = HexagenTests;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		860F6DC31AA136E200335793 /* Build configuration list for PBXNativeTarget "HexagenExamples" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				860F6DC41AA136E200335793 /* Debug */,
+				860F6DC51AA136E200335793 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		86D0E8DA1A975408005E77BA /* Build configuration list for PBXProject "Hexagen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				86D0E8F41A975414005E77BA /* Debug */,
+				86D0E8F51A975414005E77BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		86D0E8F61A975414005E77BA /* Build configuration list for PBXNativeTarget "Hexagen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				86D0E8F71A975414005E77BA /* Debug */,
+				86D0E8F81A975414005E77BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		86D0E8F91A975414005E77BA /* Build configuration list for PBXNativeTarget "HexagenTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				86D0E8FA1A975414005E77BA /* Debug */,
+				86D0E8FB1A975414005E77BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 86D0E8D71A975406005E77BA /* Project object */;
+}
