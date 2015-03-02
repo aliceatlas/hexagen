@@ -34,6 +34,8 @@ Warnings
 
 * Hexagen is in early development and pretty experimental to begin with, don't count on the API not changing drastically.
 
+* Hexagen is written for Swift 1.2, introduced as of Xcode 6.3 (currently in beta). I haven't tried it in earlier versions, but it probably wouldn't work and it would probably be straightforward to make it work.
+
 * Your coroutines should always exit by returning — you can leave them hanging but you will leak memory. With Swift's lack of exceptions and use of ARC instead of garbage collection, I don't currently see a way to unilaterally tell a coroutine to terminate but still clean up after itself.
 
 * This approach has turned out to be very surprisingly low on complications so far, but the whole thing is still a sketchy self-indulgent hack that violates some basic assumptions that almost all existing Objective-C and Swift code can expect to safely make. It's hard to say what potential interactions I might be overlooking, particularly given that the Swift toolchain is still closed-source. *At least* for now, I strongly discourage using this anywhere near production code unless you are very, very silly and reasonably confident that you are already going to hell.
