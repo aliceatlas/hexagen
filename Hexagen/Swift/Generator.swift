@@ -6,10 +6,7 @@
   \*****////
 
 
-public class SimpleGenerator <OutType> : SequenceType, GeneratorType {
-    typealias Generator = SimpleGenerator<OutType>
-    typealias Element = OutType
-    
+public class SimpleGenerator<OutType>: SequenceType, GeneratorType {
     private var coroutine: AsymmetricCoroutine<Void, OutType>
     
     public class func make <ArgsType> (fn: ArgsType -> (OutType -> Void) -> Void) (_ args: ArgsType) -> Self {
@@ -20,11 +17,11 @@ public class SimpleGenerator <OutType> : SequenceType, GeneratorType {
         coroutine = AsymmetricCoroutine(fn)
     }
     
-    public func generate() -> Generator {
+    public func generate() -> SimpleGenerator {
         return self
     }
     
-    public func next() -> Element? {
+    public func next() -> OutType? {
         if coroutine.started {
             return coroutine.send(())
         }
