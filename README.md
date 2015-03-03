@@ -72,6 +72,6 @@ Ideas/Todo
 Credits
 -------
 
-The underlying context-switching primitive is a tiny wrapper around [Boost.Context](http://www.boost.org/doc/libs/1_57_0/libs/context/doc/html/), currently via [Boost.Coroutine](http://www.boost.org/doc/libs/1_57_0/libs/coroutine/doc/html/). Currently no Boost source or binaries are included in this repository, but Boost is free software under a permissive MIT-style [license](http://www.boost.org/users/license.html), Hexagen uses an MIT license, and so for the most part you can pretty freely incorporate and redistribute both with whatever.
+The underlying context-switching primitive is a tiny wrapper around [Boost.Context](http://www.boost.org/libs/context/), currently via [Boost.Coroutine](http://www.boost.org/libs/coroutine/). Currently no Boost source or binaries are included in this repository, but Boost is free software under a permissive MIT-style [license](http://www.boost.org/users/license.html), Hexagen uses an MIT license, and so for the most part you can pretty freely incorporate and redistribute both with whatever.
 
 My name is [Alice Atlas](https://github.com/aliceatlas) and I wrote the rest of it. I did it on purpose and I'm not sorry, dad
