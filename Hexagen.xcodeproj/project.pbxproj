@@ -19,9 +19,9 @@
 		86D91E061AA34EB100E86F79 /* libboost_system-mt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 86189CD51AA116B400087913 /* libboost_system-mt.a */; };
 		86D91E0B1AA365D100E86F79 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E0A1AA365D100E86F79 /* Channel.swift */; };
 		86D91E0D1AA3663D00E86F79 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E0C1AA3663D00E86F79 /* Utils.swift */; };
-		86D91E171AA3CACB00E86F79 /* Wrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 86D91E141AA3CAC300E86F79 /* Wrapper.h */; };
+		86D91E171AA3CACB00E86F79 /* Wrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 86D91E141AA3CAC300E86F79 /* Wrapper.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		86D91E181AA3CACB00E86F79 /* Wrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E151AA3CAC300E86F79 /* Wrapper.mm */; };
-		86D91E1A1AA3CAF500E86F79 /* Hexagen.h in Headers */ = {isa = PBXBuildFile; fileRef = 86D91E191AA3CAF500E86F79 /* Hexagen.h */; };
+		86D91E1A1AA3CAF500E86F79 /* Hexagen.h in Headers */ = {isa = PBXBuildFile; fileRef = 86D91E191AA3CAF500E86F79 /* Hexagen.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		86D91E1D1AA4047800E86F79 /* Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E1B1AA4047800E86F79 /* Promise.swift */; };
 		86D91E441AA46F7E00E86F79 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E431AA46F7E00E86F79 /* Timer.swift */; };
 		86D91E461AA480BB00E86F79 /* Awaitable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E451AA480BB00E86F79 /* Awaitable.swift */; };
