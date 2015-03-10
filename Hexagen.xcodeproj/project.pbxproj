@@ -50,6 +50,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		860434A01AAE67A20076B28A /* Wrapper.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Wrapper.pch; sourceTree = "<group>"; };
 		860F6DBF1AA136E200335793 /* HexagenExamples */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HexagenExamples; sourceTree = BUILT_PRODUCTS_DIR; };
 		860F6DC11AA136E200335793 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		860F6DF41AA1701200335793 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -215,6 +216,7 @@
 		86D91E121AA3CAC300E86F79 /* Wrapper */ = {
 			isa = PBXGroup;
 			children = (
+				860434A01AAE67A20076B28A /* Wrapper.pch */,
 				86D91E141AA3CAC300E86F79 /* Wrapper.h */,
 				86D91E151AA3CAC300E86F79 /* Wrapper.mm */,
 			);
@@ -507,6 +509,8 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Hexagen/Wrapper/Wrapper.pch;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Applications/Xcode-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
@@ -538,6 +542,8 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Hexagen/Wrapper/Wrapper.pch;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Applications/Xcode-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",

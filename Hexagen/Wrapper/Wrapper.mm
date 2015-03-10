@@ -7,7 +7,6 @@
 
 
 #import "Wrapper.h"
-#import <boost/coroutine/all.hpp>
 
 
 typedef boost::coroutines::symmetric_coroutine<void> symm_coro;

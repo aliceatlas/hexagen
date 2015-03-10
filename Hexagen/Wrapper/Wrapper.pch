@@ -1,0 +1,14 @@
+  /*****\\\\
+ /       \\\\    Hexagen/Wrapper/Wrapper.pch
+/  /\ /\  \\\\   Part of Hexagen
+\  \_X_/  ////
+ \       ////    Copyright © 2015 Alice Atlas (see LICENSE.md)
+  \*****////
+
+
+#ifndef Hexagen_Wrapper_PCH
+#define Hexagen_Wrapper_PCH
+
+#include <boost/coroutine/all.hpp>
+
+#endif
