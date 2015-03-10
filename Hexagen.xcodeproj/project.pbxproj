@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		860434A11AAE7B960076B28A /* libboost_coroutine-mt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 86189CD31AA1167700087913 /* libboost_coroutine-mt.a */; };
+		860434A21AAE7B960076B28A /* libboost_system-mt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 86189CD51AA116B400087913 /* libboost_system-mt.a */; };
+		860434A41AAE7BE40076B28A /* libboost_context-mt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 860434A31AAE7BE40076B28A /* libboost_context-mt.a */; };
+		860434A61AAE7C370076B28A /* libboost_thread-mt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 860434A51AAE7C370076B28A /* libboost_thread-mt.a */; };
 		860F6DBA1AA12DD400335793 /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D0E8FC1A975A92005E77BA /* Generator.swift */; };
 		860F6DC21AA136E200335793 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860F6DC11AA136E200335793 /* main.swift */; };
 		860F6DF31AA1589C00335793 /* Hexagen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86D0E8E01A97540D005E77BA /* Hexagen.framework */; };
@@ -15,8 +19,6 @@
 		860F6E2A1AA2085900335793 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860F6E291AA2085900335793 /* Queue.swift */; };
 		86D0E8EC1A975412005E77BA /* Hexagen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86D0E8E01A97540D005E77BA /* Hexagen.framework */; };
 		86D0E8F31A975414005E77BA /* HexagenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D0E8F21A975414005E77BA /* HexagenTests.swift */; };
-		86D91E051AA34EB100E86F79 /* libboost_coroutine-mt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 86189CD31AA1167700087913 /* libboost_coroutine-mt.a */; };
-		86D91E061AA34EB100E86F79 /* libboost_system-mt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 86189CD51AA116B400087913 /* libboost_system-mt.a */; };
 		86D91E0B1AA365D100E86F79 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E0A1AA365D100E86F79 /* Channel.swift */; };
 		86D91E0D1AA3663D00E86F79 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E0C1AA3663D00E86F79 /* Utils.swift */; };
 		86D91E171AA3CACB00E86F79 /* Wrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 86D91E141AA3CAC300E86F79 /* Wrapper.h */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -33,7 +35,7 @@
 			containerPortal = 86D0E8D71A975406005E77BA /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 86D0E8DF1A97540A005E77BA;
-			remoteInfo = gener;
+			remoteInfo = Hexagen;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -51,14 +53,16 @@
 
 /* Begin PBXFileReference section */
 		860434A01AAE67A20076B28A /* Wrapper.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Wrapper.pch; sourceTree = "<group>"; };
+		860434A31AAE7BE40076B28A /* libboost_context-mt.a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.objfile"; name = "libboost_context-mt.a"; path = "/opt/local/lib/libboost_context-mt.a"; sourceTree = "<absolute>"; };
+		860434A51AAE7C370076B28A /* libboost_thread-mt.a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.objfile"; name = "libboost_thread-mt.a"; path = "/opt/local/lib/libboost_thread-mt.a"; sourceTree = "<absolute>"; };
 		860F6DBF1AA136E200335793 /* HexagenExamples */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HexagenExamples; sourceTree = BUILT_PRODUCTS_DIR; };
 		860F6DC11AA136E200335793 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		860F6DF41AA1701200335793 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		860F6DF51AA17C5100335793 /* Coroutine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coroutine.swift; sourceTree = "<group>"; };
 		860F6E261AA1B71C00335793 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		860F6E291AA2085900335793 /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
-		86189CD31AA1167700087913 /* libboost_coroutine-mt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libboost_coroutine-mt.a"; path = "/opt/local/lib/libboost_coroutine-mt.a"; sourceTree = "<absolute>"; };
-		86189CD51AA116B400087913 /* libboost_system-mt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libboost_system-mt.a"; path = "/opt/local/lib/libboost_system-mt.a"; sourceTree = "<absolute>"; };
+		86189CD31AA1167700087913 /* libboost_coroutine-mt.a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.objfile"; name = "libboost_coroutine-mt.a"; path = "/opt/local/lib/libboost_coroutine-mt.a"; sourceTree = "<absolute>"; };
+		86189CD51AA116B400087913 /* libboost_system-mt.a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.objfile"; name = "libboost_system-mt.a"; path = "/opt/local/lib/libboost_system-mt.a"; sourceTree = "<absolute>"; };
 		86D0E8E01A97540D005E77BA /* Hexagen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Hexagen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86D0E8E41A97540E005E77BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		86D0E8EB1A975412005E77BA /* HexagenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HexagenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,8 +93,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86D91E051AA34EB100E86F79 /* libboost_coroutine-mt.a in Frameworks */,
-				86D91E061AA34EB100E86F79 /* libboost_system-mt.a in Frameworks */,
+				860434A41AAE7BE40076B28A /* libboost_context-mt.a in Frameworks */,
+				860434A11AAE7B960076B28A /* libboost_coroutine-mt.a in Frameworks */,
+				860434A21AAE7B960076B28A /* libboost_system-mt.a in Frameworks */,
+				860434A61AAE7C370076B28A /* libboost_thread-mt.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,8 +122,10 @@
 		860F6DC71AA1383D00335793 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				860434A31AAE7BE40076B28A /* libboost_context-mt.a */,
 				86189CD31AA1167700087913 /* libboost_coroutine-mt.a */,
 				86189CD51AA116B400087913 /* libboost_system-mt.a */,
+				860434A51AAE7C370076B28A /* libboost_thread-mt.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -150,7 +158,6 @@
 				86D0E8E21A97540D005E77BA /* Hexagen */,
 				86D0E8EF1A975412005E77BA /* HexagenTests */,
 				860F6DC01AA136E200335793 /* HexagenExamples */,
-				860F6DC71AA1383D00335793 /* Frameworks */,
 				86D0E8E11A97540D005E77BA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -172,6 +179,7 @@
 				86D91E121AA3CAC300E86F79 /* Wrapper */,
 				860F6E251AA1B35D00335793 /* Swift */,
 				86D0E8E31A97540E005E77BA /* Supporting Files */,
+				860F6DC71AA1383D00335793 /* Frameworks */,
 			);
 			path = Hexagen;
 			sourceTree = "<group>";
@@ -251,7 +259,7 @@
 			dependencies = (
 			);
 			name = HexagenExamples;
-			productName = generExample;
+			productName = HexagenExamples;
 			productReference = 860F6DBF1AA136E200335793 /* HexagenExamples */;
 			productType = "com.apple.product-type.tool";
 		};
@@ -269,7 +277,7 @@
 			dependencies = (
 			);
 			name = Hexagen;
-			productName = gener;
+			productName = Hexagen;
 			productReference = 86D0E8E01A97540D005E77BA /* Hexagen.framework */;
 			productType = "com.apple.product-type.framework";
 		};
@@ -287,7 +295,7 @@
 				86D0E8EE1A975412005E77BA /* PBXTargetDependency */,
 			);
 			name = HexagenTests;
-			productName = generTests;
+			productName = HexagenTests;
 			productReference = 86D0E8EB1A975412005E77BA /* HexagenTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
@@ -395,10 +403,7 @@
 		860F6DC41AA136E200335793 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -411,10 +416,7 @@
 		860F6DC51AA136E200335793 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				PRODUCT_NAME = HexagenExamples;
 			};
@@ -424,7 +426,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -467,7 +468,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -501,7 +501,7 @@
 		86D0E8F71A975414005E77BA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -519,11 +519,6 @@
 				INFOPLIST_FILE = Hexagen/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/opt/local/lib,
-					/Users/aselbaf/Compile/boost/stage/lib,
-				);
 				PRODUCT_NAME = Hexagen;
 				SKIP_INSTALL = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
@@ -534,7 +529,7 @@
 		86D0E8F81A975414005E77BA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -552,11 +547,6 @@
 				INFOPLIST_FILE = Hexagen/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/opt/local/lib,
-					/Users/aselbaf/Compile/boost/stage/lib,
-				);
 				PRODUCT_NAME = Hexagen;
 				SKIP_INSTALL = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
