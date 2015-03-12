@@ -14,6 +14,7 @@ public class TaskProto {
     }
 }
 
+
 public class TaskCtrl {
     private static let currentTaskKey = "ai.atlas.hexagen.task.current"
     
@@ -35,6 +36,27 @@ public class TaskCtrl {
     }
 }
 
+
+public func async(_ queue: dispatch_queue_t = mainQueue, body: Void -> Void) -> Task<Void> {
+    let task = Task(queue: queue, body: body)
+    task.schedule()
+    return task
+}
+
+public func async<T>(_ queue: dispatch_queue_t = mainQueue, body: Void -> T) -> Task<T> {
+    let task = Task(queue: queue, body: body)
+    task.schedule()
+    return task
+}
+
+public func asyncFunc<ArgsType>(_ queue: dispatch_queue_t = mainQueue, fn: ArgsType -> Void) (_ args: ArgsType) -> Task<Void> {
+    return async(queue, { fn(args) })
+}
+
+public func asyncFunc<ArgsType, ReturnType>(_ queue: dispatch_queue_t = mainQueue, fn: ArgsType -> ReturnType) (_ args: ArgsType) -> Task<ReturnType> {
+    return async(queue, { fn(args) })
+}
+
 public class Task<T>: TaskProto {
     private let queue: dispatch_queue_t
     private var coro: SimpleGenerator<Void>!
@@ -48,7 +70,6 @@ public class Task<T>: TaskProto {
             let result = body()
             self.completionPromise <- result
         }
-        schedule()
     }
     
     internal override func schedule() {
