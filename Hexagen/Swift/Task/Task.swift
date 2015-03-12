@@ -6,8 +6,6 @@
   \*****////
 
 
-private var mainQueue: dispatch_queue_t { return dispatch_get_main_queue() }
-
 public class TaskProto {
     private var yield: (Void -> Void)!
     
