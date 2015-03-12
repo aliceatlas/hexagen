@@ -12,7 +12,7 @@ public class Channel<T> {
     private var bufferSpace: Int
     private let buffer = SynchronizedQueue<T>()
     private let waitingReceivers = SynchronizedQueue<T -> Void>()
-    private let waitingSenders = SynchronizedQueue<Task>()
+    private let waitingSenders = SynchronizedQueue<TaskProto>()
     
     public init(buffer: Int = 0) {
         bufferSize = buffer
@@ -33,13 +33,13 @@ public class Channel<T> {
                 self.bufferSpace--
                 self.buffer.push(val, queue: false)
                 if self.bufferSpace < 0 {
-                    self.waitingSenders.push(Task.currentTask!)
+                    self.waitingSenders.push(TaskCtrl.currentTask!)
                     wait = true
                 }
             }
         }
         if wait {
-            Task.suspend()
+            TaskCtrl.suspend()
         }
     }
     
@@ -55,13 +55,13 @@ public class Channel<T> {
                     sender.schedule()
                 }
             } else {
-                let task = Task.currentTask!
+                let task = TaskCtrl.currentTask!
                 self.waitingReceivers.push({ ret = $0; task.schedule() }, queue: false)
                 wait = true
             }
         }
         if wait {
-            Task.suspend()
+            TaskCtrl.suspend()
         }
         return ret!
     }

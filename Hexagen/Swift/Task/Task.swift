@@ -6,17 +6,22 @@
   \*****////
 
 
-public class Task {
-    private let queue: dispatch_queue_t
-    private var coro: SimpleGenerator<Void>!
+private var mainQueue: dispatch_queue_t { return dispatch_get_main_queue() }
+
+public class TaskProto {
     private var yield: (Void -> Void)!
     
-    private var completionPromise = Promise<Void>()
-    
+    internal func schedule() {
+        fatalError("not implemented")
+    }
+}
+
+public class TaskCtrl {
     private static let currentTaskKey = "ai.atlas.hexagen.task.current"
-    public class var currentTask: Task? {
+    
+    public class var currentTask: TaskProto? {
         get {
-            return threadDictionary[currentTaskKey] as? Task
+            return threadDictionary[currentTaskKey] as? TaskProto
         }
         set(val) {
             if val == nil {
@@ -27,40 +32,43 @@ public class Task {
         }
     }
     
-    public init(queue: dispatch_queue_t, body: Void -> Void) {
+    public class func suspend() {
+        currentTask!.yield()
+    }
+}
+
+public class Task<T>: TaskProto {
+    private let queue: dispatch_queue_t
+    private var coro: SimpleGenerator<Void>!
+    private var completionPromise = Promise<T>()
+    
+    public init(queue: dispatch_queue_t = mainQueue, body: Void -> T) {
         self.queue = queue
+        super.init()
         coro = SimpleGenerator { [unowned self] yield in
             self.yield = yield
-            body()
-            self.completionPromise <- ()
+            let result = body()
+            self.completionPromise <- result
         }
         schedule()
     }
     
-    public convenience init(_ body: Void -> Void) {
-        self.init(queue: dispatch_get_main_queue(), body: body)
-    }
-    
-    internal func schedule() {
+    internal override func schedule() {
         dispatch_async(queue, enter)
     }
     
     private func enter() {
         //should only be called as a GCD block
-        self.dynamicType.currentTask = self
+        TaskCtrl.currentTask = self
         coro.next()
-        self.dynamicType.currentTask = nil
+        TaskCtrl.currentTask = nil
     }
 }
 
 extension Task: Awaitable {
-    public func await() {
-        <-completionPromise
+    public func await() -> T {
+        return <-completionPromise
     }
 }
 
-public extension Task /* current task control */ {
-    public class func suspend() {
-        currentTask!.yield()
-    }
 }

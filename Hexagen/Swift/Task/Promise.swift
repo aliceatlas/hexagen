@@ -32,14 +32,14 @@ public class MappedPromise<T, U>: Promiselike<U> {
 
 public class Promise<T>: Promiselike<T> {
     private var value: T?
-    private var waitingListeners: [Task]? = []
+    private var waitingListeners: [TaskProto]? = []
     
     public override init() {}
     
     public override func await() -> T {
         if value == nil {
-            waitingListeners!.append(Task.currentTask!)
-            Task.suspend()
+            waitingListeners!.append(TaskCtrl.currentTask!)
+            TaskCtrl.suspend()
         }
         return value!
     }
