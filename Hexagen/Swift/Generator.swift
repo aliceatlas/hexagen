@@ -6,14 +6,14 @@
   \*****////
 
 
+public func genFunc<ArgsType, OutType>(fn: ArgsType -> (OutType -> Void) -> Void) (_ args: ArgsType) -> SimpleGenerator<OutType> {
+    return SimpleGenerator(fn(args))
+}
+
 public class SimpleGenerator<OutType>: SequenceType, GeneratorType {
     private var coroutine: AsymmetricCoroutine<Void, OutType>
     
-    public class func make <ArgsType> (fn: ArgsType -> (OutType -> Void) -> Void) (_ args: ArgsType) -> Self {
-        return self(fn(args))
-    }
-    
-    public required init(_ fn: (OutType -> Void) -> Void) {
+    public init(_ fn: (OutType -> Void) -> Void) {
         coroutine = AsymmetricCoroutine(fn)
     }
     

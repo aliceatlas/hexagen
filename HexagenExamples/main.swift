@@ -13,9 +13,9 @@ func _counter(n: Int) (yield: Int -> Void) {
         yield(i)
     }
 }
-let counter = SimpleGenerator.make(_counter)
+let counter = genFunc(_counter)
 
-let kounter = SimpleGenerator<Int>.make { (n: Int) in { yield in
+let kounter = genFunc { (n: Int) in { (yield: Int -> Void) in
     for i in 0..<n {
         yield(i)
     }
@@ -55,7 +55,7 @@ func _doubler2() (yield: Int! -> Int?) {
     }
     println("dun")
 }
-let doubler = AsymmetricCoroutine.make(_doubler2)
+let doubler = coroFunc(_doubler2)
 
 func ok() {
     let x = doubler()

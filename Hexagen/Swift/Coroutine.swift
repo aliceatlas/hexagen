@@ -6,6 +6,10 @@
   \*****////
 
 
+public func coroFunc <InType, OutType, ArgsType> (fn: ArgsType -> (OutType -> InType) -> Void) (_ args: ArgsType) -> AsymmetricCoroutine<InType, OutType> {
+    return AsymmetricCoroutine(fn(args))
+}
+
 public class AsymmetricCoroutine <InType, OutType> {
     private var wrapper: AsymmetricCoroutineWrapper!
     
@@ -19,11 +23,7 @@ public class AsymmetricCoroutine <InType, OutType> {
     public var completed: Bool { return _completed }
     public var running: Bool { return _started && !_completed }
     
-    public class func make <ArgsType> (fn: ArgsType -> (OutType -> InType) -> Void) (_ args: ArgsType) -> Self {
-        return self(fn(args))
-    }
-    
-    public required init(_ fn: (OutType -> InType) -> Void) {
+    public init(_ fn: (OutType -> InType) -> Void) {
         wrapper = AsymmetricCoroutineWrapper { [unowned self] (exit) in
             exit()
             self._started = true

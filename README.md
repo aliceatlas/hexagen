@@ -11,7 +11,7 @@ Features
 * Simple unidirectional and bidirectional generator functions, as in Python, C#, ECMAscript 6, etc.:
 
   ```swift
-  let counter = SimpleGenerator<Int>.make { (n: Int) in { yield in
+  let counter = genFunc { (n: Int) in { (yield: Int -> Void) in
       for i in 0..<n {
           yield(i)
       }
