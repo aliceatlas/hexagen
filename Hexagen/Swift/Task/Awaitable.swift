@@ -7,6 +7,9 @@
 
 
 prefix operator <- {}
+prefix operator ?- {}
+prefix operator ?<- {}
+
 infix operator <- {
     associativity none
     precedence 90
@@ -16,6 +19,7 @@ infix operator <- {
 public protocol Awaitable {
     typealias ValueType
     func _await() -> ValueType
+    var _hasValue: Bool { get }
 }
 
 public protocol SendAwaitable {
@@ -26,6 +30,15 @@ public protocol SendAwaitable {
 public prefix func <- <T: Awaitable> (source: T) -> T.ValueType {
     return source._await()
 }
+
+public prefix func ?- <T: Awaitable> (source: T) -> Bool {
+    return source._hasValue
+}
+
+public prefix func ?<- <T: Awaitable> (source: T) -> T.ValueType? {
+    return ?-source ? <-source : nil
+}
+
 public func <- <T: SendAwaitable> (sink: T, val: T.SendType) {
     sink._awaitSend(val)
 }

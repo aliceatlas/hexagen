@@ -11,6 +11,10 @@ public class Promiselike<T>: Awaitable {
         fatalError("not implemented")
     }
     
+    public var _hasValue: Bool {
+        fatalError("not implemented")
+    }
+    
     public func map<U>(fn: T -> U) -> Promiselike<U> {
         return MappedPromise(inner: self, fn: fn)
     }
@@ -28,6 +32,10 @@ public class MappedPromise<T, U>: Promiselike<U> {
     public override func _await() -> U {
         return fn(<-inner)
     }
+    
+    public override var _hasValue: Bool {
+        return ?-inner
+    }
 }
 
 public class Promise<T>: Promiselike<T> {
@@ -42,6 +50,10 @@ public class Promise<T>: Promiselike<T> {
             TaskCtrl.suspend()
         }
         return value!
+    }
+    
+    public override var _hasValue: Bool {
+        return value != nil
     }
     
     public func _fulfill(value: T) {

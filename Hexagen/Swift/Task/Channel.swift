@@ -71,6 +71,10 @@ extension Channel: Awaitable {
     public func _await() -> T {
         return receive()
     }
+    
+    public var _hasValue: Bool {
+        return !buffer.isEmpty
+    }
 }
 
 extension Channel: SendAwaitable {

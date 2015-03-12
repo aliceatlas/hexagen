@@ -69,6 +69,10 @@ extension Task: Awaitable {
     public func _await() -> T {
         return <-completionPromise
     }
+    
+    public var _hasValue: Bool {
+        return ?-completionPromise
+    }
 }
 
 }
