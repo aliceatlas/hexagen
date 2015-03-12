@@ -68,13 +68,13 @@ public class Channel<T> {
 }
 
 extension Channel: Awaitable {
-    public func await() -> T {
+    public func _await() -> T {
         return receive()
     }
 }
 
 extension Channel: SendAwaitable {
-    public func awaitSend(val: T) {
+    public func _awaitSend(val: T) {
         send(val)
     }
 }

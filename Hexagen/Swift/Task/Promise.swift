@@ -7,7 +7,7 @@
 
 
 public class Promiselike<T>: Awaitable {
-    public func await() -> T {
+    public func _await() -> T {
         fatalError("not implemented")
     }
     
@@ -25,8 +25,8 @@ public class MappedPromise<T, U>: Promiselike<U> {
         self.fn = fn
     }
     
-    public override func await() -> U {
-        return fn(inner.await())
+    public override func _await() -> U {
+        return fn(<-inner)
     }
 }
 
@@ -36,7 +36,7 @@ public class Promise<T>: Promiselike<T> {
     
     public override init() {}
     
-    public override func await() -> T {
+    public override func _await() -> T {
         if value == nil {
             waitingListeners!.append(TaskCtrl.currentTask!)
             TaskCtrl.suspend()
@@ -44,9 +44,9 @@ public class Promise<T>: Promiselike<T> {
         return value!
     }
     
-    public func fulfill(value: T) {
+    public func _fulfill(value: T) {
         if self.value != nil {
-            fatalError("can't call fulfill() more than once on the same promise")
+            fatalError("promise was already resolved")
         }
         self.value = value
         for task in waitingListeners! {
@@ -57,7 +57,7 @@ public class Promise<T>: Promiselike<T> {
 }
 
 extension Promise: SendAwaitable {
-    public func awaitSend(value: T) {
-        fulfill(value)
+    public func _awaitSend(value: T) {
+        _fulfill(value)
     }
 }

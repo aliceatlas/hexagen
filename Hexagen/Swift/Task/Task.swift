@@ -66,7 +66,7 @@ public class Task<T>: TaskProto {
 }
 
 extension Task: Awaitable {
-    public func await() -> T {
+    public func _await() -> T {
         return <-completionPromise
     }
 }
