@@ -93,5 +93,3 @@ extension Task: Awaitable {
         return ?-completionPromise
     }
 }
-
-}
