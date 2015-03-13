@@ -55,21 +55,7 @@ extension GeneratorTask: SequenceType {
     }
 }
 
-/* workaround for unexplained compiler crash when trying to use PromiseSequenceGenerator here directly */
-
-public class _GenWrapper<T: SequenceType where T.Generator: AnyObject>: GeneratorType {
-    let inner: T.Generator
-    
-    private init(_ sequence: T) {
-        inner = sequence.generate()
-    }
-    
-    public func next() -> T.Generator.Element? {
-        return inner.next()
-    }
-}
-
-/* likewise with the LazySequence constructs */
+/* workaround for compiler crash when trying to directly use LazySequence constructs in map/filter above */
 
 public class _SeqWrapper<T: SequenceType>: SequenceType {
     typealias Inner = LazySequence<T>
