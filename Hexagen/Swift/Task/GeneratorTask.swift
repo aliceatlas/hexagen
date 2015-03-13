@@ -45,6 +45,14 @@ extension GeneratorTask: SequenceType {
         }
         return gen
     }
+    
+    public func map<T>(fn: OutType -> T) -> _MapWrapper<GeneratorTask, T> {
+        return _MapWrapper(self, fn)
+    }
+    
+    public func filter(fn: OutType -> Bool) -> _FilterWrapper<GeneratorTask> {
+        return _FilterWrapper(self, fn)
+    }
 }
 
 /* workaround for unexplained compiler crash when trying to use PromiseSequenceGenerator here directly */
@@ -58,5 +66,40 @@ public class _GenWrapper<T: SequenceType where T.Generator: AnyObject>: Generato
     
     public func next() -> T.Generator.Element? {
         return inner.next()
+    }
+}
+
+/* likewise with the LazySequence constructs */
+
+public class _SeqWrapper<T: SequenceType>: SequenceType {
+    typealias Inner = LazySequence<T>
+    let inner: Inner
+    
+    private init(_inner: Inner) {
+        inner = _inner
+    }
+    
+    public func generate() -> Inner.Generator {
+        return inner.generate()
+    }
+    
+    public func map<U>(fn: T.Generator.Element -> U) -> LazySequence<MapSequenceView<T, U>> {
+        return inner.map(fn)
+    }
+    
+    public func filter(fn: T.Generator.Element -> Bool) -> LazySequence<FilterSequenceView<T>> {
+        return inner.filter(fn)
+    }
+}
+
+public class _MapWrapper<Seq: SequenceType, Element>: _SeqWrapper<MapSequenceView<Seq, Element>> {
+    private init(_ sequence: Seq, _ fn: Seq.Generator.Element -> Element) {
+        super.init(_inner: lazy(sequence).map(fn))
+    }
+}
+
+public class _FilterWrapper<Seq: SequenceType>: _SeqWrapper<FilterSequenceView<Seq>> {
+    private init(_ sequence: Seq, _ fn: Seq.Generator.Element -> Bool) {
+        super.init(_inner: lazy(sequence).filter(fn))
     }
 }

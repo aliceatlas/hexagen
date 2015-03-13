@@ -22,6 +22,14 @@ extension PromiseSequence: SequenceType {
     public func generate() -> PromiseSequenceGenerator<T> {
         return PromiseSequenceGenerator(promise)
     }
+    
+    public func map<U>(fn: T -> U) -> LazySequence<MapSequenceView<PromiseSequence, U>> {
+        return lazy(self).map(fn)
+    }
+    
+    public func filter(fn: T -> Bool) -> LazySequence<FilterSequenceView<PromiseSequence>> {
+        return lazy(self).filter(fn)
+    }
 }
 
 
