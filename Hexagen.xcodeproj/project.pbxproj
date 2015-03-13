@@ -133,8 +133,8 @@
 		860F6E251AA1B35D00335793 /* Swift */ = {
 			isa = PBXGroup;
 			children = (
-				86D0E8FC1A975A92005E77BA /* Generator.swift */,
 				860F6DF51AA17C5100335793 /* Coroutine.swift */,
+				86D0E8FC1A975A92005E77BA /* Generator.swift */,
 				86D91E071AA3651200E86F79 /* Task */,
 				860F6E281AA2079D00335793 /* Internal */,
 			);
@@ -144,8 +144,8 @@
 		860F6E281AA2079D00335793 /* Internal */ = {
 			isa = PBXGroup;
 			children = (
-				860F6E291AA2085900335793 /* Queue.swift */,
 				86D91E0C1AA3663D00E86F79 /* Utils.swift */,
+				860F6E291AA2085900335793 /* Queue.swift */,
 			);
 			path = Internal;
 			sourceTree = "<group>";
@@ -212,10 +212,10 @@
 		86D91E071AA3651200E86F79 /* Task */ = {
 			isa = PBXGroup;
 			children = (
+				86D91E451AA480BB00E86F79 /* Awaitable.swift */,
+				86D91E1B1AA4047800E86F79 /* Promise.swift */,
 				860F6E261AA1B71C00335793 /* Task.swift */,
 				86D91E0A1AA365D100E86F79 /* Channel.swift */,
-				86D91E1B1AA4047800E86F79 /* Promise.swift */,
-				86D91E451AA480BB00E86F79 /* Awaitable.swift */,
 				86D91E431AA46F7E00E86F79 /* Timer.swift */,
 			);
 			path = Task;
