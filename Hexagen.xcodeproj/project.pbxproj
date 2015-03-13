@@ -17,6 +17,7 @@
 		860F6DF61AA17C5100335793 /* Coroutine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860F6DF51AA17C5100335793 /* Coroutine.swift */; };
 		860F6E271AA1B71C00335793 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860F6E261AA1B71C00335793 /* Task.swift */; };
 		860F6E2A1AA2085900335793 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860F6E291AA2085900335793 /* Queue.swift */; };
+		864EE6611AB2916A00F537FB /* GeneratorTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864EE6601AB2916A00F537FB /* GeneratorTask.swift */; };
 		86D0E8EC1A975412005E77BA /* Hexagen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86D0E8E01A97540D005E77BA /* Hexagen.framework */; };
 		86D0E8F31A975414005E77BA /* HexagenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D0E8F21A975414005E77BA /* HexagenTests.swift */; };
 		86D91E0B1AA365D100E86F79 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E0A1AA365D100E86F79 /* Channel.swift */; };
@@ -27,6 +28,7 @@
 		86D91E1D1AA4047800E86F79 /* Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E1B1AA4047800E86F79 /* Promise.swift */; };
 		86D91E441AA46F7E00E86F79 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E431AA46F7E00E86F79 /* Timer.swift */; };
 		86D91E461AA480BB00E86F79 /* Awaitable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E451AA480BB00E86F79 /* Awaitable.swift */; };
+		86D91E471AA4894700E86F79 /* PromiseSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E1C1AA4047800E86F79 /* PromiseSequence.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,7 @@
 		860F6E291AA2085900335793 /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		86189CD31AA1167700087913 /* libboost_coroutine-mt.a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.objfile"; name = "libboost_coroutine-mt.a"; path = "/opt/local/lib/libboost_coroutine-mt.a"; sourceTree = "<absolute>"; };
 		86189CD51AA116B400087913 /* libboost_system-mt.a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.objfile"; name = "libboost_system-mt.a"; path = "/opt/local/lib/libboost_system-mt.a"; sourceTree = "<absolute>"; };
+		864EE6601AB2916A00F537FB /* GeneratorTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratorTask.swift; sourceTree = "<group>"; };
 		86D0E8E01A97540D005E77BA /* Hexagen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Hexagen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86D0E8E41A97540E005E77BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		86D0E8EB1A975412005E77BA /* HexagenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HexagenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +79,7 @@
 		86D91E151AA3CAC300E86F79 /* Wrapper.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Wrapper.mm; sourceTree = "<group>"; };
 		86D91E191AA3CAF500E86F79 /* Hexagen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hexagen.h; sourceTree = "<group>"; };
 		86D91E1B1AA4047800E86F79 /* Promise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Promise.swift; sourceTree = "<group>"; };
+		86D91E1C1AA4047800E86F79 /* PromiseSequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromiseSequence.swift; sourceTree = "<group>"; };
 		86D91E431AA46F7E00E86F79 /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		86D91E451AA480BB00E86F79 /* Awaitable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Awaitable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -216,6 +220,8 @@
 				86D91E1B1AA4047800E86F79 /* Promise.swift */,
 				860F6E261AA1B71C00335793 /* Task.swift */,
 				86D91E0A1AA365D100E86F79 /* Channel.swift */,
+				86D91E1C1AA4047800E86F79 /* PromiseSequence.swift */,
+				864EE6601AB2916A00F537FB /* GeneratorTask.swift */,
 				86D91E431AA46F7E00E86F79 /* Timer.swift */,
 			);
 			path = Task;
@@ -373,8 +379,10 @@
 				860F6E2A1AA2085900335793 /* Queue.swift in Sources */,
 				86D91E441AA46F7E00E86F79 /* Timer.swift in Sources */,
 				860F6E271AA1B71C00335793 /* Task.swift in Sources */,
+				864EE6611AB2916A00F537FB /* GeneratorTask.swift in Sources */,
 				860F6DBA1AA12DD400335793 /* Generator.swift in Sources */,
 				860F6DF61AA17C5100335793 /* Coroutine.swift in Sources */,
+				86D91E471AA4894700E86F79 /* PromiseSequence.swift in Sources */,
 				86D91E0D1AA3663D00E86F79 /* Utils.swift in Sources */,
 				86D91E181AA3CACB00E86F79 /* Wrapper.mm in Sources */,
 				86D91E1D1AA4047800E86F79 /* Promise.swift in Sources */,
