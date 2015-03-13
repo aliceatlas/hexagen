@@ -1,6 +1,6 @@
   /*****\\\\
- /       \\\\    Hexagen/Swift/Internal/Queue.swift
-/  /\ /\  \\\\   Part of Hexagen
+ /       \\\\    Swift/Internal/Queue.swift
+/  /\ /\  \\\\   (part of Hexagen)
 \  \_X_/  ////
  \       ////    Copyright © 2015 Alice Atlas (see LICENSE.md)
   \*****////

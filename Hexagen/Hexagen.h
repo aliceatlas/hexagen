@@ -1,6 +1,6 @@
   /*****\\\\
- /       \\\\    Hexagen/Hexagen.h
-/  /\ /\  \\\\   Part of Hexagen
+ /       \\\\    Hexagen.h
+/  /\ /\  \\\\   (part of Hexagen)
 \  \_X_/  ////
  \       ////    Copyright © 2015 Alice Atlas (see LICENSE.md)
   \*****////

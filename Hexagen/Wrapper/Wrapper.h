@@ -1,6 +1,6 @@
   /*****\\\\
- /       \\\\    Hexagen/Wrapper/Wrapper.h
-/  /\ /\  \\\\   Part of Hexagen
+ /       \\\\    Wrapper/Wrapper.h
+/  /\ /\  \\\\   (part of Hexagen)
 \  \_X_/  ////
  \       ////    Copyright © 2015 Alice Atlas (see LICENSE.md)
   \*****////

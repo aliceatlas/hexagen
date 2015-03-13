@@ -1,6 +1,6 @@
   /*****\\\\
- /       \\\\    HexagenExamples/main.swift
-/  /\ /\  \\\\   Part of Hexagen
+ /       \\\\    main.swift
+/  /\ /\  \\\\   (part of HexagenExamples)
 \  \_X_/  ////
  \       ////    Copyright © 2015 Alice Atlas (see LICENSE.md)
   \*****////

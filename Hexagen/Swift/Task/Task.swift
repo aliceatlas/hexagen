@@ -1,6 +1,6 @@
   /*****\\\\
- /       \\\\    Hexagen/Swift/Task/Task.swift
-/  /\ /\  \\\\   Part of Hexagen
+ /       \\\\    Swift/Task/Task.swift
+/  /\ /\  \\\\   (part of Hexagen)
 \  \_X_/  ////
  \       ////    Copyright © 2015 Alice Atlas (see LICENSE.md)
   \*****////

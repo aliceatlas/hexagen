@@ -1,6 +1,6 @@
   /*****\\\\
- /       \\\\    Hexagen/Swift/Coroutine.swift
-/  /\ /\  \\\\   Part of Hexagen
+ /       \\\\    Swift/Coroutine.swift
+/  /\ /\  \\\\   (part of Hexagen)
 \  \_X_/  ////
  \       ////    Copyright © 2015 Alice Atlas (see LICENSE.md)
   \*****////
