@@ -18,4 +18,12 @@ public class Gen<OutType>: Coro<Void, OutType>, SequenceType, GeneratorType {
     public func next() -> OutType? {
         return _started ? send(()) : start()
     }
+    
+    public func map<U>(fn: OutType -> U) -> LazySequence<MapSequenceView<Gen, U>> {
+        return lazy(self).map(fn)
+    }
+    
+    public func filter(fn: OutType -> Bool) -> LazySequence<FilterSequenceView<Gen>> {
+        return lazy(self).filter(fn)
+    }
 }
