@@ -37,38 +37,25 @@ public class TaskCtrl {
 }
 
 
-public func async(_ queue: dispatch_queue_t = mainQueue, body: Void -> Void) -> Task<Void> {
-    let task = Task(queue: queue, body: body)
-    task.schedule()
-    return task
+public func Async_(queue: dispatch_queue_t = mainQueue, start: Bool = true, body: Void -> Void) -> Async<Void> {
+    return Async(queue: queue, start: start, body: body)
 }
 
-public func async<T>(_ queue: dispatch_queue_t = mainQueue, body: Void -> T) -> Task<T> {
-    let task = Task(queue: queue, body: body)
-    task.schedule()
-    return task
-}
-
-public func asyncFunc<ArgsType>(_ queue: dispatch_queue_t = mainQueue, fn: ArgsType -> Void) (_ args: ArgsType) -> Task<Void> {
-    return async(queue, { fn(args) })
-}
-
-public func asyncFunc<ArgsType, ReturnType>(_ queue: dispatch_queue_t = mainQueue, fn: ArgsType -> ReturnType) (_ args: ArgsType) -> Task<ReturnType> {
-    return async(queue, { fn(args) })
-}
-
-public class Task<T>: TaskProto {
+public class Async<T>: TaskProto {
     private let queue: dispatch_queue_t
-    private var coro: SimpleGenerator<Void>!
+    private var coro: Gen<Void>!
     private var completionPromise = Promise<T>()
     
-    public init(queue: dispatch_queue_t = mainQueue, body: Void -> T) {
+    public init(queue: dispatch_queue_t = mainQueue, start: Bool = true, body: Void -> T) {
         self.queue = queue
         super.init()
-        coro = SimpleGenerator { [unowned self] yield in
+        coro = Gen { [unowned self] yield in
             self.yield = yield
             let result = body()
             self.completionPromise <- result
+        }
+        if start {
+            schedule()
         }
     }
     
@@ -84,7 +71,7 @@ public class Task<T>: TaskProto {
     }
 }
 
-extension Task: Awaitable {
+extension Async: Awaitable {
     public func _await() -> T {
         return <-completionPromise
     }

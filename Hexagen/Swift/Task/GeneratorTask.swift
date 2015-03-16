@@ -6,25 +6,7 @@
   \*****////
 
 
-public func asyncGen<OutType>(_ queue: dispatch_queue_t = mainQueue, body: (OutType -> Void) -> Void) -> GeneratorTask<OutType, Void> {
-    let task = GeneratorTask(queue: queue, body: body)
-    return task
-}
-
-public func asyncGen<OutType, ReturnType>(_ queue: dispatch_queue_t = mainQueue, body: (OutType -> Void) -> ReturnType) -> GeneratorTask<OutType, ReturnType> {
-    let task = GeneratorTask(queue: queue, body: body)
-    return task
-}
-
-public func asyncGenFunc<ArgsType, OutType>(_ queue: dispatch_queue_t = mainQueue, fn: ArgsType -> (OutType -> Void) -> Void) (_ args: ArgsType) -> GeneratorTask<OutType, Void> {
-    return asyncGen(queue, fn(args))
-}
-
-public func asyncGenFunc<ArgsType, OutType, ReturnType>(_ queue: dispatch_queue_t = mainQueue, fn: ArgsType -> (OutType -> Void) -> ReturnType) (_ args: ArgsType) -> GeneratorTask<OutType, ReturnType> {
-    return asyncGen(queue, fn(args))
-}
-
-public class GeneratorTask<OutType, ReturnType>: Task<ReturnType> {
+public final class AsyncGen<OutType, ReturnType>: Async<ReturnType> {
     private let promiseSequence: PromiseSequence<OutType> = PromiseSequence<OutType>()
     private var started = false
     
@@ -37,20 +19,20 @@ public class GeneratorTask<OutType, ReturnType>: Task<ReturnType> {
     }
 }
 
-extension GeneratorTask: SequenceType {
-    public func generate() -> _GenWrapper<PromiseSequence<OutType>> {
-        let gen = _GenWrapper(promiseSequence)
+extension AsyncGen: SequenceType {
+    public func generate() -> PromiseSequenceGenerator<OutType> {
+        let gen = promiseSequence.generate()
         if !started {
             schedule()
         }
         return gen
     }
     
-    public func map<T>(fn: OutType -> T) -> _MapWrapper<GeneratorTask, T> {
+    public func map<T>(fn: OutType -> T) -> _MapWrapper<AsyncGen, T> {
         return _MapWrapper(self, fn)
     }
     
-    public func filter(fn: OutType -> Bool) -> _FilterWrapper<GeneratorTask> {
+    public func filter(fn: OutType -> Bool) -> _FilterWrapper<AsyncGen> {
         return _FilterWrapper(self, fn)
     }
 }

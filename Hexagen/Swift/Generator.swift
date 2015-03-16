@@ -6,25 +6,16 @@
   \*****////
 
 
-public func genFunc<ArgsType, OutType>(fn: ArgsType -> (OutType -> Void) -> Void) (_ args: ArgsType) -> SimpleGenerator<OutType> {
-    return SimpleGenerator(fn(args))
-}
-
-public class SimpleGenerator<OutType>: SequenceType, GeneratorType {
-    private var coroutine: AsymmetricCoroutine<Void, OutType>
-    
-    public init(_ fn: (OutType -> Void) -> Void) {
-        coroutine = AsymmetricCoroutine(fn)
+public class Gen<OutType>: Coro<Void, OutType>, SequenceType, GeneratorType {
+    override public init(_ fn: (OutType -> Void) -> Void) {
+        super.init(fn)
     }
     
-    public func generate() -> SimpleGenerator {
+    public func generate() -> Gen {
         return self
     }
     
     public func next() -> OutType? {
-        if coroutine.started {
-            return coroutine.send(())
-        }
-        return coroutine.start()
+        return _started ? send(()) : start()
     }
 }

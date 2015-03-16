@@ -9,14 +9,13 @@
 public class Channel<T> {
     private let operationQueue = dispatch_queue_create("ai.atlas.hexagen.channel", nil)
     private let bufferSize: Int
-    private var bufferSpace: Int
+    private lazy var bufferSpace: Int = self.bufferSize
     private let buffer = SynchronizedQueue<T>()
     private let waitingReceivers = SynchronizedQueue<T -> Void>()
     private let waitingSenders = SynchronizedQueue<TaskProto>()
     
     public init(buffer: Int = 0) {
         bufferSize = buffer
-        bufferSpace = buffer
     }
     
     internal func sync(operation: Void -> Void) {

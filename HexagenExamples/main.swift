@@ -8,54 +8,31 @@
 
 import Hexagen
 
-func _counter(n: Int) (yield: Int -> Void) {
-    for i in 0..<n {
-        yield(i)
-    }
-}
-let counter = genFunc(_counter)
-
-let kounter = genFunc { (n: Int) in { (yield: Int -> Void) in
+let counter = { (n: Int) in Gen<Int> { yield in
     for i in 0..<n {
         yield(i)
     }
 }}
-  
-func gounter(n: Int) -> SimpleGenerator<Int> {
-    return SimpleGenerator { yield in
-        for i in 0..<n {
-            yield(i)
-        }
-    }
-}
 
 for i in counter(5) {
     println(i)
-    //if i == 2 { break }
 }
 
-let g = kounter(5)
-let h = gounter(5)
+var c: Gen<Int>? = counter(5)
 for i in 0...3 {
-    println(g.next()!, h.next()!)
+    println(c!.next()!)
 }
+c!.forceClose()
+c = nil
 
-func _doubler() (yield: Int! -> Int?) {
-    var val = yield(nil)
-    while val != nil {
-        val = yield(val! * 2)
-    }
-    println("dun")
-}
-func _doubler2() (yield: Int! -> Int?) {
+let doubler = { Coro<Int?, Int!> { yield in
     yield(nil)
     var ret: Int!
     while let val = yield(ret) {
         ret = val * 2
     }
     println("dun")
-}
-let doubler = coroFunc(_doubler2)
+}}
 
 func ok() {
     let x = doubler()

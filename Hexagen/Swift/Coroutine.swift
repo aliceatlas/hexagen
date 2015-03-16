@@ -6,17 +6,13 @@
   \*****////
 
 
-public func coroFunc <InType, OutType, ArgsType> (fn: ArgsType -> (OutType -> InType) -> Void) (_ args: ArgsType) -> AsymmetricCoroutine<InType, OutType> {
-    return AsymmetricCoroutine(fn(args))
-}
-
-public class AsymmetricCoroutine <InType, OutType> {
+public class Coro <InType, OutType> {
     private var wrapper: AsymmetricCoroutineWrapper!
     
     private var nextIn: InType?
     private var nextOut: OutType?
     
-    private var _started = false
+    internal var _started = false
     private var _completed = false
     
     public var started: Bool { return _started }
@@ -43,7 +39,7 @@ public class AsymmetricCoroutine <InType, OutType> {
         if _started {
             fatalError("can't call start() twice on the same coroutine")
         }
-        return next()
+        return enter()
     }
     
     public func send(val: InType) -> OutType? {
@@ -51,10 +47,10 @@ public class AsymmetricCoroutine <InType, OutType> {
             fatalError("must call start() before using send()")
         }
         nextIn = val
-        return next()
+        return enter()
     }
     
-    private func next() -> OutType? {
+    private func enter() -> OutType? {
         if _completed {
             fatalError("can't enter a coroutine that has completed")
         }
