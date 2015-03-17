@@ -55,6 +55,8 @@ Notes
 
 * Have not attempted to test any of this with iOS yet.
 
+* Currently Promises as implemented here are fulfill-only, i.e. there isn't a separate path for errors to take, like there tends to be in other languages' implementations of Promises. This is meant to mirror Swift's overall approach to error handling: to the extent that you need to write Promises that can express error conditions, you should encode that in your own types.
+
 Ideas/Todo
 ----------
 
