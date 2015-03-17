@@ -65,6 +65,7 @@ Ideas/Todo
     * Timeouts
     * Read-only and write-only views of channels (and promises?)
     * Elegant task-aware I/O API
+    * Subscribe to Cocoa events, notifications, key-value observing, etc. via Promises/PromiseSequences
     * Bridges to and from Hexagen features for existing widely-used Swift/Objective-C concurrency libraries/frameworks/approaches
 * Project quality
     * Unit tests
