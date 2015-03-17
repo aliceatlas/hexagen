@@ -7,7 +7,7 @@
 
 
 public class Coro <InType, OutType> {
-    private var wrapper: AsymmetricCoroutineWrapper!
+    private var wrapper: UnsafePointer<Void> = alloc_asymm_coro()
     
     private var nextIn: InType?
     private var nextOut: OutType?
@@ -20,7 +20,7 @@ public class Coro <InType, OutType> {
     public var running: Bool { return _started && !_completed }
     
     public init(_ fn: (OutType -> InType) -> Void) {
-        wrapper = AsymmetricCoroutineWrapper { [unowned self] (exit) in
+        setup_asymm_coro(wrapper) { [unowned self] (exit) in
             exit()
             self._started = true
             fn { [unowned self] in
@@ -54,7 +54,7 @@ public class Coro <InType, OutType> {
         if _completed {
             fatalError("can't enter a coroutine that has completed")
         }
-        wrapper.enter()
+        enter_asymm_coro(wrapper)
         
         let out = nextOut
         nextOut = nil
@@ -70,5 +70,6 @@ public class Coro <InType, OutType> {
         if !_completed {
             fatalError("trying to deallocate a coroutine that has not completed; will probably leak memory. call forceClose() to allow this")
         }
+        destroy_asymm_coro(wrapper)
     }
 }
