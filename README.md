@@ -26,7 +26,7 @@ Features
 
     * Included abstractions that know how to seamlessly suspend and resume tasks as needed:
 
-        * Channel: for a style of communication between tasks largely inspired by Go's channels and Goroutines)
+        * Channel: for a style of communication between tasks largely inspired by Go's channels and Goroutines
         * Promise: allows any number of tasks to await a potentially pending result and awakens all of them when one becomes available
         * Timer: actually just a Promise<Void> that is marked as fulfilled at a specified time
 
