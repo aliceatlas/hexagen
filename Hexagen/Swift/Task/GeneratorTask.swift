@@ -11,7 +11,7 @@ public final class AsyncGen<OutType, ReturnType>: Async<ReturnType> {
     private var started = false
     
     public init(queue: dispatch_queue_t = mainQueue, body: (OutType -> Void) -> ReturnType) {
-        super.init(queue: queue, body: { [promiseSequence] in
+        super.init(queue: queue, start: false, body: { [promiseSequence] in
             let ret = body { promiseSequence <- $0 }
             promiseSequence <- nil
             return ret
