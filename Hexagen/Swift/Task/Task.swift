@@ -59,15 +59,16 @@ public func Async_(queue: dispatch_queue_t = mainQueue, start: Bool = true, body
 public class Async<T>: TaskProto {
     private let queue: dispatch_queue_t
     private var coro: Gen<Void>!
-    private var completionPromise = Promise<T>()
+    private let completionPromise: Promise<T>
     
     public init(queue: dispatch_queue_t = mainQueue, start: Bool = true, body: Void -> T) {
         self.queue = queue
+        var fulfill: (T -> Void)!
+        completionPromise = Promise { fulfill = $0 }
         super.init()
         coro = Gen { [unowned self] yield in
             self.yield = yield
-            let result = body()
-            self.completionPromise <- result
+            fulfill(body())
         }
         if start {
             schedule()

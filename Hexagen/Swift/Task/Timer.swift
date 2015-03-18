@@ -7,10 +7,8 @@
 
 
 public func Timer(seconds: Double, queue: dispatch_queue_t = mainQueue) -> Promise<Void> {
-    let promise = Promise<Void>()
-    let nsec = UInt64(seconds * Double(NSEC_PER_SEC))
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(nsec)), queue) {
-        promise <- ()
+    return Promise { fulfill in
+        let nsec = UInt64(seconds * Double(NSEC_PER_SEC))
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(nsec)), queue, fulfill)
     }
-    return promise
 }

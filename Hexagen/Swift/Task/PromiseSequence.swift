@@ -14,7 +14,7 @@ extension PromiseSequence: SendAwaitable {
     public func _awaitSend(value: T?) {
         let lastPromise = promise!
         promise = value != nil ? lastPromise.next : nil
-        lastPromise <- value
+        lastPromise._fulfill(value)
     }
 }
 
@@ -35,6 +35,10 @@ extension PromiseSequence: SequenceType {
 
 private class RecurringPromise<T>: Promise<T?> {
     lazy private var next = RecurringPromise<T>()
+    
+    private override init() {
+        super.init()
+    }
 }
 
 

@@ -34,7 +34,12 @@ public class Promise<T>: Promiselike<T> {
     private var _value: T?
     override internal var value: T? { return _value }
     
-    public override init() {}
+    internal override init() {}
+    
+    public init(@noescape fn: (T -> Void) -> Void) {
+        super.init()
+        fn(_fulfill)
+    }
     
     internal func _fulfill(value: T) {
         if _value != nil {
@@ -77,7 +82,4 @@ public class MappedPromise<T, U>: Promiselike<U> {
 /* currently needs to go here rather than Task/Promise+Awaitable.swift due to Mysterious Compiler Crash reasons */
 
 extension Promiselike: Awaitable {
-}
-
-extension Promise: SendAwaitable {
 }

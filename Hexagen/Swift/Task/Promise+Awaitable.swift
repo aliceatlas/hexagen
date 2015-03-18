@@ -15,9 +15,3 @@ extension Promiselike {
         return value != nil
     }
 }
-
-extension Promise {
-    public func _awaitSend(value: T) {
-        _fulfill(value)
-    }
-}
