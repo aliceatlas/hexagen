@@ -25,10 +25,11 @@
 		86D91E171AA3CACB00E86F79 /* Wrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 86D91E141AA3CAC300E86F79 /* Wrapper.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		86D91E181AA3CACB00E86F79 /* Wrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E151AA3CAC300E86F79 /* Wrapper.cpp */; };
 		86D91E1A1AA3CAF500E86F79 /* Hexagen.h in Headers */ = {isa = PBXBuildFile; fileRef = 86D91E191AA3CAF500E86F79 /* Hexagen.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		86D91E1D1AA4047800E86F79 /* Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E1B1AA4047800E86F79 /* Promise.swift */; };
+		86D91E1D1AA4047800E86F79 /* Promise+Awaitable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E1B1AA4047800E86F79 /* Promise+Awaitable.swift */; };
 		86D91E441AA46F7E00E86F79 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E431AA46F7E00E86F79 /* Timer.swift */; };
 		86D91E461AA480BB00E86F79 /* Awaitable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E451AA480BB00E86F79 /* Awaitable.swift */; };
 		86D91E471AA4894700E86F79 /* PromiseSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E1C1AA4047800E86F79 /* PromiseSequence.swift */; };
+		86DD822E1AB96D9E0097EF96 /* Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DD822D1AB96D9E0097EF96 /* Promise.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,10 +79,11 @@
 		86D91E141AA3CAC300E86F79 /* Wrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Wrapper.h; sourceTree = "<group>"; };
 		86D91E151AA3CAC300E86F79 /* Wrapper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Wrapper.cpp; sourceTree = "<group>"; };
 		86D91E191AA3CAF500E86F79 /* Hexagen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hexagen.h; sourceTree = "<group>"; };
-		86D91E1B1AA4047800E86F79 /* Promise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Promise.swift; sourceTree = "<group>"; };
+		86D91E1B1AA4047800E86F79 /* Promise+Awaitable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+Awaitable.swift"; sourceTree = "<group>"; };
 		86D91E1C1AA4047800E86F79 /* PromiseSequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromiseSequence.swift; sourceTree = "<group>"; };
 		86D91E431AA46F7E00E86F79 /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		86D91E451AA480BB00E86F79 /* Awaitable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Awaitable.swift; sourceTree = "<group>"; };
+		86DD822D1AB96D9E0097EF96 /* Promise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Promise.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 			children = (
 				860F6DF51AA17C5100335793 /* Coroutine.swift */,
 				86D0E8FC1A975A92005E77BA /* Generator.swift */,
+				86DD822D1AB96D9E0097EF96 /* Promise.swift */,
 				86D91E071AA3651200E86F79 /* Task */,
 				860F6E281AA2079D00335793 /* Internal */,
 			);
@@ -217,7 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				86D91E451AA480BB00E86F79 /* Awaitable.swift */,
-				86D91E1B1AA4047800E86F79 /* Promise.swift */,
+				86D91E1B1AA4047800E86F79 /* Promise+Awaitable.swift */,
 				860F6E261AA1B71C00335793 /* Task.swift */,
 				86D91E0A1AA365D100E86F79 /* Channel.swift */,
 				86D91E1C1AA4047800E86F79 /* PromiseSequence.swift */,
@@ -376,6 +379,7 @@
 			files = (
 				86D91E0B1AA365D100E86F79 /* Channel.swift in Sources */,
 				86D91E461AA480BB00E86F79 /* Awaitable.swift in Sources */,
+				86DD822E1AB96D9E0097EF96 /* Promise.swift in Sources */,
 				860F6E2A1AA2085900335793 /* Queue.swift in Sources */,
 				86D91E441AA46F7E00E86F79 /* Timer.swift in Sources */,
 				860F6E271AA1B71C00335793 /* Task.swift in Sources */,
@@ -385,7 +389,7 @@
 				86D91E471AA4894700E86F79 /* PromiseSequence.swift in Sources */,
 				86D91E0D1AA3663D00E86F79 /* Utils.swift in Sources */,
 				86D91E181AA3CACB00E86F79 /* Wrapper.cpp in Sources */,
-				86D91E1D1AA4047800E86F79 /* Promise.swift in Sources */,
+				86D91E1D1AA4047800E86F79 /* Promise+Awaitable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

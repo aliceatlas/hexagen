@@ -12,7 +12,7 @@ public class Channel<T> {
     private lazy var bufferSpace: Int = self.bufferSize
     private let buffer = SynchronizedQueue<T>()
     private let waitingReceivers = SynchronizedQueue<T -> Void>()
-    private let waitingSenders = SynchronizedQueue<TaskProto>()
+    private let waitingSenders = SynchronizedQueue<Void -> Void>()
     
     public init(buffer: Int = 0) {
         bufferSize = buffer
@@ -23,7 +23,7 @@ public class Channel<T> {
     }
     
     public func send(val: T) {
-        var wait = false
+        var suspender: (Void -> Void)?
         sync {
             if !self.waitingReceivers.isEmpty {
                 let recv = self.waitingReceivers.pull(queue: false)!
@@ -32,18 +32,17 @@ public class Channel<T> {
                 self.bufferSpace--
                 self.buffer.push(val, queue: false)
                 if self.bufferSpace < 0 {
-                    self.waitingSenders.push(TaskCtrl.currentTask!)
-                    wait = true
+                    suspender = TaskCtrl.suspender { resume in
+                        self.waitingSenders.push(resume)
+                    }
                 }
             }
         }
-        if wait {
-            TaskCtrl.suspend()
-        }
+        suspender?()
     }
     
     public func receive() -> T {
-        var wait = false
+        var suspender: (Void -> T)?
         var ret: T?
         sync {
             if !self.buffer.isEmpty {
@@ -51,18 +50,15 @@ public class Channel<T> {
                 ret = self.buffer.pull(queue: false)!
                 if self.bufferSpace <= 0 {
                     let sender = self.waitingSenders.pull(queue: false)!
-                    sender.schedule()
+                    sender()
                 }
             } else {
-                let task = TaskCtrl.currentTask!
-                self.waitingReceivers.push({ ret = $0; task.schedule() }, queue: false)
-                wait = true
+                suspender = TaskCtrl.suspender { resume in
+                    self.waitingReceivers.push(resume, queue: false)
+                }
             }
         }
-        if wait {
-            TaskCtrl.suspend()
-        }
-        return ret!
+        return ret ?? suspender!()
     }
 }
 

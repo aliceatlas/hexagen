@@ -31,8 +31,23 @@ public class TaskCtrl {
         }
     }
     
-    public class func suspend() {
-        currentTask!.yield()
+    public class func suspend<T>(@noescape fn: ((T -> Void) -> Void)) -> T {
+        return suspender(fn)()
+    }
+    
+    public class func suspender<T>(@noescape fn: ((T -> Void) -> Void)) -> (Void -> T) {
+        let task = currentTask!
+        var ret: T?
+        func resume(value: T) {
+            ret = value
+            task.schedule()
+        }
+        fn(resume)
+        func suspend() -> T {
+            task.yield()
+            return ret!
+        }
+        return suspend
     }
 }
 
