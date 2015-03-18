@@ -7,31 +7,22 @@
 
 
 public class Promiselike<T> {
-    internal var value: T?
+    private var handlers: [T -> Void]? = []
+    
+    internal var value: T? {
+        fatalError("not implemented")
+    }
     
     public func map<U>(fn: T -> U) -> Promiselike<U> {
-        return MappedPromise(parent: self, fn: fn)
+        return MappedPromise(parent: self, mapping: fn)
     }
     
     public func addHandler(fn: T -> Void) {
-        fatalError("not implemented")
-    }
-}
-
-public class Promise<T>: Promiselike<T> {
-    private var handlers: [T -> Void]? = []
-    
-    public override init() {}
-    
-    public override func addHandler(fn: T -> Void) {
         handlers!.append(fn)
     }
     
-    internal func _fulfill(value: T) {
-        if self.value != nil {
-            fatalError("promise was already fulfilled")
-        }
-        self.value = value
+    private func callHandlers() {
+        let value = self.value!
         for handler in handlers! {
             handler(value)
         }
@@ -39,28 +30,44 @@ public class Promise<T>: Promiselike<T> {
     }
 }
 
-public class MappedPromise<T, U>: Promiselike<U> {
-    internal var parent: Promiselike<T>
-    internal var fn: T -> U
-    private var addedParentHandler: dispatch_once_t = 0
-    private var handlers: [U -> Void]? = []
+public class Promise<T>: Promiselike<T> {
+    private var _value: T?
+    override internal var value: T? { return _value }
     
-    private init(parent: Promiselike<T>, fn: T -> U) {
+    public override init() {}
+    
+    internal func _fulfill(value: T) {
+        if _value != nil {
+            fatalError("promise was already fulfilled")
+        }
+        _value = value
+        callHandlers()
+    }
+}
+
+public class MappedPromise<T, U>: Promiselike<U> {
+    private var parent: Promiselike<T>
+    private var mapping: T -> U
+    private var addedParentHandler: dispatch_once_t = 0
+    private var cachedValue: U?
+    override internal var value: U? {
+        if cachedValue == nil && parent.value != nil {
+            cachedValue = mapping(parent.value!)
+        }
+        return cachedValue
+    }
+    
+    private init(parent: Promiselike<T>, mapping: T -> U) {
         self.parent = parent
-        self.fn = fn
+        self.mapping = mapping
     }
     
     private func _parentHandler(value: T) {
-        let mappedValue = fn(value)
-        self.value = mappedValue
-        for handler in handlers! {
-            handler(mappedValue)
-        }
-        handlers = nil
+        callHandlers()
     }
     
-    public override func addHandler(fn: U -> Void) {
-        handlers!.append(fn)
+    public override func addHandler(handler: U -> Void) {
+        super.addHandler(handler)
         dispatch_once(&addedParentHandler) {
             self.parent.addHandler(self._parentHandler)
         }
