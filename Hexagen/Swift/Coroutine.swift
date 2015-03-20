@@ -9,8 +9,8 @@
 public class Coro <InType, OutType> {
     private var wrapper: UnsafePointer<Void> = alloc_asymm_coro()
     
-    private var nextIn: InType?
-    private var nextOut: OutType?
+    private var nextIn: UnsafeMutablePointer<InType> = UnsafeMutablePointer.alloc(1)
+    private var nextOut: UnsafeMutablePointer<OutType> = UnsafeMutablePointer.alloc(1)
     
     internal var _started = false
     private var _completed = false
@@ -20,17 +20,15 @@ public class Coro <InType, OutType> {
     public var running: Bool { return _started && !_completed }
     
     public init(_ fn: (OutType -> InType) -> Void) {
-        setup_asymm_coro(wrapper) { [unowned self] (exit) in
+        setup_asymm_coro(wrapper) { [unowned self, nextOut, nextIn] (exit) in
             exit()
             self._started = true
-            fn { [unowned self] in
-                self.nextOut = $0
+            func yield(val: OutType) -> InType {
+                nextOut.initialize(val)
                 exit()
-                
-                let val = self.nextIn
-                self.nextIn = nil
-                return val!
+                return nextIn.move()
             }
+            fn(yield)
             self._completed = true
         }
     }
@@ -46,7 +44,7 @@ public class Coro <InType, OutType> {
         if !_started {
             fatalError("must call start() before using send()")
         }
-        nextIn = val
+        nextIn.initialize(val)
         return enter()
     }
     
@@ -56,10 +54,10 @@ public class Coro <InType, OutType> {
         }
         enter_asymm_coro(wrapper)
         
-        let out = nextOut
-        nextOut = nil
-        
-        return out
+        if _completed {
+            return nil
+        }
+        return nextOut.move()
     }
     
     public func forceClose() {
@@ -71,5 +69,7 @@ public class Coro <InType, OutType> {
             fatalError("trying to deallocate a coroutine that has not completed; will probably leak memory. call forceClose() to allow this")
         }
         destroy_asymm_coro(wrapper)
+        nextIn.dealloc(1)
+        nextOut.dealloc(1)
     }
 }
