@@ -49,10 +49,6 @@ Warnings
 Notes
 -----
 
-* Building the framework requires Boost and the project currently assumes you've installed it via MacPorts (it will look for /opt/local/include/boost and /opt/local/lib/libboost_{coroutine,system}-mt.a). You will need to change these if you have Boost installed somewhere else. The built framework itself is meant to be standalone, it should be possible to work with the exposed Swift API with no external Boost dependencies.
-
-* Should probably be adapted to use Boost.Context directly once the upcoming version with execution\_context is released and Xcode ships with support for thread\_local in clang and libc++.
-
 * Have not attempted to test any of this with iOS yet.
 
 * Currently Promises as implemented here are fulfill-only, i.e. there isn't a separate path for errors to take, like there tends to be in other languages' implementations of Promises. This is meant to mirror Swift's overall approach to error handling: to the extent that you need to write Promises that can express error conditions, you should encode that in your own types.
@@ -67,6 +63,8 @@ Ideas/Todo
     * Elegant task-aware I/O API
     * Subscribe to Cocoa events, notifications, key-value observing, etc. via Promises/PromiseSequences
     * Bridges to and from Hexagen features for existing widely-used Swift/Objective-C concurrency libraries/frameworks/approaches
+* Internals
+    * Adapt to use Boost.Context directly once the upcoming version with execution\_context is released and Xcode is shipping with usable support for thread\_local in clang/libc++?
 * Project quality
     * Unit tests
     * Benchmarks
@@ -75,6 +73,6 @@ Ideas/Todo
 Credits
 -------
 
-The underlying context-switching primitive is a tiny wrapper around [Boost.Context](http://www.boost.org/libs/context/), currently via [Boost.Coroutine](http://www.boost.org/libs/coroutine/). Currently no Boost source or binaries are included in this repository, but Boost is free software under a permissive MIT-style [license](http://www.boost.org/users/license.html), Hexagen uses an MIT license, and so for the most part you can pretty freely incorporate and redistribute both with whatever.
+Hexagen is released under an MIT license (see LICENSE.md), so you can pretty freely incorporate and redistribute it wherever. The internal context-switching primitive is a thin wrapper around [Boost.Coroutine](http://www.boost.org/libs/coroutine/). Boost is free software under a permissive MIT-style [license](http://www.boost.org/users/license.html) and the parts of it used Hexagen are already included in this repository.
 
-My name is [Alice Atlas](https://github.com/aliceatlas) and I wrote the rest of it. I did it on purpose and I'm not sorry, dad
+My name is [Alice Atlas](https://github.com/aliceatlas) and I wrote the rest of this, I did it on purpose and I'm not sorry dad

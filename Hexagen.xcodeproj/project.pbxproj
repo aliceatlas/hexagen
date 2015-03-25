@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		860434A11AAE7B960076B28A /* libboost_coroutine-mt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 86189CD31AA1167700087913 /* libboost_coroutine-mt.a */; };
-		860434A21AAE7B960076B28A /* libboost_system-mt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 86189CD51AA116B400087913 /* libboost_system-mt.a */; };
-		860434A41AAE7BE40076B28A /* libboost_context-mt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 860434A31AAE7BE40076B28A /* libboost_context-mt.a */; };
-		860434A61AAE7C370076B28A /* libboost_thread-mt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 860434A51AAE7C370076B28A /* libboost_thread-mt.a */; };
 		860F6DBA1AA12DD400335793 /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D0E8FC1A975A92005E77BA /* Generator.swift */; };
 		860F6DC21AA136E200335793 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860F6DC11AA136E200335793 /* main.swift */; };
 		860F6DF31AA1589C00335793 /* Hexagen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86D0E8E01A97540D005E77BA /* Hexagen.framework */; };
@@ -18,6 +14,28 @@
 		860F6E271AA1B71C00335793 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860F6E261AA1B71C00335793 /* Task.swift */; };
 		860F6E2A1AA2085900335793 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860F6E291AA2085900335793 /* Queue.swift */; };
 		864EE6611AB2916A00F537FB /* GeneratorTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864EE6601AB2916A00F537FB /* GeneratorTask.swift */; };
+		86BCE8751AC26466005C5DC6 /* lockpool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE84A1AC26464005C5DC6 /* lockpool.cpp */; };
+		86BCE8761AC26466005C5DC6 /* chrono.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE84C1AC26464005C5DC6 /* chrono.cpp */; };
+		86BCE8771AC26466005C5DC6 /* process_cpu_clocks.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE84D1AC26464005C5DC6 /* process_cpu_clocks.cpp */; };
+		86BCE8781AC26466005C5DC6 /* thread_clock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE84E1AC26464005C5DC6 /* thread_clock.cpp */; };
+		86BCE8791AC26466005C5DC6 /* coroutine_context.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE8511AC26464005C5DC6 /* coroutine_context.cpp */; };
+		86BCE87A1AC26466005C5DC6 /* exceptions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE8521AC26464005C5DC6 /* exceptions.cpp */; };
+		86BCE87B1AC26466005C5DC6 /* stack_traits.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE8541AC26464005C5DC6 /* stack_traits.cpp */; };
+		86BCE87E1AC26466005C5DC6 /* date_generators.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE85A1AC26464005C5DC6 /* date_generators.cpp */; };
+		86BCE87F1AC26466005C5DC6 /* greg_month.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE85B1AC26464005C5DC6 /* greg_month.cpp */; };
+		86BCE8811AC26466005C5DC6 /* greg_weekday.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE85D1AC26464005C5DC6 /* greg_weekday.cpp */; };
+		86BCE8821AC26466005C5DC6 /* gregorian_types.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE85E1AC26464005C5DC6 /* gregorian_types.cpp */; };
+		86BCE8831AC26466005C5DC6 /* posix_time_types.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE8601AC26464005C5DC6 /* posix_time_types.cpp */; };
+		86BCE8841AC26466005C5DC6 /* clone_current_exception_non_intrusive.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE8621AC26464005C5DC6 /* clone_current_exception_non_intrusive.cpp */; };
+		86BCE8851AC26466005C5DC6 /* sp_collector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE8641AC26464005C5DC6 /* sp_collector.cpp */; };
+		86BCE8861AC26466005C5DC6 /* sp_debug_hooks.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE8651AC26464005C5DC6 /* sp_debug_hooks.cpp */; };
+		86BCE8871AC26466005C5DC6 /* error_code.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE8671AC26465005C5DC6 /* error_code.cpp */; };
+		86BCE8881AC26466005C5DC6 /* future.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE8691AC26465005C5DC6 /* future.cpp */; };
+		86BCE88A1AC26466005C5DC6 /* once_atomic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE86C1AC26465005C5DC6 /* once_atomic.cpp */; };
+		86BCE88B1AC26466005C5DC6 /* thread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE86D1AC26465005C5DC6 /* thread.cpp */; };
+		86BCE88D1AC26466005C5DC6 /* tss_null.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE86F1AC26466005C5DC6 /* tss_null.cpp */; };
+		86BCE8AC1AC27439005C5DC6 /* jump_i386_x86_64_sysv_macho_gas.S in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE89B1AC272FE005C5DC6 /* jump_i386_x86_64_sysv_macho_gas.S */; };
+		86BCE8AD1AC27439005C5DC6 /* make_i386_x86_64_sysv_macho_gas.S in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE8A01AC272FE005C5DC6 /* make_i386_x86_64_sysv_macho_gas.S */; };
 		86D0E8EC1A975412005E77BA /* Hexagen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86D0E8E01A97540D005E77BA /* Hexagen.framework */; };
 		86D0E8F31A975414005E77BA /* HexagenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D0E8F21A975414005E77BA /* HexagenTests.swift */; };
 		86D91E0B1AA365D100E86F79 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E0A1AA365D100E86F79 /* Channel.swift */; };
@@ -56,17 +74,46 @@
 
 /* Begin PBXFileReference section */
 		860434A01AAE67A20076B28A /* Wrapper.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Wrapper.pch; sourceTree = "<group>"; };
-		860434A31AAE7BE40076B28A /* libboost_context-mt.a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.objfile"; name = "libboost_context-mt.a"; path = "/opt/local/lib/libboost_context-mt.a"; sourceTree = "<absolute>"; };
-		860434A51AAE7C370076B28A /* libboost_thread-mt.a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.objfile"; name = "libboost_thread-mt.a"; path = "/opt/local/lib/libboost_thread-mt.a"; sourceTree = "<absolute>"; };
 		860F6DBF1AA136E200335793 /* HexagenExamples */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HexagenExamples; sourceTree = BUILT_PRODUCTS_DIR; };
 		860F6DC11AA136E200335793 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		860F6DF41AA1701200335793 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		860F6DF51AA17C5100335793 /* Coroutine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coroutine.swift; sourceTree = "<group>"; };
 		860F6E261AA1B71C00335793 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		860F6E291AA2085900335793 /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
-		86189CD31AA1167700087913 /* libboost_coroutine-mt.a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.objfile"; name = "libboost_coroutine-mt.a"; path = "/opt/local/lib/libboost_coroutine-mt.a"; sourceTree = "<absolute>"; };
-		86189CD51AA116B400087913 /* libboost_system-mt.a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.objfile"; name = "libboost_system-mt.a"; path = "/opt/local/lib/libboost_system-mt.a"; sourceTree = "<absolute>"; };
 		864EE6601AB2916A00F537FB /* GeneratorTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratorTask.swift; sourceTree = "<group>"; };
+		86BCE84A1AC26464005C5DC6 /* lockpool.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lockpool.cpp; sourceTree = "<group>"; };
+		86BCE84C1AC26464005C5DC6 /* chrono.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = chrono.cpp; sourceTree = "<group>"; };
+		86BCE84D1AC26464005C5DC6 /* process_cpu_clocks.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = process_cpu_clocks.cpp; sourceTree = "<group>"; };
+		86BCE84E1AC26464005C5DC6 /* thread_clock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = thread_clock.cpp; sourceTree = "<group>"; };
+		86BCE8511AC26464005C5DC6 /* coroutine_context.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = coroutine_context.cpp; sourceTree = "<group>"; };
+		86BCE8521AC26464005C5DC6 /* exceptions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = exceptions.cpp; sourceTree = "<group>"; };
+		86BCE8541AC26464005C5DC6 /* stack_traits.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stack_traits.cpp; sourceTree = "<group>"; };
+		86BCE85A1AC26464005C5DC6 /* date_generators.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = date_generators.cpp; sourceTree = "<group>"; };
+		86BCE85B1AC26464005C5DC6 /* greg_month.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = greg_month.cpp; sourceTree = "<group>"; };
+		86BCE85C1AC26464005C5DC6 /* greg_names.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = greg_names.hpp; sourceTree = "<group>"; };
+		86BCE85D1AC26464005C5DC6 /* greg_weekday.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = greg_weekday.cpp; sourceTree = "<group>"; };
+		86BCE85E1AC26464005C5DC6 /* gregorian_types.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gregorian_types.cpp; sourceTree = "<group>"; };
+		86BCE8601AC26464005C5DC6 /* posix_time_types.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = posix_time_types.cpp; sourceTree = "<group>"; };
+		86BCE8621AC26464005C5DC6 /* clone_current_exception_non_intrusive.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = clone_current_exception_non_intrusive.cpp; sourceTree = "<group>"; };
+		86BCE8641AC26464005C5DC6 /* sp_collector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sp_collector.cpp; sourceTree = "<group>"; };
+		86BCE8651AC26464005C5DC6 /* sp_debug_hooks.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sp_debug_hooks.cpp; sourceTree = "<group>"; };
+		86BCE8671AC26465005C5DC6 /* error_code.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = error_code.cpp; sourceTree = "<group>"; };
+		86BCE8691AC26465005C5DC6 /* future.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = future.cpp; sourceTree = "<group>"; };
+		86BCE86B1AC26465005C5DC6 /* once.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = once.cpp; sourceTree = "<group>"; };
+		86BCE86C1AC26465005C5DC6 /* once_atomic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = once_atomic.cpp; sourceTree = "<group>"; };
+		86BCE86D1AC26465005C5DC6 /* thread.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = thread.cpp; sourceTree = "<group>"; };
+		86BCE86F1AC26466005C5DC6 /* tss_null.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tss_null.cpp; sourceTree = "<group>"; };
+		86BCE8921AC26478005C5DC6 /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; path = include; sourceTree = "<group>"; };
+		86BCE8981AC272FE005C5DC6 /* jump_arm_aapcs_macho_gas.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = jump_arm_aapcs_macho_gas.S; sourceTree = "<group>"; };
+		86BCE89A1AC272FE005C5DC6 /* jump_i386_sysv_macho_gas.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = jump_i386_sysv_macho_gas.S; sourceTree = "<group>"; };
+		86BCE89B1AC272FE005C5DC6 /* jump_i386_x86_64_sysv_macho_gas.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = jump_i386_x86_64_sysv_macho_gas.S; sourceTree = "<group>"; };
+		86BCE89C1AC272FE005C5DC6 /* jump_x86_64_sysv_macho_gas.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = jump_x86_64_sysv_macho_gas.S; sourceTree = "<group>"; };
+		86BCE89D1AC272FE005C5DC6 /* make_arm_aapcs_macho_gas.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = make_arm_aapcs_macho_gas.S; sourceTree = "<group>"; };
+		86BCE89F1AC272FE005C5DC6 /* make_i386_sysv_macho_gas.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = make_i386_sysv_macho_gas.S; sourceTree = "<group>"; };
+		86BCE8A01AC272FE005C5DC6 /* make_i386_x86_64_sysv_macho_gas.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = make_i386_x86_64_sysv_macho_gas.S; sourceTree = "<group>"; };
+		86BCE8A11AC272FE005C5DC6 /* make_x86_64_sysv_macho_gas.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = make_x86_64_sysv_macho_gas.S; sourceTree = "<group>"; };
+		86BCE8AE1AC27B4D005C5DC6 /* jump_arm64_aapcs_macho_gas.S */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.asm; path = jump_arm64_aapcs_macho_gas.S; sourceTree = "<group>"; };
+		86BCE8AF1AC27B4D005C5DC6 /* make_arm64_aapcs_macho_gas.S */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.asm; path = make_arm64_aapcs_macho_gas.S; sourceTree = "<group>"; };
 		86D0E8E01A97540D005E77BA /* Hexagen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Hexagen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86D0E8E41A97540E005E77BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		86D0E8EB1A975412005E77BA /* HexagenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HexagenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,10 +146,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				860434A41AAE7BE40076B28A /* libboost_context-mt.a in Frameworks */,
-				860434A11AAE7B960076B28A /* libboost_coroutine-mt.a in Frameworks */,
-				860434A21AAE7B960076B28A /* libboost_system-mt.a in Frameworks */,
-				860434A61AAE7C370076B28A /* libboost_thread-mt.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,17 +168,6 @@
 			path = HexagenExamples;
 			sourceTree = "<group>";
 		};
-		860F6DC71AA1383D00335793 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				860434A31AAE7BE40076B28A /* libboost_context-mt.a */,
-				86189CD31AA1167700087913 /* libboost_coroutine-mt.a */,
-				86189CD51AA116B400087913 /* libboost_system-mt.a */,
-				860434A51AAE7C370076B28A /* libboost_thread-mt.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		860F6E251AA1B35D00335793 /* Swift */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +187,174 @@
 				860F6E291AA2085900335793 /* Queue.swift */,
 			);
 			path = Internal;
+			sourceTree = "<group>";
+		};
+		86BCE8471AC25A35005C5DC6 /* Boost */ = {
+			isa = PBXGroup;
+			children = (
+				86BCE8921AC26478005C5DC6 /* include */,
+				86BCE8481AC26463005C5DC6 /* src */,
+			);
+			path = Boost;
+			sourceTree = "<group>";
+		};
+		86BCE8481AC26463005C5DC6 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				86BCE8491AC26463005C5DC6 /* atomic */,
+				86BCE84B1AC26464005C5DC6 /* chrono */,
+				86BCE8961AC272FE005C5DC6 /* context */,
+				86BCE84F1AC26464005C5DC6 /* coroutine */,
+				86BCE8571AC26464005C5DC6 /* date_time */,
+				86BCE8611AC26464005C5DC6 /* exception */,
+				86BCE8631AC26464005C5DC6 /* smart_ptr */,
+				86BCE8661AC26464005C5DC6 /* system */,
+				86BCE8681AC26465005C5DC6 /* thread */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		86BCE8491AC26463005C5DC6 /* atomic */ = {
+			isa = PBXGroup;
+			children = (
+				86BCE84A1AC26464005C5DC6 /* lockpool.cpp */,
+			);
+			path = atomic;
+			sourceTree = "<group>";
+		};
+		86BCE84B1AC26464005C5DC6 /* chrono */ = {
+			isa = PBXGroup;
+			children = (
+				86BCE84C1AC26464005C5DC6 /* chrono.cpp */,
+				86BCE84D1AC26464005C5DC6 /* process_cpu_clocks.cpp */,
+				86BCE84E1AC26464005C5DC6 /* thread_clock.cpp */,
+			);
+			path = chrono;
+			sourceTree = "<group>";
+		};
+		86BCE84F1AC26464005C5DC6 /* coroutine */ = {
+			isa = PBXGroup;
+			children = (
+				86BCE8501AC26464005C5DC6 /* detail */,
+				86BCE8521AC26464005C5DC6 /* exceptions.cpp */,
+				86BCE8531AC26464005C5DC6 /* posix */,
+			);
+			path = coroutine;
+			sourceTree = "<group>";
+		};
+		86BCE8501AC26464005C5DC6 /* detail */ = {
+			isa = PBXGroup;
+			children = (
+				86BCE8511AC26464005C5DC6 /* coroutine_context.cpp */,
+			);
+			path = detail;
+			sourceTree = "<group>";
+		};
+		86BCE8531AC26464005C5DC6 /* posix */ = {
+			isa = PBXGroup;
+			children = (
+				86BCE8541AC26464005C5DC6 /* stack_traits.cpp */,
+			);
+			path = posix;
+			sourceTree = "<group>";
+		};
+		86BCE8571AC26464005C5DC6 /* date_time */ = {
+			isa = PBXGroup;
+			children = (
+				86BCE8591AC26464005C5DC6 /* gregorian */,
+				86BCE85F1AC26464005C5DC6 /* posix_time */,
+			);
+			path = date_time;
+			sourceTree = "<group>";
+		};
+		86BCE8591AC26464005C5DC6 /* gregorian */ = {
+			isa = PBXGroup;
+			children = (
+				86BCE85A1AC26464005C5DC6 /* date_generators.cpp */,
+				86BCE85B1AC26464005C5DC6 /* greg_month.cpp */,
+				86BCE85C1AC26464005C5DC6 /* greg_names.hpp */,
+				86BCE85D1AC26464005C5DC6 /* greg_weekday.cpp */,
+				86BCE85E1AC26464005C5DC6 /* gregorian_types.cpp */,
+			);
+			path = gregorian;
+			sourceTree = "<group>";
+		};
+		86BCE85F1AC26464005C5DC6 /* posix_time */ = {
+			isa = PBXGroup;
+			children = (
+				86BCE8601AC26464005C5DC6 /* posix_time_types.cpp */,
+			);
+			path = posix_time;
+			sourceTree = "<group>";
+		};
+		86BCE8611AC26464005C5DC6 /* exception */ = {
+			isa = PBXGroup;
+			children = (
+				86BCE8621AC26464005C5DC6 /* clone_current_exception_non_intrusive.cpp */,
+			);
+			path = exception;
+			sourceTree = "<group>";
+		};
+		86BCE8631AC26464005C5DC6 /* smart_ptr */ = {
+			isa = PBXGroup;
+			children = (
+				86BCE8641AC26464005C5DC6 /* sp_collector.cpp */,
+				86BCE8651AC26464005C5DC6 /* sp_debug_hooks.cpp */,
+			);
+			path = smart_ptr;
+			sourceTree = "<group>";
+		};
+		86BCE8661AC26464005C5DC6 /* system */ = {
+			isa = PBXGroup;
+			children = (
+				86BCE8671AC26465005C5DC6 /* error_code.cpp */,
+			);
+			path = system;
+			sourceTree = "<group>";
+		};
+		86BCE8681AC26465005C5DC6 /* thread */ = {
+			isa = PBXGroup;
+			children = (
+				86BCE8691AC26465005C5DC6 /* future.cpp */,
+				86BCE86A1AC26465005C5DC6 /* pthread */,
+				86BCE86F1AC26466005C5DC6 /* tss_null.cpp */,
+			);
+			path = thread;
+			sourceTree = "<group>";
+		};
+		86BCE86A1AC26465005C5DC6 /* pthread */ = {
+			isa = PBXGroup;
+			children = (
+				86BCE86B1AC26465005C5DC6 /* once.cpp */,
+				86BCE86C1AC26465005C5DC6 /* once_atomic.cpp */,
+				86BCE86D1AC26465005C5DC6 /* thread.cpp */,
+			);
+			path = pthread;
+			sourceTree = "<group>";
+		};
+		86BCE8961AC272FE005C5DC6 /* context */ = {
+			isa = PBXGroup;
+			children = (
+				86BCE8971AC272FE005C5DC6 /* asm */,
+			);
+			path = context;
+			sourceTree = "<group>";
+		};
+		86BCE8971AC272FE005C5DC6 /* asm */ = {
+			isa = PBXGroup;
+			children = (
+				86BCE8981AC272FE005C5DC6 /* jump_arm_aapcs_macho_gas.S */,
+				86BCE8AE1AC27B4D005C5DC6 /* jump_arm64_aapcs_macho_gas.S */,
+				86BCE89A1AC272FE005C5DC6 /* jump_i386_sysv_macho_gas.S */,
+				86BCE89B1AC272FE005C5DC6 /* jump_i386_x86_64_sysv_macho_gas.S */,
+				86BCE89C1AC272FE005C5DC6 /* jump_x86_64_sysv_macho_gas.S */,
+				86BCE89D1AC272FE005C5DC6 /* make_arm_aapcs_macho_gas.S */,
+				86BCE8AF1AC27B4D005C5DC6 /* make_arm64_aapcs_macho_gas.S */,
+				86BCE89F1AC272FE005C5DC6 /* make_i386_sysv_macho_gas.S */,
+				86BCE8A01AC272FE005C5DC6 /* make_i386_x86_64_sysv_macho_gas.S */,
+				86BCE8A11AC272FE005C5DC6 /* make_x86_64_sysv_macho_gas.S */,
+			);
+			path = asm;
 			sourceTree = "<group>";
 		};
 		86D0E8D61A975405005E77BA = {
@@ -183,20 +383,12 @@
 			isa = PBXGroup;
 			children = (
 				86D91E191AA3CAF500E86F79 /* Hexagen.h */,
+				86D0E8E41A97540E005E77BA /* Info.plist */,
+				86BCE8471AC25A35005C5DC6 /* Boost */,
 				86D91E121AA3CAC300E86F79 /* Wrapper */,
 				860F6E251AA1B35D00335793 /* Swift */,
-				86D0E8E31A97540E005E77BA /* Supporting Files */,
-				860F6DC71AA1383D00335793 /* Frameworks */,
 			);
 			path = Hexagen;
-			sourceTree = "<group>";
-		};
-		86D0E8E31A97540E005E77BA /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				86D0E8E41A97540E005E77BA /* Info.plist */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		86D0E8EF1A975412005E77BA /* HexagenTests */ = {
@@ -377,18 +569,40 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86BCE87A1AC26466005C5DC6 /* exceptions.cpp in Sources */,
+				86BCE8781AC26466005C5DC6 /* thread_clock.cpp in Sources */,
 				86D91E0B1AA365D100E86F79 /* Channel.swift in Sources */,
+				86BCE8AD1AC27439005C5DC6 /* make_i386_x86_64_sysv_macho_gas.S in Sources */,
+				86BCE8761AC26466005C5DC6 /* chrono.cpp in Sources */,
 				86D91E461AA480BB00E86F79 /* Awaitable.swift in Sources */,
+				86BCE8821AC26466005C5DC6 /* gregorian_types.cpp in Sources */,
+				86BCE8791AC26466005C5DC6 /* coroutine_context.cpp in Sources */,
+				86BCE8771AC26466005C5DC6 /* process_cpu_clocks.cpp in Sources */,
 				86DD822E1AB96D9E0097EF96 /* Promise.swift in Sources */,
+				86BCE8851AC26466005C5DC6 /* sp_collector.cpp in Sources */,
+				86BCE87E1AC26466005C5DC6 /* date_generators.cpp in Sources */,
+				86BCE8751AC26466005C5DC6 /* lockpool.cpp in Sources */,
+				86BCE8811AC26466005C5DC6 /* greg_weekday.cpp in Sources */,
 				860F6E2A1AA2085900335793 /* Queue.swift in Sources */,
 				86D91E441AA46F7E00E86F79 /* Timer.swift in Sources */,
+				86BCE8831AC26466005C5DC6 /* posix_time_types.cpp in Sources */,
 				860F6E271AA1B71C00335793 /* Task.swift in Sources */,
 				864EE6611AB2916A00F537FB /* GeneratorTask.swift in Sources */,
 				860F6DBA1AA12DD400335793 /* Generator.swift in Sources */,
+				86BCE8841AC26466005C5DC6 /* clone_current_exception_non_intrusive.cpp in Sources */,
 				860F6DF61AA17C5100335793 /* Coroutine.swift in Sources */,
+				86BCE88D1AC26466005C5DC6 /* tss_null.cpp in Sources */,
+				86BCE87F1AC26466005C5DC6 /* greg_month.cpp in Sources */,
 				86D91E471AA4894700E86F79 /* PromiseSequence.swift in Sources */,
+				86BCE8871AC26466005C5DC6 /* error_code.cpp in Sources */,
 				86D91E0D1AA3663D00E86F79 /* Utils.swift in Sources */,
+				86BCE8AC1AC27439005C5DC6 /* jump_i386_x86_64_sysv_macho_gas.S in Sources */,
 				86D91E181AA3CACB00E86F79 /* Wrapper.cpp in Sources */,
+				86BCE8881AC26466005C5DC6 /* future.cpp in Sources */,
+				86BCE88A1AC26466005C5DC6 /* once_atomic.cpp in Sources */,
+				86BCE8861AC26466005C5DC6 /* sp_debug_hooks.cpp in Sources */,
+				86BCE87B1AC26466005C5DC6 /* stack_traits.cpp in Sources */,
+				86BCE88B1AC26466005C5DC6 /* thread.cpp in Sources */,
 				86D91E1D1AA4047800E86F79 /* Promise+Awaitable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -526,7 +740,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Applications/Xcode-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
-					/opt/local/include,
+					"\"$(SRCROOT)/Hexagen/Boost/include\"",
 				);
 				INFOPLIST_FILE = Hexagen/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -554,7 +768,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Applications/Xcode-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
-					/opt/local/include,
+					"\"$(SRCROOT)/Hexagen/Boost/include\"",
 				);
 				INFOPLIST_FILE = Hexagen/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
