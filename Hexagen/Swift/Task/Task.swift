@@ -6,19 +6,16 @@
   \*****////
 
 
-public class TaskProto {
-    private var yield: (Void -> Void)!
-    
-    internal func schedule() {
-        fatalError("not implemented")
-    }
+private protocol TaskProto: AnyObject {
+    func schedule()
+    func suspend()
 }
 
 
 public class TaskCtrl {
     private static let currentTaskKey = "ai.atlas.hexagen.task.current"
     
-    public class var currentTask: TaskProto? {
+    private class var currentTask: TaskProto? {
         get {
             return threadDictionary[currentTaskKey] as? TaskProto
         }
@@ -44,7 +41,7 @@ public class TaskCtrl {
         }
         fn(resume)
         func suspend() -> T {
-            task.yield()
+            task.suspend()
             return ret!
         }
         return suspend
@@ -59,11 +56,12 @@ public func Async_(queue: dispatch_queue_t = mainQueue, start: Bool = true, body
 public class Async<T>: TaskProto, AwaitableRep {
     private let queue: dispatch_queue_t
     private var coro: Gen<Void>!
+    private var yield: (Void -> Void)!
     public let _asAwaitable: Promise<T>
+    public var started: Bool { return coro.started }
     
     public init(queue: dispatch_queue_t = mainQueue, start: Bool = true, body: Void -> T) {
         self.queue = queue
-        super.init()
         _asAwaitable = Promise()
         coro = Gen { [unowned self] yield in
             self.yield = yield
@@ -74,8 +72,11 @@ public class Async<T>: TaskProto, AwaitableRep {
         }
     }
     
-    internal override func schedule() {
-        dispatch_async(queue, enter)
+    public func start() {
+        if started {
+            fatalError("can't call start() twice on the same task")
+        }
+        schedule()
     }
     
     private func enter() {
@@ -83,5 +84,13 @@ public class Async<T>: TaskProto, AwaitableRep {
         TaskCtrl.currentTask = self
         coro.next()
         TaskCtrl.currentTask = nil
+    }
+    
+    private func schedule() {
+        dispatch_async(queue, enter)
+    }
+    
+    private func suspend() {
+        yield()
     }
 }

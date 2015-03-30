@@ -8,7 +8,6 @@
 
 public final class AsyncGen<OutType, ReturnType>: Async<ReturnType> {
     private let promiseSequence: PromiseSequence<OutType> = PromiseSequence<OutType>()
-    private var started = false
     
     public init(queue: dispatch_queue_t = mainQueue, body: (OutType -> Void) -> ReturnType) {
         super.init(queue: queue, start: false, body: { [promiseSequence] in
@@ -23,7 +22,7 @@ extension AsyncGen: SequenceType {
     public func generate() -> PromiseSequenceGenerator<OutType> {
         let gen = promiseSequence.generate()
         if !started {
-            schedule()
+            start()
         }
         return gen
     }
