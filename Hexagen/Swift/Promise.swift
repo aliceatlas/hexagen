@@ -18,7 +18,10 @@ public class Promiselike<T> {
     }
     
     public func addHandler(fn: T -> Void) {
-        handlers!.append(fn)
+        if let _ = handlers?.append(fn) {
+        } else {
+            fn(value!)
+        }
     }
     
     private func callHandlers() {
