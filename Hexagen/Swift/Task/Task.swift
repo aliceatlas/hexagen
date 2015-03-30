@@ -34,7 +34,7 @@ public class TaskCtrl {
     
     public class func suspender<T>(@noescape fn: ((T -> Void) -> Void)) -> (Void -> T) {
         let task = currentTask!
-        var ret: T?
+        var ret: T!
         func resume(value: T) {
             ret = value
             task.schedule()
@@ -42,7 +42,7 @@ public class TaskCtrl {
         fn(resume)
         func suspend() -> T {
             task.suspend()
-            return ret!
+            return ret
         }
         return suspend
     }

@@ -6,8 +6,7 @@
   \*****////
 
 
-public class Channel<T> {
-    private let operationQueue = dispatch_queue_create("ai.atlas.hexagen.channel", nil)
+public class Channel<T>: _SyncTarget {
     private let bufferSize: Int
     private lazy var bufferSpace: Int = self.bufferSize
     private let buffer = SynchronizedQueue<T>()
@@ -18,22 +17,18 @@ public class Channel<T> {
         bufferSize = buffer
     }
     
-    internal func sync(operation: Void -> Void) {
-        dispatch_sync(operationQueue, operation)
-    }
-    
     public func send(val: T) {
         var suspender: (Void -> Void)?
         sync {
-            if !self.waitingReceivers.isEmpty {
-                let recv = self.waitingReceivers.pull(queue: false)!
+            if !waitingReceivers.isEmpty {
+                let recv = waitingReceivers.pull(sync: false)!
                 recv(val)
             } else {
-                self.bufferSpace--
-                self.buffer.push(val, queue: false)
-                if self.bufferSpace < 0 {
+                bufferSpace--
+                buffer.push(val, sync: false)
+                if bufferSpace < 0 {
                     suspender = TaskCtrl.suspender { resume in
-                        self.waitingSenders.push(resume)
+                        waitingSenders.push(resume)
                     }
                 }
             }
@@ -45,16 +40,16 @@ public class Channel<T> {
         var suspender: (Void -> T)?
         var ret: T?
         sync {
-            if !self.buffer.isEmpty {
-                self.bufferSpace++
-                ret = self.buffer.pull(queue: false)!
-                if self.bufferSpace <= 0 {
-                    let sender = self.waitingSenders.pull(queue: false)!
+            if !buffer.isEmpty {
+                bufferSpace++
+                ret = buffer.pull(sync: false)!
+                if bufferSpace <= 0 {
+                    let sender = waitingSenders.pull(sync: false)!
                     sender()
                 }
             } else {
                 suspender = TaskCtrl.suspender { resume in
-                    self.waitingReceivers.push(resume, queue: false)
+                    waitingReceivers.push(resume, sync: false)
                 }
             }
         }

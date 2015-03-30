@@ -14,17 +14,23 @@ public class Feed<T> {
     }
     
     private func _post(value: T?) {
-        if let last = head {
-            last._fulfill(value)
-            head = last.successor
-        } else {
-            fatalError("sequence was already closed")
+        synchronized(self) {
+            if let last = head {
+                last._fulfill(value)
+                head = last.successor
+            } else {
+                fatalError("sequence was already closed")
+            }
         }
     }
 }
 
 internal class RecurringPromise<T>: Promise<T?> {
-    lazy internal var successor: RecurringPromise<T>? = RecurringPromise()
+    private var _successor = ThreadSafeLazy<RecurringPromise<T>?> { RecurringPromise() }
+    internal var successor: RecurringPromise<T>? {
+        get { return _successor.value }
+        set { _successor.value = newValue }
+    }
     
     private override init() {
         super.init()

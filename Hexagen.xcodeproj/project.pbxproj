@@ -16,6 +16,7 @@
 		861D9FF71AC93336007E3A9D /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861D9FF61AC93336007E3A9D /* Feed.swift */; };
 		861D9FF81AC93336007E3A9D /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861D9FF61AC93336007E3A9D /* Feed.swift */; };
 		864EE6611AB2916A00F537FB /* GeneratorTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864EE6601AB2916A00F537FB /* GeneratorTask.swift */; };
+		867ACD821AA4E55D00CBE8C7 /* Sync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867ACD811AA4E55D00CBE8C7 /* Sync.swift */; };
 		869CC7901AC2AE4F00939A39 /* MobileHexagen.h in Headers */ = {isa = PBXBuildFile; fileRef = 869CC78F1AC2AE4F00939A39 /* MobileHexagen.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		869CC7961AC2AE4F00939A39 /* MobileHexagen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 869CC78B1AC2AE4F00939A39 /* MobileHexagen.framework */; };
 		869CC79D1AC2AE4F00939A39 /* MobileHexagenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869CC79C1AC2AE4F00939A39 /* MobileHexagenTests.swift */; };
@@ -54,6 +55,7 @@
 		869CC7CB1AC2B7D400939A39 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E431AA46F7E00E86F79 /* Timer.swift */; };
 		869CC7CE1AC2B7D400939A39 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E0C1AA3663D00E86F79 /* Utils.swift */; };
 		869CC7CF1AC2B7D400939A39 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860F6E291AA2085900335793 /* Queue.swift */; };
+		869CC7D01AC2B7D400939A39 /* Sync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867ACD811AA4E55D00CBE8C7 /* Sync.swift */; };
 		869CC7D11AC2B7EA00939A39 /* Wrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 86D91E141AA3CAC300E86F79 /* Wrapper.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		86BCE8751AC26466005C5DC6 /* lockpool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE84A1AC26464005C5DC6 /* lockpool.cpp */; };
 		86BCE8761AC26466005C5DC6 /* chrono.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE84C1AC26464005C5DC6 /* chrono.cpp */; };
@@ -130,6 +132,7 @@
 		860F6E291AA2085900335793 /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		861D9FF61AC93336007E3A9D /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		864EE6601AB2916A00F537FB /* GeneratorTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratorTask.swift; sourceTree = "<group>"; };
+		867ACD811AA4E55D00CBE8C7 /* Sync.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sync.swift; sourceTree = "<group>"; };
 		869CC78B1AC2AE4F00939A39 /* MobileHexagen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MobileHexagen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		869CC78E1AC2AE4F00939A39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		869CC78F1AC2AE4F00939A39 /* MobileHexagen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MobileHexagen.h; sourceTree = "<group>"; };
@@ -250,6 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				86D91E0C1AA3663D00E86F79 /* Utils.swift */,
+				867ACD811AA4E55D00CBE8C7 /* Sync.swift */,
 				860F6E291AA2085900335793 /* Queue.swift */,
 			);
 			path = Internal;
@@ -775,6 +779,7 @@
 				869CC7BC1AC2B57700939A39 /* once_atomic.cpp in Sources */,
 				869CC7AA1AC2B1D100939A39 /* make_arm_arm64_aapcs_macho_gas.S in Sources */,
 				869CC7C61AC2B7D400939A39 /* Promise+Awaitable.swift in Sources */,
+				869CC7D01AC2B7D400939A39 /* Sync.swift in Sources */,
 				869CC7B01AC2B57700939A39 /* exceptions.cpp in Sources */,
 				869CC7B11AC2B57700939A39 /* stack_traits.cpp in Sources */,
 				869CC7BE1AC2B57700939A39 /* tss_null.cpp in Sources */,
@@ -836,6 +841,7 @@
 				86D91E0D1AA3663D00E86F79 /* Utils.swift in Sources */,
 				86BCE8AC1AC27439005C5DC6 /* jump_i386_x86_64_sysv_macho_gas.S in Sources */,
 				86D91E181AA3CACB00E86F79 /* Wrapper.cpp in Sources */,
+				867ACD821AA4E55D00CBE8C7 /* Sync.swift in Sources */,
 				86BCE8881AC26466005C5DC6 /* future.cpp in Sources */,
 				86BCE88A1AC26466005C5DC6 /* once_atomic.cpp in Sources */,
 				86BCE8861AC26466005C5DC6 /* sp_debug_hooks.cpp in Sources */,

@@ -15,47 +15,52 @@ private class Node<T> {
     }
 }
 
-internal class SynchronizedQueue<T> {
-    private let operationQueue = dispatch_queue_create("ai.atlas.hexagen.synchronizedQueue", nil)
-    
+internal class SynchronizedQueue<T>: _SyncTarget {
     private var front: Node<T>?
     private weak var back: Node<T>?
     
     private var _count = 0
     internal var count: Int { return _count }
     
-    internal func sync(queue: Bool, operation: Void -> Void) {
-        if queue {
-            dispatch_sync(operationQueue, operation)
-        } else {
-            operation()
-        }
-    }
-    
-    internal func push(val: T, queue: Bool = true) {
-        sync(queue) {
-            if self.back == nil {
-                self.front = Node(val)
-                self.back = self.front
+    internal func push(val: T, sync real: Bool = true) {
+        sync(real) {
+            if back == nil {
+                front = Node(val)
+                back = front
             } else {
-                self.back!.next = Node(val)
-                self.back = self.back!.next
+                back!.next = Node(val)
+                back = back!.next
             }
-            self._count++
+            _count++
         }
     }
     
-    internal func pull(queue: Bool = true) -> T? {
-        var val: T?
-        sync(queue) {
-            if self.front != nil {
-                self._count--
-                val = self.front!.val
-                self.front = self.front!.next
-                if self.front == nil { self.back = nil }
+    internal func pull(sync real: Bool = true) -> T? {
+        return sync(real) {
+            if front != nil {
+                _count--
+                let val = front!.val
+                front = front!.next
+                if front == nil { back = nil }
+                return val
             }
+            return nil
         }
-        return val
+    }
+    
+    internal func unroll(sync real: Bool = true) -> [T] {
+        return sync(real) {
+            var out: [T] = []
+            out.reserveCapacity(count)
+            var node = front
+            for i in 0..<count {
+                out.append(node!.val)
+                node = node!.next
+            }
+            front = nil
+            back = nil
+            return out
+        }
     }
     
     internal var peek: T? {
