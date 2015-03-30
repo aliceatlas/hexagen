@@ -19,7 +19,7 @@ public class Coro <InType, OutType> {
     public var completed: Bool { return _completed }
     public var running: Bool { return _started && !_completed }
     
-    public init(_ fn: (OutType -> InType) -> Void) {
+    public init(_ body: (OutType -> InType) -> Void) {
         setup_asymm_coro(wrapper) { [unowned self, nextOut, nextIn] (exit) in
             exit()
             self._started = true
@@ -28,7 +28,7 @@ public class Coro <InType, OutType> {
                 exit()
                 return nextIn.move()
             }
-            fn(yield)
+            body(yield)
             self._completed = true
         }
     }
