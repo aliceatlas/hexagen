@@ -36,7 +36,7 @@ public class Promise<T>: Promiselike<T> {
     
     internal override init() {}
     
-    public init(@noescape fn: (T -> Void) -> Void) {
+    public init(@noescape _ fn: (T -> Void) -> Void) {
         super.init()
         fn(_fulfill)
     }
