@@ -1,0 +1,3 @@
+[submodule "BuildStatic"]
+	path = BuildStatic
+	url = https://github.com/aliceatlas/buildstatic

@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		860F6DBA1AA12DD400335793 /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D0E8FC1A975A92005E77BA /* Generator.swift */; };
 		860F6DC21AA136E200335793 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860F6DC11AA136E200335793 /* main.swift */; };
-		860F6DF31AA1589C00335793 /* Hexagen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86D0E8E01A97540D005E77BA /* Hexagen.framework */; };
 		860F6DF61AA17C5100335793 /* Coroutine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860F6DF51AA17C5100335793 /* Coroutine.swift */; };
 		860F6E271AA1B71C00335793 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860F6E261AA1B71C00335793 /* Task.swift */; };
 		860F6E2A1AA2085900335793 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860F6E291AA2085900335793 /* Queue.swift */; };
+		861D9FE91AC8E402007E3A9D /* Hexagen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86D0E8E01A97540D005E77BA /* Hexagen.framework */; };
 		864EE6611AB2916A00F537FB /* GeneratorTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864EE6601AB2916A00F537FB /* GeneratorTask.swift */; };
 		869CC7901AC2AE4F00939A39 /* MobileHexagen.h in Headers */ = {isa = PBXBuildFile; fileRef = 869CC78F1AC2AE4F00939A39 /* MobileHexagen.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		869CC7961AC2AE4F00939A39 /* MobileHexagen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 869CC78B1AC2AE4F00939A39 /* MobileHexagen.framework */; };
@@ -192,7 +192,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				860F6DF31AA1589C00335793 /* Hexagen.framework in Frameworks */,
+				861D9FE91AC8E402007E3A9D /* Hexagen.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -556,9 +556,9 @@
 			buildConfigurationList = 869CC79E1AC2AE4F00939A39 /* Build configuration list for PBXNativeTarget "MobileHexagen" */;
 			buildPhases = (
 				869CC7861AC2AE4F00939A39 /* Sources */,
-				869CC7871AC2AE4F00939A39 /* Frameworks */,
 				869CC7881AC2AE4F00939A39 /* Headers */,
 				869CC7891AC2AE4F00939A39 /* Resources */,
+				861D9FEB1AC8EA53007E3A9D /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -595,6 +595,7 @@
 				86D0E8DC1A97540A005E77BA /* Frameworks */,
 				86D0E8DD1A97540A005E77BA /* Headers */,
 				86D0E8DE1A97540A005E77BA /* Resources */,
+				861D9FEA1AC8E5A2007E3A9D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -700,6 +701,42 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		861D9FEA1AC8E5A2007E3A9D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(LD_DEPENDENCY_INFO_FILE)",
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(EXECUTABLE_PATH)",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = ". BuildStatic/BuildStaticInPlace.sh";
+			showEnvVarsInLog = 0;
+		};
+		861D9FEB1AC8EA53007E3A9D /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(LD_DEPENDENCY_INFO_FILE)",
+			);
+			name = "Run Script";
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(EXECUTABLE_PATH)",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = ". BuildStatic/BuildStaticInPlace.sh";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		860F6DBB1AA136E200335793 /* Sources */ = {
@@ -853,7 +890,7 @@
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -871,7 +908,6 @@
 					"\"$(SRCROOT)/Hexagen/Boost/include\"",
 				);
 				INFOPLIST_FILE = MobileHexagen/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -886,6 +922,7 @@
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -899,7 +936,6 @@
 					"\"$(SRCROOT)/Hexagen/Boost/include\"",
 				);
 				INFOPLIST_FILE = MobileHexagen/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -925,7 +961,6 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = MobileHexagenTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -942,7 +977,6 @@
 				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = MobileHexagenTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -982,7 +1016,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -1018,7 +1053,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1044,8 +1080,6 @@
 					"\"$(SRCROOT)/Hexagen/Boost/include\"",
 				);
 				INFOPLIST_FILE = Hexagen/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = Hexagen;
 				SKIP_INSTALL = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
@@ -1070,8 +1104,6 @@
 					"\"$(SRCROOT)/Hexagen/Boost/include\"",
 				);
 				INFOPLIST_FILE = Hexagen/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = Hexagen;
 				SKIP_INSTALL = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
@@ -1129,6 +1161,7 @@
 				869CC7A01AC2AE4F00939A39 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		869CC7A11AC2AE4F00939A39 /* Build configuration list for PBXNativeTarget "MobileHexagenTests" */ = {
 			isa = XCConfigurationList;
@@ -1137,6 +1170,7 @@
 				869CC7A31AC2AE4F00939A39 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		86D0E8DA1A975408005E77BA /* Build configuration list for PBXProject "Hexagen" */ = {
 			isa = XCConfigurationList;
