@@ -6,7 +6,12 @@
   \*****////
 
 
+#if os(OSX)
 import Cocoa
+#else
+import UIKit
+#endif
+
 import XCTest
 
 class HexagenTests: XCTestCase {

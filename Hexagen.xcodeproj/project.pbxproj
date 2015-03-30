@@ -16,10 +16,9 @@
 		861D9FF71AC93336007E3A9D /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861D9FF61AC93336007E3A9D /* Feed.swift */; };
 		861D9FF81AC93336007E3A9D /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861D9FF61AC93336007E3A9D /* Feed.swift */; };
 		864EE6611AB2916A00F537FB /* GeneratorTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864EE6601AB2916A00F537FB /* GeneratorTask.swift */; };
+		8659A8B61AC9DDA500C67C9C /* Hexagen.h in Headers */ = {isa = PBXBuildFile; fileRef = 86D91E191AA3CAF500E86F79 /* Hexagen.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		867ACD821AA4E55D00CBE8C7 /* Sync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867ACD811AA4E55D00CBE8C7 /* Sync.swift */; };
-		869CC7901AC2AE4F00939A39 /* MobileHexagen.h in Headers */ = {isa = PBXBuildFile; fileRef = 869CC78F1AC2AE4F00939A39 /* MobileHexagen.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		869CC7961AC2AE4F00939A39 /* MobileHexagen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 869CC78B1AC2AE4F00939A39 /* MobileHexagen.framework */; };
-		869CC79D1AC2AE4F00939A39 /* MobileHexagenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869CC79C1AC2AE4F00939A39 /* MobileHexagenTests.swift */; };
+		869CC7961AC2AE4F00939A39 /* Hexagen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 869CC78B1AC2AE4F00939A39 /* Hexagen.framework */; };
 		869CC7A41AC2B12D00939A39 /* Wrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E151AA3CAC300E86F79 /* Wrapper.cpp */; };
 		869CC7A61AC2B1B300939A39 /* jump_arm_arm64_aapcs_macho_gas.S in Sources */ = {isa = PBXBuildFile; fileRef = 869CC7A51AC2B1B300939A39 /* jump_arm_arm64_aapcs_macho_gas.S */; };
 		869CC7AA1AC2B1D100939A39 /* make_arm_arm64_aapcs_macho_gas.S in Sources */ = {isa = PBXBuildFile; fileRef = 869CC7A91AC2B1D100939A39 /* make_arm_arm64_aapcs_macho_gas.S */; };
@@ -133,12 +132,8 @@
 		861D9FF61AC93336007E3A9D /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		864EE6601AB2916A00F537FB /* GeneratorTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratorTask.swift; sourceTree = "<group>"; };
 		867ACD811AA4E55D00CBE8C7 /* Sync.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sync.swift; sourceTree = "<group>"; };
-		869CC78B1AC2AE4F00939A39 /* MobileHexagen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MobileHexagen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		869CC78E1AC2AE4F00939A39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		869CC78F1AC2AE4F00939A39 /* MobileHexagen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MobileHexagen.h; sourceTree = "<group>"; };
-		869CC7951AC2AE4F00939A39 /* MobileHexagenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobileHexagenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		869CC79B1AC2AE4F00939A39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		869CC79C1AC2AE4F00939A39 /* MobileHexagenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileHexagenTests.swift; sourceTree = "<group>"; };
+		869CC78B1AC2AE4F00939A39 /* Hexagen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Hexagen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		869CC7951AC2AE4F00939A39 /* HexagenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HexagenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		869CC7A51AC2B1B300939A39 /* jump_arm_arm64_aapcs_macho_gas.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = jump_arm_arm64_aapcs_macho_gas.S; sourceTree = "<group>"; };
 		869CC7A91AC2B1D100939A39 /* make_arm_arm64_aapcs_macho_gas.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = make_arm_arm64_aapcs_macho_gas.S; sourceTree = "<group>"; };
 		86BCE84A1AC26464005C5DC6 /* lockpool.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lockpool.cpp; sourceTree = "<group>"; };
@@ -206,7 +201,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				869CC7961AC2AE4F00939A39 /* MobileHexagen.framework in Frameworks */,
+				869CC7961AC2AE4F00939A39 /* Hexagen.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,24 +252,6 @@
 				860F6E291AA2085900335793 /* Queue.swift */,
 			);
 			path = Internal;
-			sourceTree = "<group>";
-		};
-		869CC78C1AC2AE4F00939A39 /* MobileHexagen */ = {
-			isa = PBXGroup;
-			children = (
-				869CC78F1AC2AE4F00939A39 /* MobileHexagen.h */,
-				869CC78E1AC2AE4F00939A39 /* Info.plist */,
-			);
-			path = MobileHexagen;
-			sourceTree = "<group>";
-		};
-		869CC7991AC2AE4F00939A39 /* MobileHexagenTests */ = {
-			isa = PBXGroup;
-			children = (
-				869CC79C1AC2AE4F00939A39 /* MobileHexagenTests.swift */,
-				869CC79B1AC2AE4F00939A39 /* Info.plist */,
-			);
-			path = MobileHexagenTests;
 			sourceTree = "<group>";
 		};
 		86BCE8471AC25A35005C5DC6 /* Boost */ = {
@@ -455,8 +432,6 @@
 				86D0E8E21A97540D005E77BA /* Hexagen */,
 				86D0E8EF1A975412005E77BA /* HexagenTests */,
 				860F6DC01AA136E200335793 /* HexagenExamples */,
-				869CC78C1AC2AE4F00939A39 /* MobileHexagen */,
-				869CC7991AC2AE4F00939A39 /* MobileHexagenTests */,
 				86D0E8E11A97540D005E77BA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -467,8 +442,8 @@
 				86D0E8E01A97540D005E77BA /* Hexagen.framework */,
 				86D0E8EB1A975412005E77BA /* HexagenTests.xctest */,
 				860F6DBF1AA136E200335793 /* HexagenExamples */,
-				869CC78B1AC2AE4F00939A39 /* MobileHexagen.framework */,
-				869CC7951AC2AE4F00939A39 /* MobileHexagenTests.xctest */,
+				869CC78B1AC2AE4F00939A39 /* Hexagen.framework */,
+				869CC7951AC2AE4F00939A39 /* HexagenTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -525,8 +500,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8659A8B61AC9DDA500C67C9C /* Hexagen.h in Headers */,
 				869CC7D11AC2B7EA00939A39 /* Wrapper.h in Headers */,
-				869CC7901AC2AE4F00939A39 /* MobileHexagen.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -559,9 +534,9 @@
 			productReference = 860F6DBF1AA136E200335793 /* HexagenExamples */;
 			productType = "com.apple.product-type.tool";
 		};
-		869CC78A1AC2AE4F00939A39 /* MobileHexagen */ = {
+		869CC78A1AC2AE4F00939A39 /* Hexagen (iOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 869CC79E1AC2AE4F00939A39 /* Build configuration list for PBXNativeTarget "MobileHexagen" */;
+			buildConfigurationList = 869CC79E1AC2AE4F00939A39 /* Build configuration list for PBXNativeTarget "Hexagen (iOS)" */;
 			buildPhases = (
 				869CC7861AC2AE4F00939A39 /* Sources */,
 				869CC7881AC2AE4F00939A39 /* Headers */,
@@ -572,14 +547,14 @@
 			);
 			dependencies = (
 			);
-			name = MobileHexagen;
+			name = "Hexagen (iOS)";
 			productName = MobileHexagen;
-			productReference = 869CC78B1AC2AE4F00939A39 /* MobileHexagen.framework */;
+			productReference = 869CC78B1AC2AE4F00939A39 /* Hexagen.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		869CC7941AC2AE4F00939A39 /* MobileHexagenTests */ = {
+		869CC7941AC2AE4F00939A39 /* HexagenTests (iOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 869CC7A11AC2AE4F00939A39 /* Build configuration list for PBXNativeTarget "MobileHexagenTests" */;
+			buildConfigurationList = 869CC7A11AC2AE4F00939A39 /* Build configuration list for PBXNativeTarget "HexagenTests (iOS)" */;
 			buildPhases = (
 				869CC7911AC2AE4F00939A39 /* Sources */,
 				869CC7921AC2AE4F00939A39 /* Frameworks */,
@@ -590,14 +565,14 @@
 			dependencies = (
 				869CC7981AC2AE4F00939A39 /* PBXTargetDependency */,
 			);
-			name = MobileHexagenTests;
+			name = "HexagenTests (iOS)";
 			productName = MobileHexagenTests;
-			productReference = 869CC7951AC2AE4F00939A39 /* MobileHexagenTests.xctest */;
+			productReference = 869CC7951AC2AE4F00939A39 /* HexagenTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		86D0E8DF1A97540A005E77BA /* Hexagen */ = {
+		86D0E8DF1A97540A005E77BA /* Hexagen (Mac) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 86D0E8F61A975414005E77BA /* Build configuration list for PBXNativeTarget "Hexagen" */;
+			buildConfigurationList = 86D0E8F61A975414005E77BA /* Build configuration list for PBXNativeTarget "Hexagen (Mac)" */;
 			buildPhases = (
 				86D0E8DB1A97540A005E77BA /* Sources */,
 				86D0E8DC1A97540A005E77BA /* Frameworks */,
@@ -609,14 +584,14 @@
 			);
 			dependencies = (
 			);
-			name = Hexagen;
+			name = "Hexagen (Mac)";
 			productName = Hexagen;
 			productReference = 86D0E8E01A97540D005E77BA /* Hexagen.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		86D0E8EA1A975412005E77BA /* HexagenTests */ = {
+		86D0E8EA1A975412005E77BA /* HexagenTests (Mac) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 86D0E8F91A975414005E77BA /* Build configuration list for PBXNativeTarget "HexagenTests" */;
+			buildConfigurationList = 86D0E8F91A975414005E77BA /* Build configuration list for PBXNativeTarget "HexagenTests (Mac)" */;
 			buildPhases = (
 				86D0E8E71A975412005E77BA /* Sources */,
 				86D0E8E81A975412005E77BA /* Frameworks */,
@@ -627,7 +602,7 @@
 			dependencies = (
 				86D0E8EE1A975412005E77BA /* PBXTargetDependency */,
 			);
-			name = HexagenTests;
+			name = "HexagenTests (Mac)";
 			productName = HexagenTests;
 			productReference = 86D0E8EB1A975412005E77BA /* HexagenTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -670,11 +645,11 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				86D0E8DF1A97540A005E77BA /* Hexagen */,
-				86D0E8EA1A975412005E77BA /* HexagenTests */,
+				86D0E8DF1A97540A005E77BA /* Hexagen (Mac) */,
+				869CC78A1AC2AE4F00939A39 /* Hexagen (iOS) */,
+				86D0E8EA1A975412005E77BA /* HexagenTests (Mac) */,
+				869CC7941AC2AE4F00939A39 /* HexagenTests (iOS) */,
 				860F6DBE1AA136E200335793 /* HexagenExamples */,
-				869CC78A1AC2AE4F00939A39 /* MobileHexagen */,
-				869CC7941AC2AE4F00939A39 /* MobileHexagenTests */,
 			);
 		};
 /* End PBXProject section */
@@ -803,7 +778,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				869CC79D1AC2AE4F00939A39 /* MobileHexagenTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -864,12 +838,12 @@
 /* Begin PBXTargetDependency section */
 		869CC7981AC2AE4F00939A39 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 869CC78A1AC2AE4F00939A39 /* MobileHexagen */;
+			target = 869CC78A1AC2AE4F00939A39 /* Hexagen (iOS) */;
 			targetProxy = 869CC7971AC2AE4F00939A39 /* PBXContainerItemProxy */;
 		};
 		86D0E8EE1A975412005E77BA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 86D0E8DF1A97540A005E77BA /* Hexagen */;
+			target = 86D0E8DF1A97540A005E77BA /* Hexagen (Mac) */;
 			targetProxy = 86D0E8ED1A975412005E77BA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -919,9 +893,9 @@
 					"/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
 					"\"$(SRCROOT)/Hexagen/Boost/include\"",
 				);
-				INFOPLIST_FILE = MobileHexagen/Info.plist;
+				INFOPLIST_FILE = Hexagen/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Hexagen;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
@@ -948,9 +922,9 @@
 					"/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
 					"\"$(SRCROOT)/Hexagen/Boost/include\"",
 				);
-				INFOPLIST_FILE = MobileHexagen/Info.plist;
+				INFOPLIST_FILE = Hexagen/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Hexagen;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
@@ -965,18 +939,14 @@
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = MobileHexagenTests/Info.plist;
+				INFOPLIST_FILE = HexagenTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = HexagenTests;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -985,14 +955,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = MobileHexagenTests/Info.plist;
+				INFOPLIST_FILE = HexagenTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = HexagenTests;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1170,7 +1136,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		869CC79E1AC2AE4F00939A39 /* Build configuration list for PBXNativeTarget "MobileHexagen" */ = {
+		869CC79E1AC2AE4F00939A39 /* Build configuration list for PBXNativeTarget "Hexagen (iOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				869CC79F1AC2AE4F00939A39 /* Debug */,
@@ -1179,7 +1145,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		869CC7A11AC2AE4F00939A39 /* Build configuration list for PBXNativeTarget "MobileHexagenTests" */ = {
+		869CC7A11AC2AE4F00939A39 /* Build configuration list for PBXNativeTarget "HexagenTests (iOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				869CC7A21AC2AE4F00939A39 /* Debug */,
@@ -1197,7 +1163,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		86D0E8F61A975414005E77BA /* Build configuration list for PBXNativeTarget "Hexagen" */ = {
+		86D0E8F61A975414005E77BA /* Build configuration list for PBXNativeTarget "Hexagen (Mac)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				86D0E8F71A975414005E77BA /* Debug */,
@@ -1206,7 +1172,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		86D0E8F91A975414005E77BA /* Build configuration list for PBXNativeTarget "HexagenTests" */ = {
+		86D0E8F91A975414005E77BA /* Build configuration list for PBXNativeTarget "HexagenTests (Mac)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				86D0E8FA1A975414005E77BA /* Debug */,
