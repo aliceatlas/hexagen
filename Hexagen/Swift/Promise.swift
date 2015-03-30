@@ -13,7 +13,7 @@ public class Promiselike<T> {
         fatalError("not implemented")
     }
     
-    public func map<U>(fn: T -> U) -> Promiselike<U> {
+    public func map<U>(fn: T -> U) -> MappedPromise<T, U> {
         return MappedPromise(parent: self, mapping: fn)
     }
     
