@@ -79,7 +79,4 @@ public class MappedPromise<T, U>: Promiselike<U> {
     }
 }
 
-/* currently needs to go here rather than Task/Promise+Awaitable.swift due to Mysterious Compiler Crash reasons */
-
-extension Promiselike: Awaitable {
 }

@@ -6,7 +6,7 @@
   \*****////
 
 
-extension Promiselike {
+extension Promiselike: Awaitable {
     public func _await() -> T {
         return value ?? TaskCtrl.suspend(addHandler)
     }
