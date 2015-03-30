@@ -13,6 +13,8 @@
 		860F6E271AA1B71C00335793 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860F6E261AA1B71C00335793 /* Task.swift */; };
 		860F6E2A1AA2085900335793 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860F6E291AA2085900335793 /* Queue.swift */; };
 		861D9FE91AC8E402007E3A9D /* Hexagen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86D0E8E01A97540D005E77BA /* Hexagen.framework */; };
+		861D9FF71AC93336007E3A9D /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861D9FF61AC93336007E3A9D /* Feed.swift */; };
+		861D9FF81AC93336007E3A9D /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861D9FF61AC93336007E3A9D /* Feed.swift */; };
 		864EE6611AB2916A00F537FB /* GeneratorTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864EE6601AB2916A00F537FB /* GeneratorTask.swift */; };
 		869CC7901AC2AE4F00939A39 /* MobileHexagen.h in Headers */ = {isa = PBXBuildFile; fileRef = 869CC78F1AC2AE4F00939A39 /* MobileHexagen.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		869CC7961AC2AE4F00939A39 /* MobileHexagen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 869CC78B1AC2AE4F00939A39 /* MobileHexagen.framework */; };
@@ -47,7 +49,7 @@
 		869CC7C61AC2B7D400939A39 /* Promise+Awaitable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E1B1AA4047800E86F79 /* Promise+Awaitable.swift */; };
 		869CC7C71AC2B7D400939A39 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860F6E261AA1B71C00335793 /* Task.swift */; };
 		869CC7C81AC2B7D400939A39 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E0A1AA365D100E86F79 /* Channel.swift */; };
-		869CC7C91AC2B7D400939A39 /* PromiseSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E1C1AA4047800E86F79 /* PromiseSequence.swift */; };
+		869CC7C91AC2B7D400939A39 /* Subscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E1C1AA4047800E86F79 /* Subscription.swift */; };
 		869CC7CA1AC2B7D400939A39 /* GeneratorTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864EE6601AB2916A00F537FB /* GeneratorTask.swift */; };
 		869CC7CB1AC2B7D400939A39 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E431AA46F7E00E86F79 /* Timer.swift */; };
 		869CC7CE1AC2B7D400939A39 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E0C1AA3663D00E86F79 /* Utils.swift */; };
@@ -85,7 +87,7 @@
 		86D91E1D1AA4047800E86F79 /* Promise+Awaitable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E1B1AA4047800E86F79 /* Promise+Awaitable.swift */; };
 		86D91E441AA46F7E00E86F79 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E431AA46F7E00E86F79 /* Timer.swift */; };
 		86D91E461AA480BB00E86F79 /* Awaitable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E451AA480BB00E86F79 /* Awaitable.swift */; };
-		86D91E471AA4894700E86F79 /* PromiseSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E1C1AA4047800E86F79 /* PromiseSequence.swift */; };
+		86D91E471AA4894700E86F79 /* Subscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E1C1AA4047800E86F79 /* Subscription.swift */; };
 		86DD822E1AB96D9E0097EF96 /* Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DD822D1AB96D9E0097EF96 /* Promise.swift */; };
 /* End PBXBuildFile section */
 
@@ -126,6 +128,7 @@
 		860F6DF51AA17C5100335793 /* Coroutine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coroutine.swift; sourceTree = "<group>"; };
 		860F6E261AA1B71C00335793 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		860F6E291AA2085900335793 /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		861D9FF61AC93336007E3A9D /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		864EE6601AB2916A00F537FB /* GeneratorTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratorTask.swift; sourceTree = "<group>"; };
 		869CC78B1AC2AE4F00939A39 /* MobileHexagen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MobileHexagen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		869CC78E1AC2AE4F00939A39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -181,7 +184,7 @@
 		86D91E151AA3CAC300E86F79 /* Wrapper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Wrapper.cpp; sourceTree = "<group>"; };
 		86D91E191AA3CAF500E86F79 /* Hexagen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hexagen.h; sourceTree = "<group>"; };
 		86D91E1B1AA4047800E86F79 /* Promise+Awaitable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+Awaitable.swift"; sourceTree = "<group>"; };
-		86D91E1C1AA4047800E86F79 /* PromiseSequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromiseSequence.swift; sourceTree = "<group>"; };
+		86D91E1C1AA4047800E86F79 /* Subscription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subscription.swift; sourceTree = "<group>"; };
 		86D91E431AA46F7E00E86F79 /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		86D91E451AA480BB00E86F79 /* Awaitable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Awaitable.swift; sourceTree = "<group>"; };
 		86DD822D1AB96D9E0097EF96 /* Promise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Promise.swift; sourceTree = "<group>"; };
@@ -236,6 +239,7 @@
 				860F6DF51AA17C5100335793 /* Coroutine.swift */,
 				86D0E8FC1A975A92005E77BA /* Generator.swift */,
 				86DD822D1AB96D9E0097EF96 /* Promise.swift */,
+				861D9FF61AC93336007E3A9D /* Feed.swift */,
 				86D91E071AA3651200E86F79 /* Task */,
 				860F6E281AA2079D00335793 /* Internal */,
 			);
@@ -493,7 +497,7 @@
 				86D91E1B1AA4047800E86F79 /* Promise+Awaitable.swift */,
 				860F6E261AA1B71C00335793 /* Task.swift */,
 				86D91E0A1AA365D100E86F79 /* Channel.swift */,
-				86D91E1C1AA4047800E86F79 /* PromiseSequence.swift */,
+				86D91E1C1AA4047800E86F79 /* Subscription.swift */,
 				864EE6601AB2916A00F537FB /* GeneratorTask.swift */,
 				86D91E431AA46F7E00E86F79 /* Timer.swift */,
 			);
@@ -752,6 +756,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				869CC7B81AC2B57700939A39 /* sp_collector.cpp in Sources */,
+				861D9FF81AC93336007E3A9D /* Feed.swift in Sources */,
 				869CC7AE1AC2B55F00939A39 /* thread_clock.cpp in Sources */,
 				869CC7B61AC2B57700939A39 /* posix_time_types.cpp in Sources */,
 				869CC7CF1AC2B7D400939A39 /* Queue.swift in Sources */,
@@ -760,7 +765,7 @@
 				869CC7B91AC2B57700939A39 /* sp_debug_hooks.cpp in Sources */,
 				869CC7AF1AC2B57700939A39 /* coroutine_context.cpp in Sources */,
 				869CC7C31AC2B7D400939A39 /* Promise.swift in Sources */,
-				869CC7C91AC2B7D400939A39 /* PromiseSequence.swift in Sources */,
+				869CC7C91AC2B7D400939A39 /* Subscription.swift in Sources */,
 				869CC7AD1AC2B55F00939A39 /* process_cpu_clocks.cpp in Sources */,
 				869CC7A61AC2B1B300939A39 /* jump_arm_arm64_aapcs_macho_gas.S in Sources */,
 				869CC7B51AC2B57700939A39 /* gregorian_types.cpp in Sources */,
@@ -802,6 +807,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				86BCE87A1AC26466005C5DC6 /* exceptions.cpp in Sources */,
+				861D9FF71AC93336007E3A9D /* Feed.swift in Sources */,
 				86BCE8781AC26466005C5DC6 /* thread_clock.cpp in Sources */,
 				86D91E0B1AA365D100E86F79 /* Channel.swift in Sources */,
 				86BCE8AD1AC27439005C5DC6 /* make_i386_x86_64_sysv_macho_gas.S in Sources */,
@@ -825,7 +831,7 @@
 				860F6DF61AA17C5100335793 /* Coroutine.swift in Sources */,
 				86BCE88D1AC26466005C5DC6 /* tss_null.cpp in Sources */,
 				86BCE87F1AC26466005C5DC6 /* greg_month.cpp in Sources */,
-				86D91E471AA4894700E86F79 /* PromiseSequence.swift in Sources */,
+				86D91E471AA4894700E86F79 /* Subscription.swift in Sources */,
 				86BCE8871AC26466005C5DC6 /* error_code.cpp in Sources */,
 				86D91E0D1AA3663D00E86F79 /* Utils.swift in Sources */,
 				86BCE8AC1AC27439005C5DC6 /* jump_i386_x86_64_sysv_macho_gas.S in Sources */,

@@ -7,20 +7,26 @@
 
 
 public final class AsyncGen<OutType, ReturnType>: Async<ReturnType> {
-    private let promiseSequence: PromiseSequence<OutType> = PromiseSequence<OutType>()
+    private let feed: Feed<OutType>
     
     public init(queue: dispatch_queue_t = mainQueue, body: (OutType -> Void) -> ReturnType) {
-        super.init(queue: queue, start: false, body: { [promiseSequence] in
-            let ret = body { promiseSequence <- $0 }
-            promiseSequence <- nil
+        var post: (OutType -> Void)!
+        var end: (Void -> Void)!
+        feed = Feed<OutType> { (_post, _end) in
+            post = _post
+            end = _end
+        }
+        super.init(queue: queue, start: false, body: {
+            let ret = body(post!)
+            end()
             return ret
         })
     }
 }
 
 extension AsyncGen: SequenceType {
-    public func generate() -> PromiseSequenceGenerator<OutType> {
-        let gen = promiseSequence.generate()
+    public func generate() -> Subscription<OutType> {
+        let gen = feed.generate()
         if !started {
             start()
         }
