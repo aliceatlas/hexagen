@@ -15,6 +15,7 @@ infix operator <- {
     precedence 90
 }
 
+
 // These don't strictly have to "await" anything, in that the intended conceptual scope here does includes implementations that may return immediately, in addition to those that suspend the task and return after it is resumed; they only need to not actually block the thread.
 public protocol Awaitable {
     typealias ValueType
@@ -41,4 +42,22 @@ public prefix func ?<- <T: Awaitable> (source: T) -> T.ValueType? {
 
 public func <- <T: SendAwaitable> (sink: T, val: T.SendType) {
     sink._awaitSend(val)
+}
+
+
+public protocol AwaitableRep {
+    typealias AwaitType: Awaitable
+    var _asAwaitable: AwaitType { get }
+}
+
+public prefix func <- <T: AwaitableRep> (source: T) -> T.AwaitType.ValueType {
+    return <-source._asAwaitable
+}
+
+public prefix func ?- <T: AwaitableRep> (source: T) -> Bool {
+    return ?-source._asAwaitable
+}
+  
+public prefix func ?<- <T: AwaitableRep> (source: T) -> T.AwaitType.ValueType? {
+    return ?<-source._asAwaitable
 }

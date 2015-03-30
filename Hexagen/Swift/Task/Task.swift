@@ -56,19 +56,18 @@ public func Async_(queue: dispatch_queue_t = mainQueue, start: Bool = true, body
     return Async(queue: queue, start: start, body: body)
 }
 
-public class Async<T>: TaskProto {
+public class Async<T>: TaskProto, AwaitableRep {
     private let queue: dispatch_queue_t
     private var coro: Gen<Void>!
-    private let completionPromise: Promise<T>
+    public let _asAwaitable: Promise<T>
     
     public init(queue: dispatch_queue_t = mainQueue, start: Bool = true, body: Void -> T) {
         self.queue = queue
-        var fulfill: (T -> Void)!
-        completionPromise = Promise { fulfill = $0 }
         super.init()
+        _asAwaitable = Promise()
         coro = Gen { [unowned self] yield in
             self.yield = yield
-            fulfill(body())
+            self._asAwaitable._fulfill(body())
         }
         if start {
             schedule()
@@ -84,15 +83,5 @@ public class Async<T>: TaskProto {
         TaskCtrl.currentTask = self
         coro.next()
         TaskCtrl.currentTask = nil
-    }
-}
-
-extension Async: Awaitable {
-    public func _await() -> T {
-        return <-completionPromise
-    }
-    
-    public var _hasValue: Bool {
-        return ?-completionPromise
     }
 }
