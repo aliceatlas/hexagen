@@ -19,29 +19,6 @@
 		8659A8B61AC9DDA500C67C9C /* Hexagen.h in Headers */ = {isa = PBXBuildFile; fileRef = 86D91E191AA3CAF500E86F79 /* Hexagen.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		867ACD821AA4E55D00CBE8C7 /* Sync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867ACD811AA4E55D00CBE8C7 /* Sync.swift */; };
 		869CC7961AC2AE4F00939A39 /* Hexagen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 869CC78B1AC2AE4F00939A39 /* Hexagen.framework */; };
-		869CC7A41AC2B12D00939A39 /* Wrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E151AA3CAC300E86F79 /* Wrapper.cpp */; };
-		869CC7A61AC2B1B300939A39 /* jump_arm_arm64_aapcs_macho_gas.S in Sources */ = {isa = PBXBuildFile; fileRef = 869CC7A51AC2B1B300939A39 /* jump_arm_arm64_aapcs_macho_gas.S */; };
-		869CC7AA1AC2B1D100939A39 /* make_arm_arm64_aapcs_macho_gas.S in Sources */ = {isa = PBXBuildFile; fileRef = 869CC7A91AC2B1D100939A39 /* make_arm_arm64_aapcs_macho_gas.S */; };
-		869CC7AB1AC2B55F00939A39 /* lockpool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE84A1AC26464005C5DC6 /* lockpool.cpp */; };
-		869CC7AC1AC2B55F00939A39 /* chrono.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE84C1AC26464005C5DC6 /* chrono.cpp */; };
-		869CC7AD1AC2B55F00939A39 /* process_cpu_clocks.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE84D1AC26464005C5DC6 /* process_cpu_clocks.cpp */; };
-		869CC7AE1AC2B55F00939A39 /* thread_clock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE84E1AC26464005C5DC6 /* thread_clock.cpp */; };
-		869CC7AF1AC2B57700939A39 /* coroutine_context.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE8511AC26464005C5DC6 /* coroutine_context.cpp */; };
-		869CC7B01AC2B57700939A39 /* exceptions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE8521AC26464005C5DC6 /* exceptions.cpp */; };
-		869CC7B11AC2B57700939A39 /* stack_traits.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE8541AC26464005C5DC6 /* stack_traits.cpp */; };
-		869CC7B21AC2B57700939A39 /* date_generators.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE85A1AC26464005C5DC6 /* date_generators.cpp */; };
-		869CC7B31AC2B57700939A39 /* greg_month.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE85B1AC26464005C5DC6 /* greg_month.cpp */; };
-		869CC7B41AC2B57700939A39 /* greg_weekday.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE85D1AC26464005C5DC6 /* greg_weekday.cpp */; };
-		869CC7B51AC2B57700939A39 /* gregorian_types.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE85E1AC26464005C5DC6 /* gregorian_types.cpp */; };
-		869CC7B61AC2B57700939A39 /* posix_time_types.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE8601AC26464005C5DC6 /* posix_time_types.cpp */; };
-		869CC7B71AC2B57700939A39 /* clone_current_exception_non_intrusive.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE8621AC26464005C5DC6 /* clone_current_exception_non_intrusive.cpp */; };
-		869CC7B81AC2B57700939A39 /* sp_collector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE8641AC26464005C5DC6 /* sp_collector.cpp */; };
-		869CC7B91AC2B57700939A39 /* sp_debug_hooks.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE8651AC26464005C5DC6 /* sp_debug_hooks.cpp */; };
-		869CC7BA1AC2B57700939A39 /* error_code.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE8671AC26465005C5DC6 /* error_code.cpp */; };
-		869CC7BB1AC2B57700939A39 /* future.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE8691AC26465005C5DC6 /* future.cpp */; };
-		869CC7BC1AC2B57700939A39 /* once_atomic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE86C1AC26465005C5DC6 /* once_atomic.cpp */; };
-		869CC7BD1AC2B57700939A39 /* thread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE86D1AC26465005C5DC6 /* thread.cpp */; };
-		869CC7BE1AC2B57700939A39 /* tss_null.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE86F1AC26466005C5DC6 /* tss_null.cpp */; };
 		869CC7C11AC2B7D400939A39 /* Coroutine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860F6DF51AA17C5100335793 /* Coroutine.swift */; };
 		869CC7C21AC2B7D400939A39 /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D0E8FC1A975A92005E77BA /* Generator.swift */; };
 		869CC7C31AC2B7D400939A39 /* Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DD822D1AB96D9E0097EF96 /* Promise.swift */; };
@@ -55,41 +32,20 @@
 		869CC7CE1AC2B7D400939A39 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E0C1AA3663D00E86F79 /* Utils.swift */; };
 		869CC7CF1AC2B7D400939A39 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860F6E291AA2085900335793 /* Queue.swift */; };
 		869CC7D01AC2B7D400939A39 /* Sync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867ACD811AA4E55D00CBE8C7 /* Sync.swift */; };
-		869CC7D11AC2B7EA00939A39 /* Wrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 86D91E141AA3CAC300E86F79 /* Wrapper.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		86BCE8751AC26466005C5DC6 /* lockpool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE84A1AC26464005C5DC6 /* lockpool.cpp */; };
-		86BCE8761AC26466005C5DC6 /* chrono.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE84C1AC26464005C5DC6 /* chrono.cpp */; };
-		86BCE8771AC26466005C5DC6 /* process_cpu_clocks.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE84D1AC26464005C5DC6 /* process_cpu_clocks.cpp */; };
-		86BCE8781AC26466005C5DC6 /* thread_clock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE84E1AC26464005C5DC6 /* thread_clock.cpp */; };
-		86BCE8791AC26466005C5DC6 /* coroutine_context.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE8511AC26464005C5DC6 /* coroutine_context.cpp */; };
-		86BCE87A1AC26466005C5DC6 /* exceptions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE8521AC26464005C5DC6 /* exceptions.cpp */; };
-		86BCE87B1AC26466005C5DC6 /* stack_traits.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE8541AC26464005C5DC6 /* stack_traits.cpp */; };
-		86BCE87E1AC26466005C5DC6 /* date_generators.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE85A1AC26464005C5DC6 /* date_generators.cpp */; };
-		86BCE87F1AC26466005C5DC6 /* greg_month.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE85B1AC26464005C5DC6 /* greg_month.cpp */; };
-		86BCE8811AC26466005C5DC6 /* greg_weekday.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE85D1AC26464005C5DC6 /* greg_weekday.cpp */; };
-		86BCE8821AC26466005C5DC6 /* gregorian_types.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE85E1AC26464005C5DC6 /* gregorian_types.cpp */; };
-		86BCE8831AC26466005C5DC6 /* posix_time_types.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE8601AC26464005C5DC6 /* posix_time_types.cpp */; };
-		86BCE8841AC26466005C5DC6 /* clone_current_exception_non_intrusive.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE8621AC26464005C5DC6 /* clone_current_exception_non_intrusive.cpp */; };
-		86BCE8851AC26466005C5DC6 /* sp_collector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE8641AC26464005C5DC6 /* sp_collector.cpp */; };
-		86BCE8861AC26466005C5DC6 /* sp_debug_hooks.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE8651AC26464005C5DC6 /* sp_debug_hooks.cpp */; };
-		86BCE8871AC26466005C5DC6 /* error_code.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE8671AC26465005C5DC6 /* error_code.cpp */; };
-		86BCE8881AC26466005C5DC6 /* future.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE8691AC26465005C5DC6 /* future.cpp */; };
-		86BCE88A1AC26466005C5DC6 /* once_atomic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE86C1AC26465005C5DC6 /* once_atomic.cpp */; };
-		86BCE88B1AC26466005C5DC6 /* thread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE86D1AC26465005C5DC6 /* thread.cpp */; };
-		86BCE88D1AC26466005C5DC6 /* tss_null.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE86F1AC26466005C5DC6 /* tss_null.cpp */; };
-		86BCE8AC1AC27439005C5DC6 /* jump_i386_x86_64_sysv_macho_gas.S in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE89B1AC272FE005C5DC6 /* jump_i386_x86_64_sysv_macho_gas.S */; };
-		86BCE8AD1AC27439005C5DC6 /* make_i386_x86_64_sysv_macho_gas.S in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE8A01AC272FE005C5DC6 /* make_i386_x86_64_sysv_macho_gas.S */; };
 		86D0E8EC1A975412005E77BA /* Hexagen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86D0E8E01A97540D005E77BA /* Hexagen.framework */; };
 		86D0E8F31A975414005E77BA /* HexagenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D0E8F21A975414005E77BA /* HexagenTests.swift */; };
 		86D91E0B1AA365D100E86F79 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E0A1AA365D100E86F79 /* Channel.swift */; };
 		86D91E0D1AA3663D00E86F79 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E0C1AA3663D00E86F79 /* Utils.swift */; };
-		86D91E171AA3CACB00E86F79 /* Wrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 86D91E141AA3CAC300E86F79 /* Wrapper.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		86D91E181AA3CACB00E86F79 /* Wrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E151AA3CAC300E86F79 /* Wrapper.cpp */; };
 		86D91E1A1AA3CAF500E86F79 /* Hexagen.h in Headers */ = {isa = PBXBuildFile; fileRef = 86D91E191AA3CAF500E86F79 /* Hexagen.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		86D91E1D1AA4047800E86F79 /* Promise+Awaitable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E1B1AA4047800E86F79 /* Promise+Awaitable.swift */; };
 		86D91E441AA46F7E00E86F79 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E431AA46F7E00E86F79 /* Timer.swift */; };
 		86D91E461AA480BB00E86F79 /* Awaitable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E451AA480BB00E86F79 /* Awaitable.swift */; };
 		86D91E471AA4894700E86F79 /* Subscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D91E1C1AA4047800E86F79 /* Subscription.swift */; };
 		86DD822E1AB96D9E0097EF96 /* Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DD822D1AB96D9E0097EF96 /* Promise.swift */; };
+		86EC96BD1AE36253001F486F /* Context.c in Sources */ = {isa = PBXBuildFile; fileRef = 86EC96BB1AE36253001F486F /* Context.c */; };
+		86EC96BE1AE36253001F486F /* Context.c in Sources */ = {isa = PBXBuildFile; fileRef = 86EC96BB1AE36253001F486F /* Context.c */; };
+		86EC96BF1AE36253001F486F /* Context.h in Headers */ = {isa = PBXBuildFile; fileRef = 86EC96BC1AE36253001F486F /* Context.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		86EC96C01AE36253001F486F /* Context.h in Headers */ = {isa = PBXBuildFile; fileRef = 86EC96BC1AE36253001F486F /* Context.h */; settings = {ATTRIBUTES = (Private, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,7 +78,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		860434A01AAE67A20076B28A /* Wrapper.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Wrapper.pch; sourceTree = "<group>"; };
 		860F6DBF1AA136E200335793 /* HexagenExamples */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HexagenExamples; sourceTree = BUILT_PRODUCTS_DIR; };
 		860F6DC11AA136E200335793 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		860F6DF41AA1701200335793 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -134,41 +89,6 @@
 		867ACD811AA4E55D00CBE8C7 /* Sync.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sync.swift; sourceTree = "<group>"; };
 		869CC78B1AC2AE4F00939A39 /* Hexagen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Hexagen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		869CC7951AC2AE4F00939A39 /* HexagenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HexagenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		869CC7A51AC2B1B300939A39 /* jump_arm_arm64_aapcs_macho_gas.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = jump_arm_arm64_aapcs_macho_gas.S; sourceTree = "<group>"; };
-		869CC7A91AC2B1D100939A39 /* make_arm_arm64_aapcs_macho_gas.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = make_arm_arm64_aapcs_macho_gas.S; sourceTree = "<group>"; };
-		86BCE84A1AC26464005C5DC6 /* lockpool.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lockpool.cpp; sourceTree = "<group>"; };
-		86BCE84C1AC26464005C5DC6 /* chrono.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = chrono.cpp; sourceTree = "<group>"; };
-		86BCE84D1AC26464005C5DC6 /* process_cpu_clocks.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = process_cpu_clocks.cpp; sourceTree = "<group>"; };
-		86BCE84E1AC26464005C5DC6 /* thread_clock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = thread_clock.cpp; sourceTree = "<group>"; };
-		86BCE8511AC26464005C5DC6 /* coroutine_context.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = coroutine_context.cpp; sourceTree = "<group>"; };
-		86BCE8521AC26464005C5DC6 /* exceptions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = exceptions.cpp; sourceTree = "<group>"; };
-		86BCE8541AC26464005C5DC6 /* stack_traits.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stack_traits.cpp; sourceTree = "<group>"; };
-		86BCE85A1AC26464005C5DC6 /* date_generators.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = date_generators.cpp; sourceTree = "<group>"; };
-		86BCE85B1AC26464005C5DC6 /* greg_month.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = greg_month.cpp; sourceTree = "<group>"; };
-		86BCE85C1AC26464005C5DC6 /* greg_names.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = greg_names.hpp; sourceTree = "<group>"; };
-		86BCE85D1AC26464005C5DC6 /* greg_weekday.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = greg_weekday.cpp; sourceTree = "<group>"; };
-		86BCE85E1AC26464005C5DC6 /* gregorian_types.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gregorian_types.cpp; sourceTree = "<group>"; };
-		86BCE8601AC26464005C5DC6 /* posix_time_types.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = posix_time_types.cpp; sourceTree = "<group>"; };
-		86BCE8621AC26464005C5DC6 /* clone_current_exception_non_intrusive.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = clone_current_exception_non_intrusive.cpp; sourceTree = "<group>"; };
-		86BCE8641AC26464005C5DC6 /* sp_collector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sp_collector.cpp; sourceTree = "<group>"; };
-		86BCE8651AC26464005C5DC6 /* sp_debug_hooks.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sp_debug_hooks.cpp; sourceTree = "<group>"; };
-		86BCE8671AC26465005C5DC6 /* error_code.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = error_code.cpp; sourceTree = "<group>"; };
-		86BCE8691AC26465005C5DC6 /* future.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = future.cpp; sourceTree = "<group>"; };
-		86BCE86B1AC26465005C5DC6 /* once.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = once.cpp; sourceTree = "<group>"; };
-		86BCE86C1AC26465005C5DC6 /* once_atomic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = once_atomic.cpp; sourceTree = "<group>"; };
-		86BCE86D1AC26465005C5DC6 /* thread.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = thread.cpp; sourceTree = "<group>"; };
-		86BCE86F1AC26466005C5DC6 /* tss_null.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tss_null.cpp; sourceTree = "<group>"; };
-		86BCE8921AC26478005C5DC6 /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; path = include; sourceTree = "<group>"; };
-		86BCE8981AC272FE005C5DC6 /* jump_arm_aapcs_macho_gas.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = jump_arm_aapcs_macho_gas.S; sourceTree = "<group>"; };
-		86BCE89A1AC272FE005C5DC6 /* jump_i386_sysv_macho_gas.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = jump_i386_sysv_macho_gas.S; sourceTree = "<group>"; };
-		86BCE89B1AC272FE005C5DC6 /* jump_i386_x86_64_sysv_macho_gas.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = jump_i386_x86_64_sysv_macho_gas.S; sourceTree = "<group>"; };
-		86BCE89C1AC272FE005C5DC6 /* jump_x86_64_sysv_macho_gas.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = jump_x86_64_sysv_macho_gas.S; sourceTree = "<group>"; };
-		86BCE89D1AC272FE005C5DC6 /* make_arm_aapcs_macho_gas.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = make_arm_aapcs_macho_gas.S; sourceTree = "<group>"; };
-		86BCE89F1AC272FE005C5DC6 /* make_i386_sysv_macho_gas.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = make_i386_sysv_macho_gas.S; sourceTree = "<group>"; };
-		86BCE8A01AC272FE005C5DC6 /* make_i386_x86_64_sysv_macho_gas.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = make_i386_x86_64_sysv_macho_gas.S; sourceTree = "<group>"; };
-		86BCE8A11AC272FE005C5DC6 /* make_x86_64_sysv_macho_gas.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = make_x86_64_sysv_macho_gas.S; sourceTree = "<group>"; };
-		86BCE8AE1AC27B4D005C5DC6 /* jump_arm64_aapcs_macho_gas.S */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.asm; path = jump_arm64_aapcs_macho_gas.S; sourceTree = "<group>"; };
-		86BCE8AF1AC27B4D005C5DC6 /* make_arm64_aapcs_macho_gas.S */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.asm; path = make_arm64_aapcs_macho_gas.S; sourceTree = "<group>"; };
 		86D0E8E01A97540D005E77BA /* Hexagen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Hexagen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86D0E8E41A97540E005E77BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		86D0E8EB1A975412005E77BA /* HexagenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HexagenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -178,14 +98,14 @@
 		86D91E0A1AA365D100E86F79 /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		86D91E0C1AA3663D00E86F79 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		86D91E111AA3B7FA00E86F79 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
-		86D91E141AA3CAC300E86F79 /* Wrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Wrapper.h; sourceTree = "<group>"; };
-		86D91E151AA3CAC300E86F79 /* Wrapper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Wrapper.cpp; sourceTree = "<group>"; };
 		86D91E191AA3CAF500E86F79 /* Hexagen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hexagen.h; sourceTree = "<group>"; };
 		86D91E1B1AA4047800E86F79 /* Promise+Awaitable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+Awaitable.swift"; sourceTree = "<group>"; };
 		86D91E1C1AA4047800E86F79 /* Subscription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subscription.swift; sourceTree = "<group>"; };
 		86D91E431AA46F7E00E86F79 /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		86D91E451AA480BB00E86F79 /* Awaitable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Awaitable.swift; sourceTree = "<group>"; };
 		86DD822D1AB96D9E0097EF96 /* Promise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Promise.swift; sourceTree = "<group>"; };
+		86EC96BB1AE36253001F486F /* Context.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Context.c; sourceTree = "<group>"; };
+		86EC96BC1AE36253001F486F /* Context.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Context.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,176 +174,6 @@
 			path = Internal;
 			sourceTree = "<group>";
 		};
-		86BCE8471AC25A35005C5DC6 /* Boost */ = {
-			isa = PBXGroup;
-			children = (
-				86BCE8921AC26478005C5DC6 /* include */,
-				86BCE8481AC26463005C5DC6 /* src */,
-			);
-			path = Boost;
-			sourceTree = "<group>";
-		};
-		86BCE8481AC26463005C5DC6 /* src */ = {
-			isa = PBXGroup;
-			children = (
-				86BCE8491AC26463005C5DC6 /* atomic */,
-				86BCE84B1AC26464005C5DC6 /* chrono */,
-				86BCE8961AC272FE005C5DC6 /* context */,
-				86BCE84F1AC26464005C5DC6 /* coroutine */,
-				86BCE8571AC26464005C5DC6 /* date_time */,
-				86BCE8611AC26464005C5DC6 /* exception */,
-				86BCE8631AC26464005C5DC6 /* smart_ptr */,
-				86BCE8661AC26464005C5DC6 /* system */,
-				86BCE8681AC26465005C5DC6 /* thread */,
-			);
-			path = src;
-			sourceTree = "<group>";
-		};
-		86BCE8491AC26463005C5DC6 /* atomic */ = {
-			isa = PBXGroup;
-			children = (
-				86BCE84A1AC26464005C5DC6 /* lockpool.cpp */,
-			);
-			path = atomic;
-			sourceTree = "<group>";
-		};
-		86BCE84B1AC26464005C5DC6 /* chrono */ = {
-			isa = PBXGroup;
-			children = (
-				86BCE84C1AC26464005C5DC6 /* chrono.cpp */,
-				86BCE84D1AC26464005C5DC6 /* process_cpu_clocks.cpp */,
-				86BCE84E1AC26464005C5DC6 /* thread_clock.cpp */,
-			);
-			path = chrono;
-			sourceTree = "<group>";
-		};
-		86BCE84F1AC26464005C5DC6 /* coroutine */ = {
-			isa = PBXGroup;
-			children = (
-				86BCE8501AC26464005C5DC6 /* detail */,
-				86BCE8521AC26464005C5DC6 /* exceptions.cpp */,
-				86BCE8531AC26464005C5DC6 /* posix */,
-			);
-			path = coroutine;
-			sourceTree = "<group>";
-		};
-		86BCE8501AC26464005C5DC6 /* detail */ = {
-			isa = PBXGroup;
-			children = (
-				86BCE8511AC26464005C5DC6 /* coroutine_context.cpp */,
-			);
-			path = detail;
-			sourceTree = "<group>";
-		};
-		86BCE8531AC26464005C5DC6 /* posix */ = {
-			isa = PBXGroup;
-			children = (
-				86BCE8541AC26464005C5DC6 /* stack_traits.cpp */,
-			);
-			path = posix;
-			sourceTree = "<group>";
-		};
-		86BCE8571AC26464005C5DC6 /* date_time */ = {
-			isa = PBXGroup;
-			children = (
-				86BCE8591AC26464005C5DC6 /* gregorian */,
-				86BCE85F1AC26464005C5DC6 /* posix_time */,
-			);
-			path = date_time;
-			sourceTree = "<group>";
-		};
-		86BCE8591AC26464005C5DC6 /* gregorian */ = {
-			isa = PBXGroup;
-			children = (
-				86BCE85A1AC26464005C5DC6 /* date_generators.cpp */,
-				86BCE85B1AC26464005C5DC6 /* greg_month.cpp */,
-				86BCE85C1AC26464005C5DC6 /* greg_names.hpp */,
-				86BCE85D1AC26464005C5DC6 /* greg_weekday.cpp */,
-				86BCE85E1AC26464005C5DC6 /* gregorian_types.cpp */,
-			);
-			path = gregorian;
-			sourceTree = "<group>";
-		};
-		86BCE85F1AC26464005C5DC6 /* posix_time */ = {
-			isa = PBXGroup;
-			children = (
-				86BCE8601AC26464005C5DC6 /* posix_time_types.cpp */,
-			);
-			path = posix_time;
-			sourceTree = "<group>";
-		};
-		86BCE8611AC26464005C5DC6 /* exception */ = {
-			isa = PBXGroup;
-			children = (
-				86BCE8621AC26464005C5DC6 /* clone_current_exception_non_intrusive.cpp */,
-			);
-			path = exception;
-			sourceTree = "<group>";
-		};
-		86BCE8631AC26464005C5DC6 /* smart_ptr */ = {
-			isa = PBXGroup;
-			children = (
-				86BCE8641AC26464005C5DC6 /* sp_collector.cpp */,
-				86BCE8651AC26464005C5DC6 /* sp_debug_hooks.cpp */,
-			);
-			path = smart_ptr;
-			sourceTree = "<group>";
-		};
-		86BCE8661AC26464005C5DC6 /* system */ = {
-			isa = PBXGroup;
-			children = (
-				86BCE8671AC26465005C5DC6 /* error_code.cpp */,
-			);
-			path = system;
-			sourceTree = "<group>";
-		};
-		86BCE8681AC26465005C5DC6 /* thread */ = {
-			isa = PBXGroup;
-			children = (
-				86BCE8691AC26465005C5DC6 /* future.cpp */,
-				86BCE86A1AC26465005C5DC6 /* pthread */,
-				86BCE86F1AC26466005C5DC6 /* tss_null.cpp */,
-			);
-			path = thread;
-			sourceTree = "<group>";
-		};
-		86BCE86A1AC26465005C5DC6 /* pthread */ = {
-			isa = PBXGroup;
-			children = (
-				86BCE86B1AC26465005C5DC6 /* once.cpp */,
-				86BCE86C1AC26465005C5DC6 /* once_atomic.cpp */,
-				86BCE86D1AC26465005C5DC6 /* thread.cpp */,
-			);
-			path = pthread;
-			sourceTree = "<group>";
-		};
-		86BCE8961AC272FE005C5DC6 /* context */ = {
-			isa = PBXGroup;
-			children = (
-				86BCE8971AC272FE005C5DC6 /* asm */,
-			);
-			path = context;
-			sourceTree = "<group>";
-		};
-		86BCE8971AC272FE005C5DC6 /* asm */ = {
-			isa = PBXGroup;
-			children = (
-				86BCE8981AC272FE005C5DC6 /* jump_arm_aapcs_macho_gas.S */,
-				869CC7A51AC2B1B300939A39 /* jump_arm_arm64_aapcs_macho_gas.S */,
-				86BCE8AE1AC27B4D005C5DC6 /* jump_arm64_aapcs_macho_gas.S */,
-				86BCE89A1AC272FE005C5DC6 /* jump_i386_sysv_macho_gas.S */,
-				86BCE89B1AC272FE005C5DC6 /* jump_i386_x86_64_sysv_macho_gas.S */,
-				86BCE89C1AC272FE005C5DC6 /* jump_x86_64_sysv_macho_gas.S */,
-				86BCE89D1AC272FE005C5DC6 /* make_arm_aapcs_macho_gas.S */,
-				869CC7A91AC2B1D100939A39 /* make_arm_arm64_aapcs_macho_gas.S */,
-				86BCE8AF1AC27B4D005C5DC6 /* make_arm64_aapcs_macho_gas.S */,
-				86BCE89F1AC272FE005C5DC6 /* make_i386_sysv_macho_gas.S */,
-				86BCE8A01AC272FE005C5DC6 /* make_i386_x86_64_sysv_macho_gas.S */,
-				86BCE8A11AC272FE005C5DC6 /* make_x86_64_sysv_macho_gas.S */,
-			);
-			path = asm;
-			sourceTree = "<group>";
-		};
 		86D0E8D61A975405005E77BA = {
 			isa = PBXGroup;
 			children = (
@@ -453,8 +203,7 @@
 			children = (
 				86D91E191AA3CAF500E86F79 /* Hexagen.h */,
 				86D0E8E41A97540E005E77BA /* Info.plist */,
-				86BCE8471AC25A35005C5DC6 /* Boost */,
-				86D91E121AA3CAC300E86F79 /* Wrapper */,
+				86EC96B41AE36069001F486F /* Core */,
 				860F6E251AA1B35D00335793 /* Swift */,
 			);
 			path = Hexagen;
@@ -483,14 +232,13 @@
 			path = Task;
 			sourceTree = "<group>";
 		};
-		86D91E121AA3CAC300E86F79 /* Wrapper */ = {
+		86EC96B41AE36069001F486F /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				860434A01AAE67A20076B28A /* Wrapper.pch */,
-				86D91E141AA3CAC300E86F79 /* Wrapper.h */,
-				86D91E151AA3CAC300E86F79 /* Wrapper.cpp */,
+				86EC96BB1AE36253001F486F /* Context.c */,
+				86EC96BC1AE36253001F486F /* Context.h */,
 			);
-			path = Wrapper;
+			path = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -500,8 +248,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86EC96C01AE36253001F486F /* Context.h in Headers */,
 				8659A8B61AC9DDA500C67C9C /* Hexagen.h in Headers */,
-				869CC7D11AC2B7EA00939A39 /* Wrapper.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,8 +257,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86EC96BF1AE36253001F486F /* Context.h in Headers */,
 				86D91E1A1AA3CAF500E86F79 /* Hexagen.h in Headers */,
-				86D91E171AA3CACB00E86F79 /* Wrapper.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -734,41 +482,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				869CC7B81AC2B57700939A39 /* sp_collector.cpp in Sources */,
 				861D9FF81AC93336007E3A9D /* Feed.swift in Sources */,
-				869CC7AE1AC2B55F00939A39 /* thread_clock.cpp in Sources */,
-				869CC7B61AC2B57700939A39 /* posix_time_types.cpp in Sources */,
 				869CC7CF1AC2B7D400939A39 /* Queue.swift in Sources */,
-				869CC7AB1AC2B55F00939A39 /* lockpool.cpp in Sources */,
-				869CC7B41AC2B57700939A39 /* greg_weekday.cpp in Sources */,
-				869CC7B91AC2B57700939A39 /* sp_debug_hooks.cpp in Sources */,
-				869CC7AF1AC2B57700939A39 /* coroutine_context.cpp in Sources */,
 				869CC7C31AC2B7D400939A39 /* Promise.swift in Sources */,
 				869CC7C91AC2B7D400939A39 /* Subscription.swift in Sources */,
-				869CC7AD1AC2B55F00939A39 /* process_cpu_clocks.cpp in Sources */,
-				869CC7A61AC2B1B300939A39 /* jump_arm_arm64_aapcs_macho_gas.S in Sources */,
-				869CC7B51AC2B57700939A39 /* gregorian_types.cpp in Sources */,
-				869CC7BB1AC2B57700939A39 /* future.cpp in Sources */,
+				86EC96BE1AE36253001F486F /* Context.c in Sources */,
 				869CC7CE1AC2B7D400939A39 /* Utils.swift in Sources */,
-				869CC7BD1AC2B57700939A39 /* thread.cpp in Sources */,
-				869CC7BC1AC2B57700939A39 /* once_atomic.cpp in Sources */,
-				869CC7AA1AC2B1D100939A39 /* make_arm_arm64_aapcs_macho_gas.S in Sources */,
 				869CC7C61AC2B7D400939A39 /* Promise+Awaitable.swift in Sources */,
 				869CC7D01AC2B7D400939A39 /* Sync.swift in Sources */,
-				869CC7B01AC2B57700939A39 /* exceptions.cpp in Sources */,
-				869CC7B11AC2B57700939A39 /* stack_traits.cpp in Sources */,
-				869CC7BE1AC2B57700939A39 /* tss_null.cpp in Sources */,
 				869CC7CA1AC2B7D400939A39 /* GeneratorTask.swift in Sources */,
-				869CC7A41AC2B12D00939A39 /* Wrapper.cpp in Sources */,
 				869CC7C11AC2B7D400939A39 /* Coroutine.swift in Sources */,
-				869CC7B31AC2B57700939A39 /* greg_month.cpp in Sources */,
 				869CC7C81AC2B7D400939A39 /* Channel.swift in Sources */,
 				869CC7C71AC2B7D400939A39 /* Task.swift in Sources */,
-				869CC7B71AC2B57700939A39 /* clone_current_exception_non_intrusive.cpp in Sources */,
-				869CC7B21AC2B57700939A39 /* date_generators.cpp in Sources */,
 				869CC7C51AC2B7D400939A39 /* Awaitable.swift in Sources */,
-				869CC7BA1AC2B57700939A39 /* error_code.cpp in Sources */,
-				869CC7AC1AC2B55F00939A39 /* chrono.cpp in Sources */,
 				869CC7C21AC2B7D400939A39 /* Generator.swift in Sources */,
 				869CC7CB1AC2B7D400939A39 /* Timer.swift in Sources */,
 			);
@@ -785,42 +511,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86BCE87A1AC26466005C5DC6 /* exceptions.cpp in Sources */,
 				861D9FF71AC93336007E3A9D /* Feed.swift in Sources */,
-				86BCE8781AC26466005C5DC6 /* thread_clock.cpp in Sources */,
 				86D91E0B1AA365D100E86F79 /* Channel.swift in Sources */,
-				86BCE8AD1AC27439005C5DC6 /* make_i386_x86_64_sysv_macho_gas.S in Sources */,
-				86BCE8761AC26466005C5DC6 /* chrono.cpp in Sources */,
 				86D91E461AA480BB00E86F79 /* Awaitable.swift in Sources */,
-				86BCE8821AC26466005C5DC6 /* gregorian_types.cpp in Sources */,
-				86BCE8791AC26466005C5DC6 /* coroutine_context.cpp in Sources */,
-				86BCE8771AC26466005C5DC6 /* process_cpu_clocks.cpp in Sources */,
 				86DD822E1AB96D9E0097EF96 /* Promise.swift in Sources */,
-				86BCE8851AC26466005C5DC6 /* sp_collector.cpp in Sources */,
-				86BCE87E1AC26466005C5DC6 /* date_generators.cpp in Sources */,
-				86BCE8751AC26466005C5DC6 /* lockpool.cpp in Sources */,
-				86BCE8811AC26466005C5DC6 /* greg_weekday.cpp in Sources */,
 				860F6E2A1AA2085900335793 /* Queue.swift in Sources */,
 				86D91E441AA46F7E00E86F79 /* Timer.swift in Sources */,
-				86BCE8831AC26466005C5DC6 /* posix_time_types.cpp in Sources */,
+				86EC96BD1AE36253001F486F /* Context.c in Sources */,
 				860F6E271AA1B71C00335793 /* Task.swift in Sources */,
 				864EE6611AB2916A00F537FB /* GeneratorTask.swift in Sources */,
 				860F6DBA1AA12DD400335793 /* Generator.swift in Sources */,
-				86BCE8841AC26466005C5DC6 /* clone_current_exception_non_intrusive.cpp in Sources */,
 				860F6DF61AA17C5100335793 /* Coroutine.swift in Sources */,
-				86BCE88D1AC26466005C5DC6 /* tss_null.cpp in Sources */,
-				86BCE87F1AC26466005C5DC6 /* greg_month.cpp in Sources */,
 				86D91E471AA4894700E86F79 /* Subscription.swift in Sources */,
-				86BCE8871AC26466005C5DC6 /* error_code.cpp in Sources */,
 				86D91E0D1AA3663D00E86F79 /* Utils.swift in Sources */,
-				86BCE8AC1AC27439005C5DC6 /* jump_i386_x86_64_sysv_macho_gas.S in Sources */,
-				86D91E181AA3CACB00E86F79 /* Wrapper.cpp in Sources */,
 				867ACD821AA4E55D00CBE8C7 /* Sync.swift in Sources */,
-				86BCE8881AC26466005C5DC6 /* future.cpp in Sources */,
-				86BCE88A1AC26466005C5DC6 /* once_atomic.cpp in Sources */,
-				86BCE8861AC26466005C5DC6 /* sp_debug_hooks.cpp in Sources */,
-				86BCE87B1AC26466005C5DC6 /* stack_traits.cpp in Sources */,
-				86BCE88B1AC26466005C5DC6 /* thread.cpp in Sources */,
 				86D91E1D1AA4047800E86F79 /* Promise+Awaitable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -882,8 +586,6 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Hexagen/Wrapper/Wrapper.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -915,8 +617,6 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Hexagen/Wrapper/Wrapper.pch;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
@@ -1052,13 +752,6 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_VERSION = A;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Hexagen/Wrapper/Wrapper.pch;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Applications/Xcode-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
-					"\"$(SRCROOT)/Hexagen/Boost/include\"",
-				);
 				INFOPLIST_FILE = Hexagen/Info.plist;
 				PRODUCT_NAME = Hexagen;
 				SKIP_INSTALL = YES;
@@ -1077,13 +770,6 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_VERSION = A;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Hexagen/Wrapper/Wrapper.pch;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Applications/Xcode-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
-					"\"$(SRCROOT)/Hexagen/Boost/include\"",
-				);
 				INFOPLIST_FILE = Hexagen/Info.plist;
 				PRODUCT_NAME = Hexagen;
 				SKIP_INSTALL = YES;

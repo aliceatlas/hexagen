@@ -7,10 +7,7 @@
 
 
 public class Coro <InType, OutType> {
-    private var wrapper: UnsafePointer<Void> = alloc_asymm_coro()
-    
-    private var nextIn: UnsafeMutablePointer<InType> = UnsafeMutablePointer.alloc(1)
-    private var nextOut: UnsafeMutablePointer<OutType> = UnsafeMutablePointer.alloc(1)
+    private var wrapper: UnsafeMutablePointer<coro_ctx> = nil
     
     internal var _started = false
     private var _completed = false
@@ -20,44 +17,47 @@ public class Coro <InType, OutType> {
     public var running: Bool { return _started && !_completed }
     
     public init(_ body: (OutType -> InType) -> Void) {
-        setup_asymm_coro(wrapper) { [unowned self, nextOut, nextIn] (exit) in
-            exit()
-            self._started = true
-            func yield(val: OutType) -> InType {
-                nextOut.initialize(val)
-                exit()
-                return nextIn.move()
-            }
+        wrapper = ctx_create(64*1024) { [yield] _ in
             body(yield)
-            self._completed = true
         }
+    }
+    
+    private func yield(val: OutType) -> InType {
+        var _val = val
+        let ret = ctx_yield(wrapper, &_val)
+        return UnsafeMutablePointer<InType>(ret).memory
     }
     
     public func start() -> OutType? {
         if _started {
             fatalError("can't call start() twice on the same coroutine")
         }
-        return enter()
+        _started = true
+        return enter(nil)
     }
     
     public func send(val: InType) -> OutType? {
         if !_started {
             fatalError("must call start() before using send()")
         }
-        nextIn.initialize(val)
-        return enter()
+        return enter(val)
     }
     
-    private func enter() -> OutType? {
+    private func enter(val: InType?) -> OutType? {
         if _completed {
             fatalError("can't enter a coroutine that has completed")
         }
-        enter_asymm_coro(wrapper)
+        var out: UnsafeMutablePointer<Void> = nil
+        if var bort = val {
+            _completed = ctx_enter(wrapper, &bort, &out) == 0
+        } else {
+            _completed = ctx_enter(wrapper, nil, &out) == 0
+        }
         
         if _completed {
             return nil
         }
-        return nextOut.move()
+        return UnsafeMutablePointer<OutType>(out).memory
     }
     
     public func forceClose() {
@@ -68,8 +68,5 @@ public class Coro <InType, OutType> {
         if !_completed {
             fatalError("trying to deallocate a coroutine that has not completed; will probably leak memory. call forceClose() to allow this")
         }
-        destroy_asymm_coro(wrapper)
-        nextIn.dealloc(1)
-        nextOut.dealloc(1)
     }
 }

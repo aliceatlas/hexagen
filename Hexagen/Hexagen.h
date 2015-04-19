@@ -13,4 +13,4 @@ FOUNDATION_EXPORT double hexagenVersionNumber;
 FOUNDATION_EXPORT const unsigned char hexagenVersionString[];
 
 
-#import <Hexagen/Wrapper.h>
+#import <Hexagen/Context.h>

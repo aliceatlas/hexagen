@@ -26,7 +26,6 @@ c!.forceClose()
 c = nil
 
 let doubler = { Coro<Int?, Int!> { yield in
-    yield(nil)
     var ret: Int!
     while let val = yield(ret) {
         ret = val * 2
@@ -41,6 +40,5 @@ func ok() {
         println(x.send(i)!)
     }
     x.send(nil)
-    //x.send(nil)
 }
 ok()
