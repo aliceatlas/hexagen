@@ -26,9 +26,11 @@ Features
 
     * Included abstractions that know how to seamlessly suspend and resume tasks as needed:
 
-        * Channel: for a style of communication between tasks largely inspired by Go's channels and Goroutines
-        * Promise: allows any number of tasks to await a potentially pending result and awakens all of them when one becomes available
-        * Timer: actually just a Promise<Void> that is marked as fulfilled at a specified time
+        * Channel: Supports a style of communication between tasks largely inspired by Go's channels and Goroutines.
+        * Promise: Allows any number of tasks to await a potentially pending result and awakens all of them when one becomes available.
+            * Timer: A Promise<Void> that is marked as fulfilled at a specified time.
+            * Feed: A lazily constructed open-ended series of Promises of a given type wrapped in Optional: after receiving a value from a Promise obtained from a Feed, you can get its successor and await the next value, and repeat until nil is returned, indicating that the feed has ended and won't contain any further values. (Feed implements Sequence so you can iterate over it with a for loop, this is often the most straightforward way to use it.)
+                * AsyncGen: A Task subclass with additional generator-like behavior — the body function receives a "post" function which is used somewhat like yield, but doesn't actually suspend the task; instead it sends values to an internal Feed, which other tasks can subscribe to by iterating over the task object.
 
 * 97% elegant! Very minimal abomination content, you should almost never have to encounter it.
 
@@ -38,16 +40,18 @@ Warnings
 
 * Hexagen is in early development and pretty experimental to begin with, don't count on the API not changing drastically.
 
-* Hexagen is written for Swift 1.2, introduced as of Xcode 6.3 (currently in beta). I haven't tried it in earlier versions, but it probably wouldn't work and it would probably be straightforward to make it work.
-
 * Your coroutines should always exit by returning — you can leave them hanging but you will leak memory. With Swift's lack of exceptions and use of ARC instead of garbage collection, I don't currently see a way to unilaterally tell a coroutine to terminate but still clean up after itself.
 
-* This approach has turned out to be very surprisingly low on complications so far, but the whole thing is still a sketchy self-indulgent hack that violates some basic assumptions that almost all existing Objective-C and Swift code can expect to safely make. It's hard to say what potential interactions I might be overlooking, particularly given that the Swift toolchain is still closed-source. *At least* for now, I strongly discourage using this anywhere near production code unless you are very, very silly and reasonably confident that you are already going to hell.
+* The task API needs to account for Cocoa APIs with thread-local behavior in order to make them work coherently and currently doesn't. This may be tricky in the cases of components that don't expose their thread-local variables in any directly manipulable form. Expect it to interact badly with autorelease pools.
 
-* If you are under the age of 180 or find this framework offensive, please don't look at it.
+* More generally, this approach has turned out to be very surprisingly low on complications so far, but the whole thing is still a sketchy self-indulgent hack that violates some basic assumptions that almost all existing Objective-C and Swift code can expect to safely make. It's hard to say what potential interactions I might be overlooking, particularly given that the Swift toolchain is still closed-source. For now, I strongly discourage using this in production code unless you are very, very silly and reasonably confident that you are already going to hell.
+
+* If you are under the age of 180º or find this framework offensive, please don't look at it.
 
 Notes
 -----
+
+* Hexagen is written for Swift 1.2, first available in Xcode 6.3.
 
 * Currently Promises as implemented here are fulfill-only, i.e. there isn't a separate path for errors to take, like there tends to be in other languages' implementations of Promises. This is meant to mirror Swift's overall approach to error handling: to the extent that you need to write Promises that can express error conditions, you should encode that in your own types.
 
@@ -59,8 +63,9 @@ Ideas/Todo
     * Timeouts
     * Read-only and write-only views of channels (and promises?)
     * Elegant task-aware I/O API
-    * Subscribe to Cocoa events, notifications, key-value observing, etc. via Promises/PromiseSequences
+    * Subscribe to Cocoa events, notifications, key-value observing, etc. via Promises/Feeds
     * Bridges to and from Hexagen features for existing widely-used Swift/Objective-C concurrency libraries/frameworks/approaches
+    * Task-local storage API
 * Internals
     * Adapt to use Boost.Context directly once the upcoming version with execution\_context is released and Xcode is shipping with usable support for thread\_local in clang/libc++?
 * Project quality
@@ -68,9 +73,14 @@ Ideas/Todo
     * Benchmarks
     * More examples, better organized examples
 
-Credits
--------
+### Extra Credit ###
 
-Hexagen is released under an MIT license (see LICENSE.md), so you can pretty freely incorporate and redistribute it wherever. The internal context-switching primitive is a thin wrapper around [Boost.Coroutine](http://www.boost.org/libs/coroutine/). Boost is free software under a permissive MIT-style [license](http://www.boost.org/users/license.html) and the parts of it used Hexagen are already included in this repository.
+* Side project: implement an alternative framework based on stackless generators (like e.g. Python's built-in yield: a function can only yield from itself to the function that called or most recently reentered it, because it's implemented more like an ordinary function call, getting its own frame on top of the current stack while it's running rather than having a separate stack to switch to).
+* Implement exception handling in pure Swift using Hexagen. *(Completing this successfully is worth negative points, and I will grudgingly respect you but never fully trust you.)*
+
+Colophon
+--------
+
+Hexagen is released under an MIT license (see LICENSE.md), so you can pretty freely incorporate and redistribute it wherever. The internal context-switching primitive is a thin wrapper around [Boost.Coroutine](http://www.boost.org/libs/coroutine/). Boost is free software under a permissive MIT-style [license](http://www.boost.org/users/license.html) and the parts of it used by Hexagen are already included in this repository.
 
 My name is [Alice Atlas](https://github.com/aliceatlas) and I wrote the rest of this, I did it on purpose and I'm not sorry dad
