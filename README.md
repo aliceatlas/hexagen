@@ -30,7 +30,7 @@ Features
         * Promise: allows any number of tasks to await a potentially pending result and awakens all of them when one becomes available
         * Timer: actually just a Promise<Void> that is marked as fulfilled at a specified time
 
-* 97% elegant! Very minimal abomination content, you should almost never have to encounter it.
+* 98% elegant! Hexagen now features fewer abominations than ever.
 
 
 Warnings
@@ -61,16 +61,12 @@ Ideas/Todo
     * Elegant task-aware I/O API
     * Subscribe to Cocoa events, notifications, key-value observing, etc. via Promises/PromiseSequences
     * Bridges to and from Hexagen features for existing widely-used Swift/Objective-C concurrency libraries/frameworks/approaches
-* Internals
-    * Adapt to use Boost.Context directly once the upcoming version with execution\_context is released and Xcode is shipping with usable support for thread\_local in clang/libc++?
 * Project quality
     * Unit tests
     * Benchmarks
     * More examples, better organized examples
 
-Credits
--------
+Colophon
+--------
 
-Hexagen is released under an MIT license (see LICENSE.md), so you can pretty freely incorporate and redistribute it wherever. The internal context-switching primitive is a thin wrapper around [Boost.Coroutine](http://www.boost.org/libs/coroutine/). Boost is free software under a permissive MIT-style [license](http://www.boost.org/users/license.html) and the parts of it used Hexagen are already included in this repository.
-
-My name is [Alice Atlas](https://github.com/aliceatlas) and I wrote the rest of this, I did it on purpose and I'm not sorry dad
+Hexagen is released under an MIT license (see LICENSE.md), allowing you to use and redistribute it pretty much however you want. Hexagen no longer has any external dependencies that don't come standard with Xcode nor incorporates any code from external libraries. Hexagen is best viewed in Netscape Navigator 3.0 or later or earlier and is safe to use even at very high altitudes. Hexagen is written by [Alice Atlas](https://github.com/aliceatlas) at the bidding of spirits that whisper divine mysteries to her as she sits hovering two feet above the floor thinking about the ocean.
