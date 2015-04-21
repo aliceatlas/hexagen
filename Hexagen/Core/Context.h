@@ -30,7 +30,7 @@ void setup_stack(jmpbuf* __nonnull buf, void* __nonnull stack, unsigned long siz
 
 static inline coro_ctx* __nonnull ctx_create(unsigned long stacksize, coro_body __nonnull func) {
     void* stack = malloc(stacksize + sizeof(coro_ctx));
-    coro_ctx* ctx = (coro_ctx*) stack + stacksize - sizeof(coro_ctx);
+    coro_ctx* ctx = (coro_ctx*) (stack + stacksize);
     ctx->_stack = stack;
     setup_stack(&ctx->_reentry, ctx->_stack, stacksize, ^{
         func(ctx);
