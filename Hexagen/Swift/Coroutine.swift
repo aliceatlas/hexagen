@@ -7,7 +7,7 @@
 
 
 public class Coro <InType, OutType> {
-    private var wrapper: UnsafeMutablePointer<coro_ctx> = nil
+    private var context: UnsafeMutablePointer<coro_ctx> = nil
     
     internal var _started = false
     private var _completed = false
@@ -17,14 +17,14 @@ public class Coro <InType, OutType> {
     public var running: Bool { return _started && !_completed }
     
     public init(_ body: (OutType -> InType) -> Void) {
-        wrapper = ctx_create(64*1024) { [yield] _ in
+        context = ctx_create(64*1024) { [yield] _ in
             body(yield)
         }
     }
     
     private func yield(val: OutType) -> InType {
         var _val = val
-        let ret = ctx_yield(wrapper, &_val)
+        let ret = ctx_yield(context, &_val)
         return UnsafeMutablePointer<InType>(ret).memory
     }
     
@@ -48,10 +48,10 @@ public class Coro <InType, OutType> {
             fatalError("can't enter a coroutine that has completed")
         }
         var out: UnsafeMutablePointer<Void> = nil
-        if var bort = val {
-            _completed = !ctx_enter(wrapper, &bort, &out)
+        if var _val = val {
+            _completed = !ctx_enter(context, &_val, &out)
         } else {
-            _completed = !ctx_enter(wrapper, nil, &out)
+            _completed = !ctx_enter(context, nil, &out)
         }
         
         if _completed {
@@ -68,6 +68,6 @@ public class Coro <InType, OutType> {
         if !_completed {
             fatalError("trying to deallocate a coroutine that has not completed; will probably leak memory. call forceClose() to allow this")
         }
-        ctx_destroy(wrapper)
+        ctx_destroy(context)
     }
 }

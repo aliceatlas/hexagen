@@ -29,6 +29,9 @@ typedef void (^coro_body)(coro_ctx* __nonnull);
 void setup_stack(jmpbuf* __nonnull buf, void* __nonnull stack, unsigned long size, entry_point __nonnull func);
 
 static inline coro_ctx* __nonnull ctx_create(unsigned long stacksize, coro_body __nonnull func) {
+    // TODO:
+    // Verify stack alignment to 16-byte boundary on x86_64
+    // Implement for other platforms
     void* stack = malloc(stacksize + sizeof(coro_ctx));
     coro_ctx* ctx = (coro_ctx*) (stack + stacksize);
     ctx->_stack = stack;
