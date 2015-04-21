@@ -49,9 +49,9 @@ public class Coro <InType, OutType> {
         }
         var out: UnsafeMutablePointer<Void> = nil
         if var bort = val {
-            _completed = ctx_enter(wrapper, &bort, &out) == 0
+            _completed = !ctx_enter(wrapper, &bort, &out)
         } else {
-            _completed = ctx_enter(wrapper, nil, &out) == 0
+            _completed = !ctx_enter(wrapper, nil, &out)
         }
         
         if _completed {

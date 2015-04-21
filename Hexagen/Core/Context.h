@@ -8,6 +8,7 @@
 
 #import <CoreFoundation/CFDate.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 
 typedef void *jmpbuf[5];
@@ -19,7 +20,7 @@ typedef struct {
     jmpbuf _reentry;
     void* __nullable  _arg;
     jmpbuf _nextexit;
-    char _completed;
+    bool _completed;
 } coro_ctx;
 
 typedef void (^coro_body)(coro_ctx* __nonnull);
@@ -33,25 +34,25 @@ static inline coro_ctx* __nonnull ctx_create(unsigned long stacksize, coro_body 
     ctx->_stack = stack;
     setup_stack(&ctx->_reentry, ctx->_stack, stacksize, ^{
         func(ctx);
-        ctx->_completed = 1;
+        ctx->_completed = true;
         __builtin_longjmp((void**) &ctx->_nextexit, 1);
     });
     return ctx;
 }
 
-static inline char ctx_enter(coro_ctx* __nonnull ctx, void* __nullable arg, void* __nullable* __nullable out) {
+static inline bool ctx_enter(coro_ctx* __nonnull ctx, void* __nullable arg, void* __nullable* __nullable out) {
     ctx->_arg = arg;
-    if (__builtin_setjmp((void**) &ctx->_nextexit) == 0) {
+    if (!__builtin_setjmp((void**) &ctx->_nextexit)) {
         __builtin_longjmp((void**) &ctx->_reentry, 1);
     }
     if (ctx->_completed) {
         //free(continuation->_stack);
         //free(continuation);
-        return 0;
+        return false;
     } else if (out) {
         *out = ctx->_out;
     }
-    return 1;
+    return true;
 }
 
 static inline void* __nullable ctx_yield(coro_ctx* __nonnull ctx, void* __nullable val) {
