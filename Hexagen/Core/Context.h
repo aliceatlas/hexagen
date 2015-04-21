@@ -46,8 +46,6 @@ static inline bool ctx_enter(coro_ctx* __nonnull ctx, void* __nullable arg, void
         __builtin_longjmp((void**) &ctx->_reentry, 1);
     }
     if (ctx->_completed) {
-        //free(continuation->_stack);
-        //free(continuation);
         return false;
     } else if (out) {
         *out = ctx->_out;
@@ -61,4 +59,8 @@ static inline void* __nullable ctx_yield(coro_ctx* __nonnull ctx, void* __nullab
         __builtin_longjmp((void**) &ctx->_nextexit, 1);
     }
     return ctx->_arg;
+}
+
+static inline void ctx_destroy(coro_ctx* __nonnull ctx) {
+    free(ctx->_stack);
 }

@@ -68,5 +68,6 @@ public class Coro <InType, OutType> {
         if !_completed {
             fatalError("trying to deallocate a coroutine that has not completed; will probably leak memory. call forceClose() to allow this")
         }
+        ctx_destroy(wrapper)
     }
 }
