@@ -28,4 +28,3 @@ void setup_stack(jmpbuf *buf, void *stack, unsigned long size, entry_point func)
      */
     (*buf)[1] = (void*) trampoline;
 }
-}
