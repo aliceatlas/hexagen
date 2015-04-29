@@ -7,10 +7,10 @@
 
 
 public class Coro <InType, OutType> {
-    private var context: UnsafeMutablePointer<coro_ctx> = nil
+    internal var context: UnsafeMutablePointer<coro_ctx> = nil
     
     internal var _started = false
-    private var _completed = false
+    internal var _completed = false
     
     public var started: Bool { return _started }
     public var completed: Bool { return _completed }

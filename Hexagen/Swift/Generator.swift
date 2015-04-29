@@ -12,11 +12,20 @@ public class Gen<OutType>: Coro<Void, OutType>, SequenceType, GeneratorType {
     }
     
     public func generate() -> Gen {
+        _started = true
         return self
     }
     
     public func next() -> OutType? {
-        return _started ? send(()) : start()
+        if _completed {
+            fatalError("generator has already completed")
+        }
+        var out: UnsafeMutablePointer<Void> = nil
+        if !ctx_enter(context, nil, &out) {
+            _completed = true
+            return nil
+        }
+        return UnsafeMutablePointer<OutType>(out).memory
     }
     
     public func map<U>(fn: OutType -> U) -> LazySequence<MapSequenceView<Gen, U>> {
