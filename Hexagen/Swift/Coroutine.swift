@@ -33,28 +33,28 @@ public class Coro <InType, OutType> {
             fatalError("can't call start() twice on the same coroutine")
         }
         _started = true
-        return enter(nil)
+        if _completed {
+            fatalError("can't enter a coroutine that has completed")
+        }
+        var out: UnsafeMutablePointer<Void> = nil
+        if !ctx_enter(context, nil, &out) {
+            _completed = true
+            return nil
+        }
+        return UnsafeMutablePointer<OutType>(out).memory
     }
     
     public func send(val: InType) -> OutType? {
         if !_started {
             fatalError("must call start() before using send()")
         }
-        return enter(val)
-    }
-    
-    private func enter(val: InType?) -> OutType? {
         if _completed {
             fatalError("can't enter a coroutine that has completed")
         }
         var out: UnsafeMutablePointer<Void> = nil
-        if var _val = val {
-            _completed = !ctx_enter(context, &_val, &out)
-        } else {
-            _completed = !ctx_enter(context, nil, &out)
-        }
-        
-        if _completed {
+        var _val = val
+        if !ctx_enter(context, &_val, &out) {
+            _completed = true
             return nil
         }
         return UnsafeMutablePointer<OutType>(out).memory
