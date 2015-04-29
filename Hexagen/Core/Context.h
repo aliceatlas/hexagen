@@ -12,7 +12,7 @@
 
 
 typedef void *jmpbuf[5];
-typedef void (^entry_point)();
+typedef __attribute__((noreturn)) void (^entry_point)();
 
 typedef struct {
     void* __nonnull _stack;
@@ -26,27 +26,65 @@ typedef struct {
 typedef void (^coro_body)(coro_ctx* __nonnull);
 
 
+void* __nonnull llvm_stacksave(void) __asm__("llvm.stacksave");
+void* __nonnull llvm_frameaddress(int) __asm__("llvm.frameaddress");
+
+
+#if defined(__x86_64__)
+
+#define arch_setjmp(buf) if (!__builtin_setjmp((void**) &buf))
+#define arch_longjmp(buf) __builtin_longjmp((void**) &buf, 1)
+
+#elif defined(__arm64__)
+
+#define arch_setjmp(buf) \
+    (buf)[0] = llvm_frameaddress(0); \
+    (buf)[2] = llvm_stacksave(); \
+    asm("adr %0, 1f\n" : "=r"((buf)[1]) : : );
+
+#define arch_longjmp(buf) \
+    asm("ldr x10, [%0]\n" \
+        "ldr x11, [%0, #8]\n" \
+        "ldr x12, [%0, #16]\n" \
+        "mov fp, x10\n" \
+        "mov sp, x12\n" \
+        "br x11\n" \
+        "1:\n" \
+        : \
+        : "r"(buf) \
+        : "x0", "x1", "x2", "x3", "x4", "x5", "x6", "x7", "x8", "x10", "x11", "x12", "x13", "x14", "x15", "x16", "x17", "x18", "x19", "x20", "x21", "x22", "x23", "x24", "x25", "x26", "x27", "x28", "x30" \
+    );
+
+//#elif defined(__arm__)
+
+//#elif defined(__i386__)
+
+#else
+
+#error "Unsupported architecture"
+
+#endif
+
+
 void setup_stack(jmpbuf* __nonnull buf, void* __nonnull stack, unsigned long size, entry_point __nonnull func);
 
 static inline coro_ctx* __nonnull ctx_create(unsigned long stacksize, coro_body __nonnull func) {
-    // TODO:
-    // Verify stack alignment to 16-byte boundary on x86_64
-    // Implement for other platforms
+    stacksize = stacksize & ~((1 << 4) - 1);
     void* stack = malloc(stacksize + sizeof(coro_ctx));
-    coro_ctx* ctx = (coro_ctx*) (stack + stacksize);
+    coro_ctx* ctx = (coro_ctx*) ((unsigned long) stack + stacksize);
     ctx->_stack = stack;
     setup_stack(&ctx->_reentry, ctx->_stack, stacksize, ^{
         func(ctx);
         ctx->_completed = true;
-        __builtin_longjmp((void**) &ctx->_nextexit, 1);
+        arch_longjmp(ctx->_nextexit);
     });
     return ctx;
 }
 
 static inline bool ctx_enter(coro_ctx* __nonnull ctx, void* __nullable arg, void* __nullable* __nullable out) {
     ctx->_arg = arg;
-    if (!__builtin_setjmp((void**) &ctx->_nextexit)) {
-        __builtin_longjmp((void**) &ctx->_reentry, 1);
+    arch_setjmp(ctx->_nextexit) {
+        arch_longjmp(ctx->_reentry);
     }
     if (ctx->_completed) {
         return false;
@@ -58,8 +96,8 @@ static inline bool ctx_enter(coro_ctx* __nonnull ctx, void* __nullable arg, void
 
 static inline void* __nullable ctx_yield(coro_ctx* __nonnull ctx, void* __nullable val) {
     ctx->_out = val;
-    if (__builtin_setjmp((void**) &ctx->_reentry) == 0) {
-        __builtin_longjmp((void**) &ctx->_nextexit, 1);
+    arch_setjmp(ctx->_reentry) {
+        arch_longjmp(ctx->_nextexit);
     }
     return ctx->_arg;
 }

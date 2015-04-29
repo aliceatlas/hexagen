@@ -10,15 +10,27 @@
 
 
 void trampoline() {
-    // TODO: Implement for other platforms
     entry_point func;
-    asm("movq 0x8(%%rbp), %0;" : "=r"(func) : : );
+    #if defined(__x86_64__)
+        asm("movq 0x8(%%rbp), %0;" : "=r"(func) : : );
+    #elif defined(__arm64__)
+        asm("ldr %0, [fp, #16]" : "=r"(func) : : );
+    //#elif defined(__arm__)
+    //#elif defined(__i386__)
+    #else
+        #error "Unsupported architecture"
+    #endif
+    
     func();
 }
 
 
 void setup_stack(jmpbuf *buf, void *stack, unsigned long size, entry_point func) {
-    void *dest = stack + size - sizeof(void*);
+    #if defined(__x86_64__)
+        void *dest = (void*) ((unsigned long)stack + size - __SIZEOF_POINTER__);
+    #elif defined(__arm64__)
+        void *dest = (void*) (((unsigned long)stack + size - __SIZEOF_POINTER__) & ~((1 << 4) - 1));
+    #endif
     (*buf)[0] = dest;
     (*buf)[2] = dest;
     *((unsigned long *) dest) = (unsigned long) Block_copy(func);
