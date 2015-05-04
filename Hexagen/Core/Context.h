@@ -16,9 +16,9 @@ typedef __attribute__((noreturn)) void (^entry_point)();
 
 typedef struct {
     void* __nonnull _stack;
-    void* __nullable _out;
+    const void* __nullable _out;
     jmpbuf _reentry;
-    void* __nullable  _arg;
+    const void* __nullable  _arg;
     jmpbuf _nextexit;
     bool _completed;
 } coro_ctx;
@@ -32,8 +32,24 @@ void* __nonnull llvm_frameaddress(int) __asm__("llvm.frameaddress");
 
 #if defined(__x86_64__)
 
-#define arch_setjmp(buf) if (!__builtin_setjmp((void**) &buf))
-#define arch_longjmp(buf) __builtin_longjmp((void**) &buf, 1)
+#define arch_setjmp(buf) \
+    (buf)[0] = llvm_frameaddress(0); \
+    (buf)[2] = llvm_stacksave(); \
+    asm("lea 1f(%%rip), %0\n" : "=r"((buf)[1]) : : ); \
+
+#define arch_longjmp(buf) \
+    asm("mov (%0), %%r10\n" \
+        "mov 8(%0), %%r11\n" \
+        "mov 16(%0), %%r12\n" \
+        "mov %%r10, %%rbp\n" \
+        "mov %%r12, %%rsp\n" \
+        "jmpq *%%r11\n" \
+        "1:\n" \
+        ".set sync,bote\n" \
+        : \
+        : "r"(buf) \
+        : "rax", "rbx", "rcx", "rdx", "rsi", "rdi", "r8", /*"r9",*/ "r10", "r11", "r12", "r13", "r14", "r15", "rbp", "rsp" \
+    );
 
 #elif defined(__arm64__)
 
@@ -57,8 +73,6 @@ void* __nonnull llvm_frameaddress(int) __asm__("llvm.frameaddress");
 
 //#elif defined(__arm__)
 
-//#elif defined(__i386__)
-
 #else
 
 #error "Unsupported architecture"
@@ -81,24 +95,22 @@ static inline coro_ctx* __nonnull ctx_create(unsigned long stacksize, coro_body 
     return ctx;
 }
 
-static inline bool ctx_enter(coro_ctx* __nonnull ctx, void* __nullable arg, void* __nullable* __nullable out) {
+static inline bool ctx_enter(coro_ctx* __nonnull ctx, const void* __nullable arg, void* __nullable* __nullable out) {
     ctx->_arg = arg;
-    arch_setjmp(ctx->_nextexit) {
-        arch_longjmp(ctx->_reentry);
-    }
+    arch_setjmp(ctx->_nextexit);
+    arch_longjmp(ctx->_reentry);
     if (ctx->_completed) {
         return false;
     } else if (out) {
-        *out = ctx->_out;
+        *out = (const void* __nullable) ctx->_out;
     }
     return true;
 }
 
-static inline void* __nullable ctx_yield(coro_ctx* __nonnull ctx, void* __nullable val) {
+static inline const void* __nullable ctx_yield(coro_ctx* __nonnull ctx, const void* __nullable val) {
     ctx->_out = val;
-    arch_setjmp(ctx->_reentry) {
-        arch_longjmp(ctx->_nextexit);
-    }
+    arch_setjmp(ctx->_reentry);
+    arch_longjmp(ctx->_nextexit);
     return ctx->_arg;
 }
 
