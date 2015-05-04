@@ -59,10 +59,9 @@ void* __nonnull llvm_frameaddress(int) __asm__("llvm.frameaddress");
     asm("adr %0, 1f\n" : "=r"((buf)[1]) : : );
 
 #define arch_longjmp(buf) \
-    asm("ldr x10, [%0]\n" \
+    asm("ldr fp, [%0]\n" \
         "ldr x11, [%0, #8]\n" \
         "ldr x12, [%0, #16]\n" \
-        "mov fp, x10\n" \
         "mov sp, x12\n" \
         "br x11\n" \
         "1:\n" \

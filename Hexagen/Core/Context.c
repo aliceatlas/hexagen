@@ -12,7 +12,7 @@
 void trampoline() {
     entry_point func;
     #if defined(__x86_64__)
-        asm("movq 0x8(%%rbp), %0;" : "=r"(func) : : );
+        asm("movq 0x8(%%rbp), %0" : "=r"(func) : : );
     #elif defined(__arm64__)
         asm("ldr %0, [fp, #16]" : "=r"(func) : : );
     //#elif defined(__arm__)
