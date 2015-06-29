@@ -1,120 +1,85 @@
-/*******************************************************
- *                                                     *
- *  -------------------------------------------------  *
- *  |  0  |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  *
- *  -------------------------------------------------  *
- *  | 0x0 | 0x4 | 0x8 | 0xc | 0x10| 0x14| 0x18| 0x1c|  *
- *  -------------------------------------------------  *
- *  |    d8     |    d9     |    d10    |    d11    |  *
- *  -------------------------------------------------  *
- *  -------------------------------------------------  *
- *  |  8  |  9  |  10 |  11 |  12 |  13 |  14 |  15 |  *
- *  -------------------------------------------------  *
- *  | 0x20| 0x24| 0x28| 0x2c| 0x30| 0x34| 0x38| 0x3c|  *
- *  -------------------------------------------------  *
- *  |    d12    |    d13    |    d14    |    d15    |  *
- *  -------------------------------------------------  *
- *  -------------------------------------------------  *
- *  |  16 |  17 |  18 |  19 |  20 |  21 |  22 |  23 |  *
- *  -------------------------------------------------  *
- *  | 0x40| 0x44| 0x48| 0x4c| 0x50| 0x54| 0x58| 0x5c|  *
- *  -------------------------------------------------  *
- *  |    x19    |    x20    |    x21    |    x22    |  *
- *  -------------------------------------------------  *
- *  -------------------------------------------------  *
- *  |  24 |  25 |  26 |  27 |  28 |  29 |  30 |  31 |  *
- *  -------------------------------------------------  *
- *  | 0x60| 0x64| 0x68| 0x6c| 0x70| 0x74| 0x78| 0x7c|  *
- *  -------------------------------------------------  *
- *  |    x23    |    x24    |    x25    |    x26    |  *
- *  -------------------------------------------------  *
- *  -------------------------------------------------  *
- *  |  32 |  33 |  34 |  35 |  36 |  37 |  38 |  39 |  *
- *  -------------------------------------------------  *
- *  | 0x80| 0x84| 0x88| 0x8c| 0x90| 0x94| 0x98| 0x9c|  *
- *  -------------------------------------------------  *
- *  |    x27    |    x28    |    FP     |     LR    |  *
- *  -------------------------------------------------  *
- *  -------------------------------------------------  *
- *  |  40 |  41 |  42 | 43  |           |           |  *
- *  -------------------------------------------------  *
- *  | 0xa0| 0xa4| 0xa8| 0xac|           |           |  *
- *  -------------------------------------------------  *
- *  |     PC    |   align   |           |           |  *
- *  -------------------------------------------------  *
- *                                                     *
- *******************************************************/
+/*
+            Copyright Oliver Kowalke 2009.
+   Distributed under the Boost Software License, Version 1.0.
+      (See accompanying file LICENSE_1_0.txt or copy at
+          http://www.boost.org/LICENSE_1_0.txt)
+*/
+
+/****************************************************************************************
+ *                                                                                      *
+ *  ----------------------------------------------------------------------------------  *
+ *  |    0    |    1    |    2    |    3    |    4     |    5    |    6    |    7    |  *
+ *  ----------------------------------------------------------------------------------  *
+ *  |   0x0   |   0x4   |   0x8   |   0xc   |   0x10   |   0x14  |   0x18  |   0x1c  |  *
+ *  ----------------------------------------------------------------------------------  *
+ *  | fc_mxcsr|fc_x87_cw|   EDI   |   ESI   |   EBX    |   EBP   |   EIP   |   EXIT  |  *
+ *  ----------------------------------------------------------------------------------  *
+ *                                                                                      *
+ ****************************************************************************************/
 
 .text
 .globl _jump_fcontext
-.balign 16
+.align 2
 _jump_fcontext:
-    ; prepare stack for GP + FPU
-    sub  sp, sp, #0xb0
+    /* fourth arg of jump_fcontext() == flag indicating preserving FPU */
+    movl  0x10(%esp), %ecx
 
-#if (defined(__VFP_FP__) && !defined(__SOFTFP__))
-    ; test if fpu env should be preserved
-    cmp  w3, #0
-    b.eq  1f
+    pushl  %ebp  /* save EBP */
+    pushl  %ebx  /* save EBX */
+    pushl  %esi  /* save ESI */
+    pushl  %edi  /* save EDI */
 
-    ; save d8 - d15
-    stp  d8,  d9,  [sp, #0x00]
-    stp  d10, d11, [sp, #0x10]
-    stp  d12, d13, [sp, #0x20]
-    stp  d14, d15, [sp, #0x30]
+    /* prepare stack for FPU */
+    leal  -0x8(%esp), %esp
+
+    /* test for flag preserve_fpu */
+    test  %ecx, %ecx
+    je  1f
+
+    /* save MMX control- and status-word */
+    stmxcsr  (%esp)
+    /* save x87 control-word */
+    fnstcw  0x4(%esp)
 
 1:
-#endif
+    /* first arg of jump_fcontext() == context jumping from */
+    movl  0x1c(%esp), %eax
 
-    ; save x19-x30
-    stp  x19, x20, [sp, #0x40]
-    stp  x21, x22, [sp, #0x50]
-    stp  x23, x24, [sp, #0x60]
-    stp  x25, x26, [sp, #0x70]
-    stp  x27, x28, [sp, #0x80]
-    stp  fp,  lr,  [sp, #0x90]
+    /* store ESP (pointing to context-data) in EAX */
+    movl  %esp, (%eax)
 
-    ; save LR as PC
-    str  lr, [sp, #0xa0]
+    /* second arg of jump_fcontext() == context jumping to */
+    movl  0x20(%esp), %edx
 
-    ; store RSP (pointing to context-data) in first argument (x0).
-    ; STR cannot have sp as a target register
-    mov  x4, sp
-    str  x4, [x0]
+    /* third arg of jump_fcontext() == value to be returned after jump */
+    movl  0x24(%esp), %eax
 
-    ; restore RSP (pointing to context-data) from A2 (x1)
-    mov  sp, x1
+    /* restore ESP (pointing to context-data) from EDX */
+    movl  %edx, %esp
 
-#if (defined(__VFP_FP__) && !defined(__SOFTFP__))
-    ; test if fpu env should be preserved
-    cmp  w3, #0
-    b.eq  2f
+    /* test for flag preserve_fpu */
+    test  %ecx, %ecx
+    je  2f
 
-    ; load d8 - d15
-    ldp  d8,  d9,  [sp, #0x00]
-    ldp  d10, d11, [sp, #0x10]
-    ldp  d12, d13, [sp, #0x20]
-    ldp  d14, d15, [sp, #0x30]
-
+    /* restore MMX control- and status-word */
+    ldmxcsr  (%esp)
+    /* restore x87 control-word */
+    fldcw  0x4(%esp)
 2:
-#endif
+    /* prepare stack for FPU */
+    leal  0x8(%esp), %esp
 
-    ; load x19-x30
-    ldp  x19, x20, [sp, #0x40]
-    ldp  x21, x22, [sp, #0x50]
-    ldp  x23, x24, [sp, #0x60]
-    ldp  x25, x26, [sp, #0x70]
-    ldp  x27, x28, [sp, #0x80]
-    ldp  fp,  lr,  [sp, #0x90]
+    popl  %edi  /* restore EDI */
+    popl  %esi  /* restore ESI */
+    popl  %ebx  /* restore EBX */
+    popl  %ebp  /* restore EBP */
 
-    ; use third arg as return value after jump
-    ; and as first arg in context function
-    mov  x0, x2
+    /* restore return-address */
+    popl  %edx
 
-    ; load pc
-    ldr  x4, [sp, #0xa0]
+    /* use value in EAX as return-value after jump */
+    /* use value in EAX as first arg in context function */
+    movl  %eax, 0x4(%esp)
 
-    ; restore stack from GP + FPU
-    add  sp, sp, #0xb0
-
-    ret x4
+    /* indirect jump to context */
+    jmp  *%edx
