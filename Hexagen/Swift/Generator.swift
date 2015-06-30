@@ -18,7 +18,7 @@ public class Gen<OutType>: Coro<Void, OutType>, SequenceType, GeneratorType {
     
     public func next() -> OutType? {
         if _completed {
-            fatalError("generator has already completed")
+            return nil
         }
         var out: UnsafeMutablePointer<Void> = nil
         if !ctx_enter(context, nil, &out) {
