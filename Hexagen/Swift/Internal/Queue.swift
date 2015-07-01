@@ -19,8 +19,7 @@ internal class SynchronizedQueue<T>: _SyncTarget {
     private var front: Node<T>?
     private weak var back: Node<T>?
     
-    private var _count = 0
-    internal var count: Int { return _count }
+    private(set) internal var count = 0
     
     internal func push(val: T, sync real: Bool = true) {
         sync(real) {
@@ -31,14 +30,14 @@ internal class SynchronizedQueue<T>: _SyncTarget {
                 back!.next = Node(val)
                 back = back!.next
             }
-            _count++
+            count++
         }
     }
     
     internal func pull(sync real: Bool = true) -> T? {
         return sync(real) {
             if front != nil {
-                _count--
+                count--
                 let val = front!.val
                 front = front!.next
                 if front == nil { back = nil }

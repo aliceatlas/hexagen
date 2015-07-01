@@ -12,17 +12,17 @@ public class Gen<OutType>: Coro<Void, OutType>, SequenceType, GeneratorType {
     }
     
     public func generate() -> Gen {
-        _started = true
+        started = true
         return self
     }
     
     public func next() -> OutType? {
-        if _completed {
+        if completed {
             return nil
         }
         var out: UnsafeMutablePointer<Void> = nil
         if !ctx_enter(context, nil, &out) {
-            _completed = true
+            completed = true
             return nil
         }
         return UnsafeMutablePointer<OutType>(out).memory
